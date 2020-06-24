@@ -1,18 +1,12 @@
 public class Watch extends GadgetWithMemory {
 
-    public Watch(int code) {
-        super(code);
+    public Watch(String name, int code) {
+        super(name, code);
         price = 13000;
-        name = "Watch";
         recDuration = 13;
-        memory = 8;
-        mp4 = true;
-        mp3 = true;
-        hd = true;
-        vga = true;
+        rum = 8;
+        gadgetType = GadgetType.RECORD_VIDEO;
+
     }
-    @Override
-    public void function() {
-        System.out.println("My function is:  Record MP3,  Video MP4, HD");
-    }
+
 }

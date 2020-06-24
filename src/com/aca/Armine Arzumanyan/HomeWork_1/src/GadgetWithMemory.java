@@ -1,17 +1,9 @@
 public class GadgetWithMemory extends Gadget {
-   int memory;
+   int rum;
 
-    public GadgetWithMemory(int code) {
-        super(code);
+    public GadgetWithMemory(String name, int code) {
+        super(name, code);
         this.code = code;
-
     }
-    @Override
-
-    public void function() {
-        System.out.println("My function is:  Record MP3");
-
-    }
-
 
 }
