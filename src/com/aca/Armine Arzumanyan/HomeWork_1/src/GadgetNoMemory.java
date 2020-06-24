@@ -1,13 +1,7 @@
 public class GadgetNoMemory extends Gadget {
 
-    public GadgetNoMemory(int code) {
-        super(code);
+    public GadgetNoMemory(String name, int code) {
+        super(name, code);
         this.code = code;
     }
-
-    public void function() {
-        System.out.println("My function is:  Video MP4, VGA");
-
-    }
-
 }

@@ -4,28 +4,29 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        Manager manager = new Manager();
         Scanner scanner = new Scanner(System.in);
 
-        Pen_1 pen_1 = new Pen_1(101);
-        Gadget.allItems.add(pen_1);
-        Pen_2 pen_2 = new Pen_2(102);
-        Gadget.allItems.add(pen_2);
-        USB_1 usb_1 = new USB_1(103);
-        Gadget.allItems.add(usb_1);
-        USB_2 usb_2 = new USB_2(104);
-        Gadget.allItems.add(usb_2);
-        Watch watch = new Watch(105);
-        Gadget.allItems.add(watch);
+        Pen_1 pen_1 = new Pen_1("Pen_1", 101);
+        manager.allGadgets.add(pen_1);
+        Pen_2 pen_2 = new Pen_2("Pen_2", 102);
+        manager.allGadgets.add(pen_2);
+        USB_1 usb_1 = new USB_1("USB_1", 103);
+        manager.allGadgets.add(usb_1);
+        USB_2 usb_2 = new USB_2("USB_2", 104);
+        manager.allGadgets.add(usb_2);
+        Watch watch = new Watch("Watch", 105);
+        manager.allGadgets.add(watch);
 
         List<Gadget> videoGadgets = new ArrayList<>();
         List<Gadget> recordGadgets = new ArrayList<>();
 
-        for (Gadget item : Gadget.allItems) {
-            if (item.mp4) {
-                videoGadgets.add(item);
+        for (Gadget gadget : manager.allGadgets) {
+            if (gadget.gadgetType == Gadget.GadgetType.VIDEO || gadget.gadgetType == Gadget.GadgetType.RECORD_VIDEO) {
+                videoGadgets.add(gadget);
             }
-            if (item.mp3) {
-                recordGadgets.add(item);
+            if (gadget.gadgetType == Gadget.GadgetType.RECORD || gadget.gadgetType == Gadget.GadgetType.RECORD_VIDEO) {
+                recordGadgets.add(gadget);
             }
         }
         while (true) {
@@ -42,40 +43,39 @@ public class Main {
 
             if (i == 1) {
                 System.out.println("list of all items: ");
-                Gadget.printItemList(Gadget.allItems);
+                Manager.gadgetsRepository.printItemList(manager.allGadgets);
             } else if (i == 2) {
                 System.out.println("list of all items: ");
-                Gadget.printItemList(Gadget.allItems);
+                Manager.gadgetsRepository.printItemList(manager.allGadgets);
                 System.out.println("Input Gadget's code which you want to sale");
                 int c = scanner.nextInt();
-                if (Gadget.getGadgetByCode(c) != null) {
-                    Gadget.sailItem(Gadget.getGadgetByCode(c));
+                if (manager.getGadgetByCod(c) != null) {
+                    manager.sailGadget(manager.getGadgetByCod(c));
                 } else {
                     System.out.println("wrong input!!");
                     return;
                 }
             } else if (i == 3) {
-                int sum = Gadget.sumPrice(Gadget.soledGadgets);
+                int sum = Manager.gadgetsRepository.sumPrice(manager.soledGadgets);
                 System.out.println(sum);
             } else if (i == 4) {
-                int sum = Gadget.sumPrice(Gadget.allItems);
+                int sum = Manager.gadgetsRepository.sumPrice(manager.allGadgets);
                 System.out.println(sum);
             } else if (i == 5) {
                 System.out.println("list of record items:");
-                Gadget.printItemList(recordGadgets);
+                Manager.gadgetsRepository.printItemList(recordGadgets);
             } else if (i == 6) {
                 System.out.println("list of video items: ");
-                Gadget.printItemList(videoGadgets);
+                Manager.gadgetsRepository.printItemList(videoGadgets);
             } else if (i == 7) {
                 System.out.println("list of all items: ");
-                Gadget.printItemList(Gadget.allItems);
+                Manager.gadgetsRepository.printItemList(manager.allGadgets);
                 System.out.println("Input Gadget's code which price you want to change");
                 int c = scanner.nextInt();
-                if (Gadget.getGadgetByCode(c) != null) {
-                    System.out.println("old price is: " + Gadget.getGadgetByCode(c).price);
+                if (manager.getGadgetByCod(c) != null) {
+                    System.out.println("old price is: " + manager.getGadgetByCod(c).price);
                     System.out.println("input new price:");
-                    int newPrice = scanner.nextInt();
-                    Gadget.getGadgetByCode(c).price = newPrice;
+                    manager.getGadgetByCod(c).changePrice(scanner.nextInt());
                 } else {
                     System.out.println("wrong input!!");
                     return;
