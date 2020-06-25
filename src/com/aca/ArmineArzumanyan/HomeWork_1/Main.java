@@ -1,3 +1,5 @@
+package com.aca.ArmineArzumanyan.HomeWork_1;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -47,7 +49,7 @@ public class Main {
             } else if (i == 2) {
                 System.out.println("list of all items: ");
                 Manager.gadgetsRepository.printItemList(manager.allGadgets);
-                System.out.println("Input Gadget's code which you want to sale");
+                System.out.println("Input HomeWork_1.Gadget's code which you want to sale");
                 int c = scanner.nextInt();
                 if (manager.getGadgetByCod(c) != null) {
                     manager.sailGadget(manager.getGadgetByCod(c));
@@ -70,7 +72,7 @@ public class Main {
             } else if (i == 7) {
                 System.out.println("list of all items: ");
                 Manager.gadgetsRepository.printItemList(manager.allGadgets);
-                System.out.println("Input Gadget's code which price you want to change");
+                System.out.println("Input HomeWork_1.Gadget's code which price you want to change");
                 int c = scanner.nextInt();
                 if (manager.getGadgetByCod(c) != null) {
                     System.out.println("old price is: " + manager.getGadgetByCod(c).price);
