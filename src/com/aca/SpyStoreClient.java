@@ -15,6 +15,6 @@ public class SpyStoreClient {
         gadgets.add(new Videogadgets(5000, 1, "USB Flash", 2, "MP4 Video", "VGA"));
         gadgets.add(new Universalgadget(13000, 1, "Watch", 5, "MP3 & MP4 Video", "HD", "8GB"));
 
-        StoreManager.SellItem();
+        manager.SellItem();
     }
 }
