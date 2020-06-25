@@ -44,6 +44,6 @@ public abstract class Device {
                 ", memorySize=" + memorySize  + " GB " +
                 ", hours=" + hours  + " hours " +
                 ", price=" + price  + " AMD" +
-                '}';
+                '}' + "\n";
     }
 }

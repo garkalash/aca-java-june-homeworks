@@ -49,7 +49,7 @@ public class Main {
         manager.changePrice(watch1, 30000);
         manager.getLeftItemsAmount();
 
-        List<Device> hdDevices = manager.getDevicesByRecordType(RecordType.HD);
+        List<Device> hdDevices = manager.getDevicesByRecordType(RecordType.VGA);
 
 
         System.out.println(hdDevices.toString());
