@@ -1,6 +1,4 @@
-package com.aca.ArmineArzumanyan.homeWork_1.Items.Gadget;
-
-import com.aca.ArmineArzumanyan.homeWork_1.Items.Gadget.GadgetWithMemory;
+package com.aca.ArmineArzumanyan.homeWork_1.items.gadget;
 
 public class Watch extends GadgetWithMemory {
 

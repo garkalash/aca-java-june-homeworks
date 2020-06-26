@@ -1,4 +1,4 @@
-package com.aca.ArmineArzumanyan.homeWork_1.Manager;
+package com.aca.ArmineArzumanyan.homeWork_1.manager;
 
 import java.util.List;
 

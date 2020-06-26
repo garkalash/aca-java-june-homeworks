@@ -1,7 +1,7 @@
-package com.aca.ArmineArzumanyan.homeWork_1.Main;
+package com.aca.ArmineArzumanyan.homeWork_1.main;
 
-import com.aca.ArmineArzumanyan.homeWork_1.Items.Gadget.*;
-import com.aca.ArmineArzumanyan.homeWork_1.Manager.GadgetStoreManager;
+import com.aca.ArmineArzumanyan.homeWork_1.items.gadget.*;
+import com.aca.ArmineArzumanyan.homeWork_1.manager.GadgetStoreManager;
 
 import java.util.Scanner;
 
