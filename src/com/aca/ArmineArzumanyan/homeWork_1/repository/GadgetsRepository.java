@@ -1,6 +1,6 @@
-package com.aca.ArmineArzumanyan.homeWork_1.Repository;
+package com.aca.ArmineArzumanyan.homeWork_1.repository;
 
-import com.aca.ArmineArzumanyan.homeWork_1.Items.Gadget.Gadget;
+import com.aca.ArmineArzumanyan.homeWork_1.items.gadget.Gadget;
 
 import java.util.ArrayList;
 import java.util.List;

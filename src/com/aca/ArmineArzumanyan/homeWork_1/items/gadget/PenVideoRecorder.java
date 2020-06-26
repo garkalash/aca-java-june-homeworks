@@ -1,4 +1,4 @@
-package com.aca.ArmineArzumanyan.homeWork_1.Items.Gadget;
+package com.aca.ArmineArzumanyan.homeWork_1.items.gadget;
 
 public class PenVideoRecorder extends Gadget {
 

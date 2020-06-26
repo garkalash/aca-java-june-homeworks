@@ -1,6 +1,4 @@
-package com.aca.ArmineArzumanyan.homeWork_1.Items.Gadget;
-
-import com.aca.ArmineArzumanyan.homeWork_1.Items.Gadget.Gadget;
+package com.aca.ArmineArzumanyan.homeWork_1.items.gadget;
 
 public class GadgetWithMemory extends Gadget {
    private final int rum;

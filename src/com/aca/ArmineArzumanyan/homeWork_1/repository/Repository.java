@@ -1,4 +1,4 @@
-package com.aca.ArmineArzumanyan.homeWork_1.Repository;
+package com.aca.ArmineArzumanyan.homeWork_1.repository;
 
 import java.util.List;
 
