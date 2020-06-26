@@ -4,7 +4,7 @@ import java.util.List;
 
 public interface Repository<T> {
 
-    void printItemList(List<T> itemsList);
+    void printItemList(List<T> itemList);
 
     List<T> getAll();
 
