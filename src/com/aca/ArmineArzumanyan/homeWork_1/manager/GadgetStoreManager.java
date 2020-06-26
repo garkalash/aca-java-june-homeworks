@@ -1,7 +1,7 @@
-package com.aca.ArmineArzumanyan.homeWork_1.Manager;
+package com.aca.ArmineArzumanyan.homeWork_1.manager;
 
-import com.aca.ArmineArzumanyan.homeWork_1.Items.Gadget.Gadget;
-import com.aca.ArmineArzumanyan.homeWork_1.Repository.GadgetsRepository;
+import com.aca.ArmineArzumanyan.homeWork_1.items.gadget.Gadget;
+import com.aca.ArmineArzumanyan.homeWork_1.repository.GadgetsRepository;
 
 import java.util.ArrayList;
 import java.util.List;
