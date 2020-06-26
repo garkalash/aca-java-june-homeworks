@@ -26,8 +26,8 @@ public class GadgetsRepository implements Repository<Gadget> {
         return null;
     }
 
-    public void printItemList(List<Gadget> itemsList) {
-        for (Gadget gadget : itemsList) {
+    public void printItemList(List<Gadget> itemList) {
+        for (Gadget gadget : itemList) {
             System.out.println(gadget.getCount() + "  pieces of  " + gadget.getName() + ":  code: " + gadget.getCode());
         }
 
