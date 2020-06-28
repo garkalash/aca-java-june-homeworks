@@ -1,65 +1,84 @@
-package com.aca.ArmineArzumanyan.homeWork_1.manager;
+package com.aca.armineArzumanyan.homeWork_1.manager;
 
-import com.aca.ArmineArzumanyan.homeWork_1.items.gadget.Gadget;
-import com.aca.ArmineArzumanyan.homeWork_1.repository.GadgetsRepository;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.aca.armineArzumanyan.homeWork_1.items.gadget.Gadget;
+import com.aca.armineArzumanyan.homeWork_1.repository.GadgetsRepository;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class GadgetStoreManager implements Manager<Gadget> {
 
-
-    public GadgetStoreManager() {
-    }
-
     public GadgetsRepository repository = new GadgetsRepository();
+    private HashMap<Integer, Gadget> allItems = repository.getAll();
+    private HashMap<Integer, Gadget> soledItems = new HashMap<>();
+    private HashMap<Integer, Gadget> videoGadgets = new HashMap<>();
+    private HashMap<Integer, Gadget> audioGadgets = new HashMap<>();
+    private int soledItemPrice = 0;
 
-    public List<Gadget> soledItems = new ArrayList<>();
-    public int soledItemPrice = 0;
-    public List<Gadget> allItems = repository.getAll();
-    public List<Gadget> videoGadgets = new ArrayList<>();
-    public List<Gadget> audioGadgets = new ArrayList<>();
-
-    public void setAudioGadgets() {
-        for (Gadget gadget : allItems) {
-            if (gadget.getGadgetType() == Gadget.GadgetType.AUDIO || gadget.getGadgetType() == Gadget.GadgetType.AUDIO_VIDEO) {
-                audioGadgets.add(gadget);
-            }
-        }
-    }
-
-    public void setVideoGadgets() {
-        for (Gadget gadget : allItems) {
-            if (gadget.getGadgetType() == Gadget.GadgetType.VIDEO || gadget.getGadgetType() == Gadget.GadgetType.AUDIO_VIDEO) {
-                videoGadgets.add(gadget);
-            }
-        }
-    }
-
-    @Override
     public void changePrice(Gadget gadget, int newPrice) {
         gadget.setPrice(newPrice);
     }
 
-    @Override
-    public void sailItem(Gadget gadget) {
-        for (Gadget gadget1 : allItems) {
-            if (gadget1.equals(gadget)) {
+
+    public void sellItem(Gadget gadget) {
+        for (Map.Entry list : allItems.entrySet()) {
+            if (allItems.get(list.getKey()).equals(gadget)) {
                 gadget.setCount(gadget.getCount() - 1);
+
                 break;
             }
         }
         soledItemPrice += gadget.getPrice();
     }
 
-    @Override
-    public int sumPrice(List<Gadget> gadgetList) {
-        int sum = 0;
-        for (Gadget gadget : gadgetList) {
 
-            sum += gadget.getPrice() * gadget.getCount();
+    public int sumPrice(HashMap<Integer, Gadget> gadgetList) {
+        int sum = 0;
+        for (Map.Entry gadget : gadgetList.entrySet()) {
+
+            sum += gadgetList.get(gadget.getKey()).getPrice() * gadgetList.get(gadget.getKey()).getCount();
         }
         return sum;
     }
 
+    public HashMap<Integer, Gadget> getAllItems() {
+        return allItems;
+    }
+
+    public void setAllItems(HashMap<Integer, Gadget> allItems) {
+        this.allItems = allItems;
+    }
+
+    public HashMap<Integer, Gadget> getSoledItems() {
+        return soledItems;
+    }
+
+    public void setSoledItems(HashMap<Integer, Gadget> soledItems) {
+        this.soledItems = soledItems;
+    }
+
+    public HashMap<Integer, Gadget> getVideoGadgets() {
+        return videoGadgets;
+    }
+
+    public void setVideoGadgets(HashMap<Integer, Gadget> videoGadgets) {
+        this.videoGadgets = videoGadgets;
+    }
+
+    public HashMap<Integer, Gadget> getAudioGadgets() {
+        return audioGadgets;
+    }
+
+    public void setAudioGadgets(HashMap<Integer, Gadget> audioGadgets) {
+        this.audioGadgets = audioGadgets;
+    }
+
+    public int getSoledItemPrice() {
+        return soledItemPrice;
+    }
+
+    public void setSoledItemPrice(int soledItemPrice) {
+        this.soledItemPrice = soledItemPrice;
+    }
 }

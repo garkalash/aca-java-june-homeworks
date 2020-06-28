@@ -1,13 +1,12 @@
-package com.aca.ArmineArzumanyan.homeWork_1.items;
+package com.aca.armineArzumanyan.homeWork_1.items;
 
 public abstract class Item {
     private String name;
-    private final int code;
     private int price;
     private int count;
 
-    public Item(String name, int code, int count, int price) {
-        this.code = code;
+    public Item(String name, int count, int price) {
+
         this.name = name;
         this.count = count;
         this.price = price;
@@ -19,10 +18,6 @@ public abstract class Item {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public int getCode() {
-        return code;
     }
 
 
@@ -41,4 +36,5 @@ public abstract class Item {
     public void setCount(int count) {
         this.count = count;
     }
+
 }
