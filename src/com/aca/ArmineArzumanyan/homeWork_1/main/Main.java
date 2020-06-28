@@ -1,8 +1,10 @@
-package com.aca.ArmineArzumanyan.homeWork_1.main;
+package com.aca.armineArzumanyan.homeWork_1.main;
 
-import com.aca.ArmineArzumanyan.homeWork_1.items.gadget.*;
-import com.aca.ArmineArzumanyan.homeWork_1.manager.GadgetStoreManager;
 
+import com.aca.armineArzumanyan.homeWork_1.items.gadget.*;
+import com.aca.armineArzumanyan.homeWork_1.manager.GadgetStoreManager;
+
+import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
@@ -11,20 +13,25 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        PenVideoRecorder penVideoRecorder = new PenVideoRecorder("PenVideoRecorder", 101, 3, 6500, 2, Gadget.GadgetType.VIDEO, Gadget.VideoQuality.VGA);
-        manager.allItems.add(penVideoRecorder);
-        PenAudioRecorder penAudioRecorder = new PenAudioRecorder("PenAudioRecorder", 102, 3, 14000, 9, Gadget.GadgetType.AUDIO, 8);
-        manager.allItems.add(penAudioRecorder);
-        UsbVideoRecorder usbVideoRecorder = new UsbVideoRecorder("USBVideoRecorder", 103, 3, 5000, 2, Gadget.GadgetType.VIDEO, Gadget.VideoQuality.VGA);
-        manager.allItems.add(usbVideoRecorder);
-        UsbAudioRecorder usbAudioRecorder = new UsbAudioRecorder("USBAudioRecorder", 104, 3, 11000, 9, Gadget.GadgetType.AUDIO, 8);
-        manager.allItems.add(usbAudioRecorder);
-        Watch watch = new Watch("Watch", 105, 3, 13000, 5, Gadget.GadgetType.AUDIO_VIDEO, 8, Gadget.VideoQuality.HD);
-        manager.allItems.add(watch);
+        PenVideoRecorder penVideoRecorder = new PenVideoRecorder("PenVideoRecorder", 3, 6500, 2);
+        manager.getAllItems().put(101, penVideoRecorder);
+        manager.getVideoGadgets().put(101, penVideoRecorder);
+        PenAudioRecorder penAudioRecorder = new PenAudioRecorder("PenAudioRecorder", 3, 14000, 9, 8);
+        manager.getAllItems().put(102, penAudioRecorder);
+        manager.getAudioGadgets().put(102, penAudioRecorder);
+        UsbVideoRecorder usbVideoRecorder = new UsbVideoRecorder("USBVideoRecorder", 3, 5000, 2);
+        manager.getAllItems().put(103, usbVideoRecorder);
+        manager.getVideoGadgets().put(103, usbVideoRecorder);
+        UsbAudioRecorder usbAudioRecorder = new UsbAudioRecorder("USBAudioRecorder", 3, 11000, 9, 8);
+        manager.getAllItems().put(104, usbAudioRecorder);
+        manager.getAudioGadgets().put(104, usbAudioRecorder);
+        Watch watch = new Watch("Watch", 3, 13000, 5, 8);
+        manager.getAllItems().put(105, watch);
+        manager.getAudioGadgets().put(105, watch);
+        manager.getVideoGadgets().put(105, watch);
 
 
         while (true) {
-
             System.out.println("1: pass a list of items ");
             System.out.println("2: sell item");
             System.out.println("3: how much is sold in AMD?");
@@ -37,42 +44,41 @@ public class Main {
 
             if (i == 1) {
                 System.out.println("list of all items: ");
-                manager.repository.printItemList(manager.allItems);
+                manager.repository.GetItemsList(manager.getAllItems());
+
             } else if (i == 2) {
                 System.out.println("list of all items: ");
-                manager.repository.printItemList(manager.allItems);
+                manager.repository.GetItemsList(manager.getAllItems());
                 System.out.println("Input Item's code which you want to sale");
                 int c = scanner.nextInt();
-                if (manager.repository.getItemByCod(c) != null) {
-                    manager.sailItem(manager.repository.getItemByCod(c));
+                if (manager.getAllItems().containsKey(c)) {
+                    manager.sellItem(manager.getAllItems().get(c));
                 } else {
                     System.out.println("wrong input!!");
                     return;
                 }
             } else if (i == 3) {
-                int allSoledItemsPrice = manager.soledItemPrice;
+                int allSoledItemsPrice = manager.getSoledItemPrice();
                 System.out.println(allSoledItemsPrice);
             } else if (i == 4) {
-                int allItemsPrice = manager.sumPrice(manager.allItems);
-                int allSoledItemsPrice = manager.sumPrice(manager.soledItems);
+                int allItemsPrice = manager.sumPrice(manager.getAllItems());
+                int allSoledItemsPrice = manager.sumPrice(manager.getSoledItems());
                 System.out.println(allItemsPrice - allSoledItemsPrice);
             } else if (i == 5) {
-                System.out.println("list of Audio items:");
-                manager.setAudioGadgets();
-                manager.repository.printItemList(manager.audioGadgets);
+                System.out.println("list of Audio recorders:");
+                manager.repository.GetItemsList(manager.getAudioGadgets());
             } else if (i == 6) {
-                System.out.println("list of Video items: ");
-                manager.setVideoGadgets();
-                manager.repository.printItemList(manager.videoGadgets);
+                System.out.println("list of Video recorders: ");
+                manager.repository.GetItemsList(manager.getVideoGadgets());
             } else if (i == 7) {
                 System.out.println("list of all items: ");
-                manager.repository.printItemList(manager.allItems);
+                manager.repository.GetItemsList(manager.getAllItems());
                 System.out.println("Input item's code which price you want to change");
                 int c = scanner.nextInt();
-                if (manager.repository.getItemByCod(c) != null) {
-                    System.out.println("old price is: " + manager.repository.getItemByCod(c).getPrice());
+                if (manager.getAllItems().containsKey(c)) {
+                    System.out.println("old price is: " + manager.getAllItems().get(c).getPrice());
                     System.out.println("input new price:");
-                    manager.changePrice(manager.repository.getItemByCod(c), scanner.nextInt());
+                    manager.changePrice(manager.getAllItems().get(c), scanner.nextInt());
                 } else {
                     System.out.println("wrong input!!");
                     return;
