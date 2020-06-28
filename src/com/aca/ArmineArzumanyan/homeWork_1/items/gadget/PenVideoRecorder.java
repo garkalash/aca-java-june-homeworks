@@ -1,11 +1,15 @@
-package com.aca.ArmineArzumanyan.homeWork_1.items.gadget;
+package com.aca.armineArzumanyan.homeWork_1.items.gadget;
 
-public class PenVideoRecorder extends Gadget {
+public class PenVideoRecorder extends Gadget implements VideoRecorder {
 
 
-    public PenVideoRecorder(String name, int code, int count, int price, int recDuration, GadgetType gadgetType, VideoQuality videoQuality) {
-        super(name, code, count,price,  recDuration,gadgetType );
+    public PenVideoRecorder(String name, int count, int price, int recDuration) {
+        super(name,  count,price,  recDuration );
 
     }
 
+    @Override
+    public VideoRecorder.VideoQuality getVideoQuality() {
+        return VideoRecorder.VideoQuality.VGA;
+    }
 }

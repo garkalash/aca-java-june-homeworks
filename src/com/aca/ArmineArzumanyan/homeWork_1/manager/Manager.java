@@ -1,14 +1,14 @@
-package com.aca.ArmineArzumanyan.homeWork_1.manager;
+package com.aca.armineArzumanyan.homeWork_1.manager;
 
-import java.util.List;
+import java.util.HashMap;
 
 public interface Manager<T> {
 
     void changePrice(T item, int newPrice);
 
-    void sailItem(T item);
+    void sellItem(T item);
 
-    int sumPrice(List<T> itemList);
+    int sumPrice(HashMap<Integer, T> itemList);
 
 
 }

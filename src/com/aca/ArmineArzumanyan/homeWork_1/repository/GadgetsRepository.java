@@ -1,38 +1,33 @@
-package com.aca.ArmineArzumanyan.homeWork_1.repository;
+package com.aca.armineArzumanyan.homeWork_1.repository;
 
-import com.aca.ArmineArzumanyan.homeWork_1.items.gadget.Gadget;
+import com.aca.armineArzumanyan.homeWork_1.items.gadget.Gadget;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
-public class GadgetsRepository implements Repository<Gadget> {
-    List<Gadget> allGadgets;
+public class GadgetsRepository{ //implements ItemsRepository<Gadget> {
+HashMap<Integer, Gadget> allGadgets;
 
     public GadgetsRepository() {
-        allGadgets = new ArrayList<>();
+        allGadgets = new HashMap<>();
     }
 
-    public List<Gadget> getAll() {
+    public HashMap<Integer,Gadget> getAll() {
         return allGadgets;
     }
 
-    @Override
-    public Gadget getItemByCod(int code) {
-        for (Gadget gadget : allGadgets) {
-            if (gadget.getCode() == code) {
-                return gadget;
-            }
+
+    public void GetItemsList(HashMap<Integer, Gadget> itemList) {
+
+        for (Map.Entry list : itemList.entrySet()) {
+
+            System.out.println(list.getValue() + " "  + list.getKey() );
+
         }
-        return null;
     }
 
-    public void printItemList(List<Gadget> itemList) {
-        for (Gadget gadget : itemList) {
-            System.out.println(gadget.getCount() + "  pieces of  " + gadget.getName() + ":  code: " + gadget.getCode());
-        }
 
 
     }
 
 
-}
+
