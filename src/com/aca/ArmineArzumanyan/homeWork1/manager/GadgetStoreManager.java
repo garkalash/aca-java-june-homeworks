@@ -1,8 +1,8 @@
-package com.aca.arminearzumanyan.homeWork1.manager;
+package com.aca.arminearzumanyan.homework1.manager;
 
 
-import com.aca.arminearzumanyan.homeWork1.items.gadget.Gadget;
-import com.aca.arminearzumanyan.homeWork1.repository.GadgetsRepository;
+import com.aca.arminearzumanyan.homework1.items.gadget.Gadget;
+import com.aca.arminearzumanyan.homework1.repository.GadgetsRepository;
 
 import java.util.HashMap;
 import java.util.Map;

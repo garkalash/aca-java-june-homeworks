@@ -1,4 +1,4 @@
-package com.aca.arminearzumanyan.homeWork1.items.gadget;
+package com.aca.arminearzumanyan.homework1.items.gadget;
 
 public class UsbAudioRecorder extends MemoryGadget implements AudioRecorder {
 
