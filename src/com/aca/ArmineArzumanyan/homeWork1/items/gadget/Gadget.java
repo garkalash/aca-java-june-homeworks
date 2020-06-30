@@ -1,6 +1,6 @@
-package com.aca.arminearzumanyan.homeWork1.items.gadget;
+package com.aca.arminearzumanyan.homework1.items.gadget;
 
-import com.aca.arminearzumanyan.homeWork1.items.Item;
+import com.aca.arminearzumanyan.homework1.items.Item;
 
 public abstract class Gadget extends Item {
     private final int recDuration;

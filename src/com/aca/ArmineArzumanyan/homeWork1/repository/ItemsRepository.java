@@ -1,4 +1,4 @@
-package com.aca.arminearzumanyan.homeWork1.repository;
+package com.aca.arminearzumanyan.homework1.repository;
 
 import java.util.HashMap;
 

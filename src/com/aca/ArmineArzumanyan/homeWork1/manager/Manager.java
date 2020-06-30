@@ -1,4 +1,4 @@
-package com.aca.arminearzumanyan.homeWork1.manager;
+package com.aca.arminearzumanyan.homework1.manager;
 
 import java.util.HashMap;
 

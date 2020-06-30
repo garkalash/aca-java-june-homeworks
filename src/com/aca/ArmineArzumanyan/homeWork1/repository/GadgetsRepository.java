@@ -1,6 +1,6 @@
-package com.aca.arminearzumanyan.homeWork1.repository;
+package com.aca.arminearzumanyan.homework1.repository;
 
-import com.aca.arminearzumanyan.homeWork1.items.gadget.Gadget;
+import com.aca.arminearzumanyan.homework1.items.gadget.Gadget;
 
 import java.util.*;
 

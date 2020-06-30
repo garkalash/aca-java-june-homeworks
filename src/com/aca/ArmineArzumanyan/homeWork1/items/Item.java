@@ -1,4 +1,4 @@
-package com.aca.arminearzumanyan.homeWork1.items;
+package com.aca.arminearzumanyan.homework1.items;
 
 public abstract class Item {
     private String name;

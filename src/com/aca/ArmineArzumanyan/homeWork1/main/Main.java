@@ -1,8 +1,8 @@
-package com.aca.arminearzumanyan.homeWork1.main;
+package com.aca.arminearzumanyan.homework1.main;
 
 
-import com.aca.arminearzumanyan.homeWork1.items.gadget.*;
-import com.aca.arminearzumanyan.homeWork1.manager.GadgetStoreManager;
+import com.aca.arminearzumanyan.homework1.items.gadget.*;
+import com.aca.arminearzumanyan.homework1.manager.GadgetStoreManager;
 
 import java.util.Scanner;
 
@@ -11,7 +11,6 @@ public class Main {
         GadgetStoreManager manager = new GadgetStoreManager();
 
         Scanner scanner = new Scanner(System.in);
-
         PenVideoRecorder penVideoRecorder = new PenVideoRecorder("PenVideoRecorder", 3, 6500, 2);
         manager.getAllItems().put(101, penVideoRecorder);
         manager.getVideoGadgets().put(101, penVideoRecorder);
