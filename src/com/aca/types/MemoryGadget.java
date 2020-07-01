@@ -5,8 +5,8 @@ import com.aca.types.Gadget;
 public class MemoryGadget extends Gadget {
     private final int memoryInGB;
 
-    public MemoryGadget(int duration, int price, int count, int memoryInGB,String name) {
-        super(name, duration, price, count);
+    public MemoryGadget(int duration, int price, int count, int memoryInGB) {
+        super(duration, price, count);
         this.memoryInGB = memoryInGB;
     }
 

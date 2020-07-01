@@ -1,20 +1,22 @@
 package com.aca.types;
 
 public abstract class Gadget {
-    private final String name;
+    public static int id = 0;
+    public static int allItemsCount = 0;
     private final int duration;
     private int price;
     private int count;
 
-    public Gadget(String name, int duration, int price, int count) {
-        this.name = name;
+    public Gadget(int duration, int price, int count) {
+        this.id ++;
         this.duration = duration;
         this.price = price;
         this.count = count;
+        allItemsCount += count;
     }
 
-    public String getName() {
-        return name;
+    public int getId() {
+        return id;
     }
 
     public int getDuration() {
