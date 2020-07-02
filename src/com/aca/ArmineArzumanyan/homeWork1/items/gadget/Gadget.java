@@ -16,8 +16,7 @@ public abstract class Gadget extends Item {
 
     @Override
     public String toString() {
-        return (getCount() + "  " + getName() + ": ");
+        return ( getName() + ":  [" + getRecDuration() + ": hours,   " + getPrice() + "AmD]");
     }
-
 
 }
