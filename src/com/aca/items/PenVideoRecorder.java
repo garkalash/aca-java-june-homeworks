@@ -6,8 +6,8 @@ import com.aca.types.VideoRecorder;
 public class PenVideoRecorder extends Gadget implements VideoRecorder {
 
 
-    public PenVideoRecorder(int duration, int price, int count) {
-        super( duration, price, count);
+    public PenVideoRecorder(int duration, int price, int count,String name) {
+        super(name, duration, price, count);
     }
 
     @Override
