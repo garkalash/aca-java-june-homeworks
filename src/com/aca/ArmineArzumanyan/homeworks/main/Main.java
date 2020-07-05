@@ -20,7 +20,7 @@ public class Main {
         GadgetStoreManager manager = new GadgetStoreManager();
         Scanner scanner = new Scanner(System.in);
 
-        manager.createGadget();
+        manager.createGadget1();
 
         while (true) {
             System.out.println("1: pass a list of items ");
