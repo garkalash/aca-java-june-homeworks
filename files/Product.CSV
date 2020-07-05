@@ -1,5 +1,5 @@
 101,PenVideoRecorder,3,6500,2
 102,PenAudioRecorder,3,14000,9,8
-103,USBVideoRecorder,3,5000,2
-104,USBAudioRecorder,3,11000,9,8
+103,UsbVideoRecorder,3,5000,2
+104,UsbAudioRecorder,3,11000,9,8
 105,Watch,3,13000,5,8
