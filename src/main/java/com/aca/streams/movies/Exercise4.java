@@ -1,12 +1,5 @@
 package com.aca.streams.movies;
 
-import com.aca.streams.models.Genre;
-import com.aca.streams.service.InMemoryMovieService;
-import com.aca.streams.service.MovieService;
-
-import java.util.Map;
-import java.util.stream.Collectors;
-
 /**
  * group movies by genre
  *

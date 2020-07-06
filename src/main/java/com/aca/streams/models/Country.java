@@ -1,7 +1,5 @@
 package com.aca.streams.models;
 
-import com.aca.streams.models.City;
-
 import java.util.ArrayList;
 import java.util.List;
 
