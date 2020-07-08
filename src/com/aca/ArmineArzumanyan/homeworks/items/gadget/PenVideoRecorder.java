@@ -7,10 +7,6 @@ public class PenVideoRecorder extends Gadget implements VideoRecorder {
         super(name, price, recDuration);
     }
 
-    @Override
-    public void turnOnGadget() {
-        logger.info("Press PlayVideoRecording");
-    }
 
     @Override
     public VideoQuality getVideoQuality() {

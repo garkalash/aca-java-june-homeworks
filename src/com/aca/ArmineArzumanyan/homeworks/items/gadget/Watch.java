@@ -16,7 +16,6 @@ public class Watch extends MemoryGadget implements VideoRecorder, AudioRecorder 
     public VideoQuality getVideoQuality() {
         return VideoQuality.HD;
     }
-    public void turnOnGadget() {
-        logger.info("Press PlayVideoRecording and PlayAudioRecording");
-    }
+
+
 }

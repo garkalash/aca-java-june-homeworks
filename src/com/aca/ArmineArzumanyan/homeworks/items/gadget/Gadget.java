@@ -2,11 +2,9 @@ package com.aca.arminearzumanyan.homeworks.items.gadget;
 
 import com.aca.arminearzumanyan.homeworks.items.Item;
 
-import java.util.logging.Logger;
 
 public abstract class Gadget extends Item {
     private final int recDuration;
-    Logger logger = Logger.getGlobal();
 
     public Gadget(String name, int price, int recDuration) {
         super(name, price);
@@ -17,14 +15,18 @@ public abstract class Gadget extends Item {
         return recDuration;
     }
 
-   public abstract void turnOnGadget();
-//    {
-//        logger.info("Press PlayVideoRecording");
-//    }
-
     @Override
     public String toString() {
-        return (getCount() + ":  " + getName() + ":  [" + getRecDuration() + ": hours,   " + getPrice() + "AmD]");
+        return getCount() + ":  " + getName() + ":  [" + getRecDuration() + ": hours,   " + getPrice() + "AmD]";
+    }
+
+    public static void turnOnGadget(Gadget gadget){
+     if(gadget instanceof AudioRecorder){
+         ((AudioRecorder) gadget).playAudio();
+     }
+     if (gadget instanceof VideoRecorder){
+         ((VideoRecorder) gadget).playVideo();
+     }
     }
 
 }
