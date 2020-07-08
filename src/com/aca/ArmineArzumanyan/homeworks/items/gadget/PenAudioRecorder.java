@@ -1,6 +1,6 @@
 package com.aca.arminearzumanyan.homeworks.items.gadget;
 
-import java.util.logging.Logger;
+
 
 public class PenAudioRecorder extends MemoryGadget implements AudioRecorder {
 
@@ -12,6 +12,8 @@ public class PenAudioRecorder extends MemoryGadget implements AudioRecorder {
     public AudioType getAudioType() {
         return AudioType.MP3;
     }
+
+
 
 
     enum WritingColor {

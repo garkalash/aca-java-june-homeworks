@@ -1,8 +1,5 @@
 package com.aca.arminearzumanyan.homeworks.items.gadget;
 
-
-import java.util.logging.Logger;
-
 public class MemoryGadget extends Gadget {
     private final int memoryInGB;
 
@@ -16,8 +13,4 @@ public class MemoryGadget extends Gadget {
         return memoryInGB;
     }
 
-    @Override
-   public void turnOnGadget() {
-        logger.info("Press PlayAudioRecording");
-    }
 }

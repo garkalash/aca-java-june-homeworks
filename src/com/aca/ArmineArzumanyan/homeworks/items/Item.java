@@ -4,6 +4,7 @@ public abstract class Item {
     private String name;
     private int price;
     private int count;
+    private int code;
 
     public Item(String name, int price) {
         this.name = name;
@@ -34,4 +35,11 @@ public abstract class Item {
         this.count = count;
     }
 
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
 }
