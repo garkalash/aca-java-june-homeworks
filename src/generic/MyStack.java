@@ -2,10 +2,11 @@ package generic;
 
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Stack;
 
-public class GenericExercise {
-    public static <E> Stack<E> pushAll(ArrayList<E> arrayList) {
+public class MyStack {
+    public static <E> Stack<E> pushAll(List<? extends E> arrayList) {
         Stack<E> stack = new Stack<>();
         for (E e : arrayList) {
             if (stack.size() < 25) {
@@ -15,9 +16,9 @@ public class GenericExercise {
         return stack;
     }
 
-    public static <E> void popAll(Stack<E> stack) {
+    public static <E> void popAll(Stack<E> stack, List<? super E> arrayList ) {
         while (!stack.isEmpty()) {
-            System.out.println(stack.pop());
+            arrayList.add(stack.pop());
         }
     }
 
