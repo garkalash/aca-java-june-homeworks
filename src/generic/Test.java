@@ -18,32 +18,16 @@ public class Test {
 
         Stack<Integer> integerStack = MyStack.pushAll(integerList);
         System.out.println(integerStack.toString());
-
-        List<Number> numberList = new ArrayList<>();
-        MyStack.popAll(integerStack, numberList);
-        System.out.println(numberList.toString());
-
+        System.out.println( MyStack.popAll(integerStack).toString());
         Stack<String> stringStack = MyStack.pushAll(stringList);
         System.out.println(stringStack.toString());
-
-        List<String> list2 = new ArrayList<>();
-        MyStack.popAll(stringStack, list2);
-        System.out.println(list2.toString());
-
-
+        System.out.println( MyStack.popAll(stringStack).toString());
         Queue<String> stringQueue = MyQueue.addAll(stringList);
         System.out.println(stringQueue.toString());
-
-
         Queue<Integer> integerQueue = MyQueue.addAll(integerList);
         System.out.println((integerQueue.toString()));
-
-        List<Object> list1 = new ArrayList<>();
-        MyQueue.popAll(stringQueue, list1);
-        System.out.println(list1.toString());
-
-        MyQueue.popAll(integerQueue, list1);
-        System.out.println(list1.toString());
+        System.out.println(MyQueue.popAll(stringQueue).toString());
+        System.out.println( MyQueue.popAll(integerQueue).toString());
 
     }
 }

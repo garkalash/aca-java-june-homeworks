@@ -16,10 +16,12 @@ public class MyStack {
         return stack;
     }
 
-    public static <E> void popAll(Stack<E> stack, List<? super E> arrayList ) {
+    public static <E> List<? super E> popAll(Stack<E> stack) {
+        List<? super E> arrayList = new ArrayList<>();
         while (!stack.isEmpty()) {
             arrayList.add(stack.pop());
         }
+        return arrayList;
     }
 
 
