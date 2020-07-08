@@ -7,10 +7,12 @@ public class MyQueue {
         return new LinkedList<>(list);
     }
 
-    public static <T> void popAll (Queue<T> queue, List<? super T> list  ){
+    public static <T> List<? super T>   popAll (Queue<T> queue  ){
+        List<? super T> list = new ArrayList<>();
         while (!queue.isEmpty()){
             list.add(queue.poll());
         }
+        return list;
     }
 
 }
