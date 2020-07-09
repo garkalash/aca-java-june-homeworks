@@ -28,6 +28,8 @@ public class Test {
         System.out.println((integerQueue.toString()));
         System.out.println(MyQueue.popAll(stringQueue).toString());
         System.out.println( MyQueue.popAll(integerQueue).toString());
+        MyQueue.addItems(stringQueue, "A", "B");
+        System.out.println(stringQueue.toString());
 
     }
 }
