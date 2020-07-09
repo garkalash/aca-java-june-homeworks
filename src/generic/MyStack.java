@@ -6,6 +6,18 @@ import java.util.List;
 import java.util.Stack;
 
 public class MyStack {
+    public static <E> void pushItem(E item, Stack<E> stack) {
+        stack.push(item);
+    }
+
+    public static <E> E popItem(Stack<E> stack) {
+        return stack.pop();
+    }
+
+    public static <E> boolean isEmptyStack(Stack<E> stack) {
+        return stack.isEmpty();
+    }
+
     public static <E> Stack<E> pushAll(List<? extends E> arrayList) {
         Stack<E> stack = new Stack<>();
         for (E e : arrayList) {
