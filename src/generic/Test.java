@@ -5,31 +5,38 @@ import java.util.*;
 public class Test {
 
     public static void main(String[] args) {
-        List<Integer> integerList = new ArrayList<>();
-        for (int i = 1; i <= 5; i++) {
-            integerList.add(i);
-        }
-        List<String> stringList = new ArrayList<>();
-        stringList.add("A");
-        stringList.add("C");
-        stringList.add("B");
-        stringList.add("E");
-        stringList.add("D");
 
-        Stack<Integer> integerStack = MyStack.pushAll(integerList);
-        System.out.println(integerStack.toString());
-        System.out.println( MyStack.popAll(integerStack).toString());
-        Stack<String> stringStack = MyStack.pushAll(stringList);
-        System.out.println(stringStack.toString());
-        System.out.println( MyStack.popAll(stringStack).toString());
-        Queue<String> stringQueue = MyQueue.addAll(stringList);
-        System.out.println(stringQueue.toString());
-        Queue<Integer> integerQueue = MyQueue.addAll(integerList);
-        System.out.println((integerQueue.toString()));
-        System.out.println(MyQueue.popAll(stringQueue).toString());
-        System.out.println( MyQueue.popAll(integerQueue).toString());
-        MyQueue.addItems(stringQueue, "A", "B");
-        System.out.println(stringQueue.toString());
+        MyQueue<Integer> queue = new MyQueue<>();
+        queue.push(1);
+        queue.push(2);
+        queue.push(3);
+        System.out.println(queue.toString());
+        queue.pop();
+        System.out.println(queue.toString());
+        queue.isEmpty();
+        List<Integer> list = new ArrayList<>();
+        list.add(4);
+        list.add(5);
+        list.add(6);
+        queue.pushAll(list);
+        System.out.println(queue.toString());
+        queue.popAll(queue);
+        System.out.println(queue.toString());
+
+        MyStack<Integer> stack = new MyStack<>();
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        stack.push(4);
+        System.out.println(stack.isEmpty());
+        System.out.println(stack.toString());
+        stack.pop();
+        System.out.println(stack.toString());
+        stack.pushAll(list);
+        System.out.println(stack.toString());
+        stack.popAll(stack);
+        System.out.println(stack.toString());
+        System.out.println(stack.isEmpty());
 
     }
 }
