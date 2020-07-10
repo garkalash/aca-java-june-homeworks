@@ -32,4 +32,5 @@ public class MyQueue<E> extends MyCollection<E> {
             queue.push(pop());
         }
     }
+
 }
