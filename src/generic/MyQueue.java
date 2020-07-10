@@ -2,39 +2,93 @@ package generic;
 
 import java.util.*;
 
-public class MyQueue {
+public class MyQueue<E> {
 
-    @SafeVarargs
-    public static <T> void addItems(Queue<? super T> queue, T... items) {
-        int x = items.length;
-        for (int i = 0; i < x; i++) {
-            queue.add(items[i]);
+    private Object[] elements;
+    private int pointer;
+
+
+    public MyQueue() {
+        elements = new Object[5];
+        pointer = elements.length - 1;
+    }
+
+    private void increaseArray(Object[] arr, int l) {
+        Object[] newArray = new Object[arr.length + l];
+        for (int i = 0; i < arr.length; i++) {
+            newArray[i + arr.length] = arr[i];
+        }
+        elements = newArray;
+    }
+
+    private void shift(Object[] arr) {
+        for (int i = arr.length - 1; i > 0; i--) {
+            arr[i] = arr[i - 1];
         }
     }
 
-    public static <T> void addItem(Queue<T> queue, T item) {
-        queue.add(item);
 
+    public void push(E element) {
+        if (pointer < 0) {
+            pointer = pointer + elements.length;
+            increaseArray(elements, elements.length);
+        }
+        elements[pointer] = element;
+        pointer -= 1;
     }
 
-    public static <T> T popItem(Queue<T> queue) {
-        return queue.poll();
+    public void pop() {
+        if (isEmpty()) {
+            throw new EmptyCollectionException();
+
+        } else {
+            elements[elements.length - 1] = null;
+            shift(elements);
+            pointer += 1;
+        }
     }
 
-    public static <T> boolean isEmptyQueue(Queue<T> queue) {
-        return queue.isEmpty();
+
+    public boolean isEmpty() {
+        boolean isEmpty = false;
+        if (pointer == elements.length - 1) {
+            isEmpty = true;
+        }
+        return isEmpty;
     }
 
-    public static <T> Queue<T> addAll(List<? extends T> list) {
-        return new LinkedList<>(list);
+    @Override
+    public String toString() {
+        Object arr[] = new Object[elements.length - 1 - pointer];
+        int j = 0;
+        for (int i = elements.length - 1; i > pointer; i--) {
+            arr[j] = elements[i];
+            j++;
+        }
+        return "MyQueue{" +
+                Arrays.toString(arr) +
+                '}';
     }
 
-    public static <T> List<? super T> popAll(Queue<T> queue) {
-        List<? super T> list = new ArrayList<>();
+    public void pushAll(List<? extends E> arrayList) {
+        int l = arrayList.size();
+        if (l > elements.length) {
+            increaseArray(elements, l);
+            pointer = pointer + l;
+        }
+        for (E e : arrayList) {
+            push(e);
+        }
+    }
+
+    public void popAll(MyQueue<E> queue) {
+        if (isEmpty()) {
+            throw new EmptyCollectionException();
+        }
         while (!queue.isEmpty()) {
-            list.add(queue.poll());
+            elements[elements.length - 1] = null;
+            pointer += 1;
         }
-        return list;
     }
 
 }
