@@ -59,7 +59,7 @@ public class MyQueue<E> {
 
     @Override
     public String toString() {
-        Object arr[] = new Object[elements.length - 1 - pointer];
+        Object[] arr = new Object[elements.length - 1 - pointer];
         int j = 0;
         for (int i = elements.length - 1; i > pointer; i--) {
             arr[j] = elements[i];
