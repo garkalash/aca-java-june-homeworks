@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2020-07-03T19:26:40</date>
+  <millis>1593790000397</millis>
+  <sequence>0</sequence>
+  <logger>tradeLog</logger>
+  <level>INFO</level>
+  <class>com.aca.narekhakobyan.homework.employee.SellManager</class>
+  <method>sellItem</method>
+  <thread>1</thread>
+  <message>Watch
+		records MP3 video MP4, HD
+		8GB memory
+		2 hours recording
+		13000 AMD
+		In stock 4
+</message>
+</record>
+</log>
