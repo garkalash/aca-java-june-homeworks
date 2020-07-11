@@ -1,90 +1,28 @@
 package generic;
 
-import java.util.Arrays;
-import java.util.List;
+public class MyStack<E> extends MyCollection<E>{
 
-
-public class MyStack<T> {
-
-    private Object[] elements;
-    private int pointer;
-
-    public MyStack() {
-        elements = new Object[5];
-        pointer = elements.length - 1;
-    }
-
-    private void increaseArray(Object[] arr, int l) {
-        Object[] newArray = new Object[arr.length + l];
-        for (int i = 0; i < arr.length; i++) {
-            newArray[i + arr.length] = arr[i];
-        }
-        elements = newArray;
-    }
-
-    public void push(T element) {
-        if (pointer < 0) {
-            pointer = pointer + elements.length;
-            increaseArray(elements, elements.length);
-        }
-
-        elements[pointer] = element;
-        pointer -= 1;
-    }
-
-    public void pop() {
+    @Override
+    @SuppressWarnings("unchecked")
+    public E pop() {
+        E element;
         if (isEmpty()) {
             throw new EmptyCollectionException();
-
-        } else {
-            elements[pointer + 1] = null;
-            pointer += 1;
         }
-    }
-
-    public boolean isEmpty() {
-        boolean isEmpty = false;
-        if (pointer == elements.length - 1) {
-            isEmpty = true;
-        }
-        return isEmpty;
+        element = (E)getElements()[getPointer()+ 1];
+        getElements()[getPointer() + 1] = null;
+        setPointer(getPointer()+ 1);
+        return element;
     }
 
     @Override
-    public String toString() {
-        Object[] arr = new Object[elements.length - 1 - pointer];
-        int j = 0;
-        for (int i = elements.length - 1; i > pointer; i--) {
-            arr[j] = elements[i];
-            j++;
+    public void popAll(MyCollection<E> stack) {
+        if (isEmpty()) {
+            throw new EmptyCollectionException();
         }
-        return "MyStack{" +
-                Arrays.toString(arr) +
-                '}';
+        while (!isEmpty()) {
+            stack.push(pop());
+        }
+
     }
-
-    public void pushAll(List<? extends T> arrayList) {
-        int l = arrayList.size();
-        if (l > elements.length) {
-            increaseArray(elements, l);
-            pointer = pointer + l;
-        }
-        for (T t : arrayList) {
-            push(t);
-        }
-    }
-
-    public void popAll(MyStack<T> stack) {
-        while (!stack.isEmpty()) {
-            stack.pop();
-        }
-    }
-
-
 }
-
-
-
-
-
-
