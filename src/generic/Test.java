@@ -1,43 +1,51 @@
 package generic;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Test {
-
     public static void main(String[] args) {
 
-        MyQueue<Integer> queue = new MyQueue<>();
-        queue.push(1);
-        queue.push(2);
-        queue.push(3);
-        System.out.println(queue.toString());
-        queue.pop();
-        System.out.println(queue.toString());
-        queue.isEmpty();
-        List<Integer> list = new ArrayList<>();
-        list.add(4);
-        list.add(5);
-        list.add(6);
-        queue.pushAll(list);
-        System.out.println(queue.toString());
-        queue.popAll(queue);
+
+        MyCollection<Integer> stack = new MyStack<>();
+        MyCollection<Integer> queue = new MyQueue<>();
+
+        System.out.println(stack.isEmpty() + "    " + queue.isEmpty());
+
+        for (int i = 0; i < 5; i++) {
+            stack.push(i);
+            queue.push(i);
+        }
+        System.out.println(stack.isEmpty() + " : " + stack.toString());
+        System.out.println(queue.isEmpty() + " : " + queue.toString());
+
+        System.out.println(stack.pop());
+        System.out.println(queue.pop());
+        System.out.println(queue.pop());
+
+        System.out.println(stack.toString());
         System.out.println(queue.toString());
 
-        MyStack<Integer> stack = new MyStack<>();
-        stack.push(1);
-        stack.push(2);
-        stack.push(3);
-        stack.push(4);
-        System.out.println(stack.isEmpty());
-        System.out.println(stack.toString());
-        stack.pop();
-        System.out.println(stack.toString());
+        List<Integer> list = new ArrayList<>();
+
+        for (int i = 10; i < 20; i++) {
+            list.add(i);
+        }
+
         stack.pushAll(list);
         System.out.println(stack.toString());
-        stack.popAll(stack);
-        System.out.println(stack.toString());
+        queue.pushAll(list);
+        System.out.println(queue.toString());
+        MyCollection<Integer> stack1 = new MyStack<>();
+        MyCollection<Integer> queue1 = new MyQueue<>();
+
+        stack.popAll(stack1);
         System.out.println(stack.isEmpty());
+        System.out.println(stack1.toString());
+
+        queue.popAll(queue1);
+        System.out.println(queue.isEmpty());
+        System.out.println(queue1.toString());
 
     }
 }
-
