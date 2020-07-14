@@ -7,25 +7,25 @@ import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
-//        MyStack<Integer> myStack = new MyStack<>();
-//        myStack.push(1);
-//        myStack.push(22);
-//        myStack.push(333);
-//        myStack.push(444);
-//        myStack.push(555);
-//        myStack.push(666);
-//
-//
-//        System.out.println(myStack.isEmpty());
-//        System.out.println(myStack.pop());
-//        System.out.println(myStack.pop());
-//        List<Integer> pushList = Arrays.asList(1, 2, 3);
-//        myStack.pushAll(pushList);
-//        Integer[] popList = new Integer[15];
-//        popList = myStack.popAll(popList);
-//        for (Integer integer : popList) {
-//            System.out.println(integer);
-//        }
+        MyStack<Integer> myStack = new MyStack<>();
+        myStack.push(1);
+        myStack.push(22);
+        myStack.push(333);
+        myStack.push(444);
+        myStack.push(555);
+        myStack.push(666);
+
+
+        System.out.println(myStack.isEmpty());
+        System.out.println(myStack.pop());
+        System.out.println(myStack.pop());
+        List<Integer> pushList = Arrays.asList(1, 2, 3);
+        myStack.pushAll(pushList);
+        Integer[] popList = new Integer[15];
+        popList = myStack.popAll(popList);
+        for (Integer integer : popList) {
+            System.out.println(integer);
+        }
 
 
 
