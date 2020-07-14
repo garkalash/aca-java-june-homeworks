@@ -2,57 +2,67 @@ package generics;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.logging.Logger;
 
 public class MyStack<T> {
-    private List<T> items  = new ArrayList<>();
-    private static int popId = 0;
+    private Logger logger =Logger.getGlobal();
+    private T[] items = (T[]) new Object[15];
+    private int lastPosition = 0;
 
-    public void push(T item){
-        items.add(item);
-        popId++;
-    }
 
-    public T pop(){
-        if (popId==0){
-            System.out.println("Stack is empty");
-            return null;
-        }else {
-            popId--;
-            return items.get(popId);
+
+    public void push(T item) {
+        if (lastPosition==items.length-1){
+            logger.info("Stack is full");
+        }else{
+            items[lastPosition]=item;
+            lastPosition++;
         }
-    }
 
-    public boolean isEmpty(){
-        return items.size() == 0;
     }
-
-    public List<T> popAll(int countOfItems){
-        if (items.size()==0){
-            System.out.println("Stack is empty");
-            return null;
-        } else if(countOfItems>items.size()){
-            System.out.println("No so many elements");
+@SuppressWarnings("unchecked")
+    public T pop() {
+        if (lastPosition == 0) {
+            logger.warning("Stack is empty");
             return null;
         } else {
-            int sizeOflist = items.size()-1;
-            List<T> popElements = new ArrayList<>();
-            for (int i = sizeOflist,f=0; i >= 0; i--,f++) {
-                if(f==countOfItems){
+            lastPosition--;
+            return (T)items[lastPosition];
+        }
+    }
+
+    public boolean isEmpty() {
+        return lastPosition == 0;
+    }
+
+
+    public void pushAll(List<? extends T> elements) {
+        for (int i = 0; i < elements.size(); i++) {
+            if (lastPosition==items.length-1){
+                logger.info("Stack is full");
+                break;
+            }else{
+                items[lastPosition]=elements.get(i);
+                lastPosition++;
+            }
+        }
+    }
+
+        public T[] popAll(T[] dst) {
+
+            int size = lastPosition;
+            for (int i = 0; i < size; i++) {
+                if (lastPosition==0){
                     break;
                 }
-                popId--;
-                popElements.add(items.get(i));
-
+                dst[i] =  items[lastPosition-1];
+                lastPosition--;
             }
-            return popElements;
-        }
+        return dst;
     }
 
-    public void pushAll(List<T> elements){
-        for (T element : elements) {
-            items.add(element);
-        }
-    }
+
 
 
 }
