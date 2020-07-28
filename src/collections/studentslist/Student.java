@@ -40,14 +40,15 @@ public class Student {
 
     }
 
-    public static Integer averageGrade(Student student) {
-        Integer averageGrade = 0;
-        for (Integer value : student.getLessonsMap().values()) {
+    public Integer averageGrade() {
+        int averageGrade = 0;
+        int count = 0;
+        for (Integer value : getLessonsMap().values()) {
             averageGrade = averageGrade + value;
+            count +=1;
         }
-        return averageGrade;
+        return averageGrade/count;
     }
-
 
 }
 
