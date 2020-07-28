@@ -1,6 +1,7 @@
 package strem.worldcountry;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 
@@ -18,11 +19,14 @@ public class Country {
         this.capital = capital;
     }
 
-    public City getHighestPopulatedCity(){
-       return cities.stream().max(Comparator.comparing(City::getPopulation)).get();
-
+    public void putCities(City... city) {
+        cities.addAll(Arrays.asList(city));
     }
 
+    public City getHighestPopulatedCity() {
+        return cities.stream().max(Comparator.comparing(City::getPopulation)).get();
+
+    }
 
     public String getCode() {
         return code;
@@ -56,13 +60,6 @@ public class Country {
         this.capital = capital;
     }
 
-    public List<City> getCities() {
-        return cities;
-    }
-
-    public void setCities(List<City> cities) {
-        this.cities = cities;
-    }
 
     @Override
     public String toString() {

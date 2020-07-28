@@ -12,23 +12,25 @@ public class Main {
         Lesson lesson4 = new Lesson("English");
 
         Student student1 = new Student("Aram", new HashMap<>());
-        student1.getLessonsMap().put(lesson1, 4);
-        student1.getLessonsMap().put(lesson2, 5);
-        student1.getLessonsMap().put(lesson3, 10);
+        student1.putLesson(lesson1, 4);
+        student1.putLesson(lesson2, 5);
+        student1.putLesson(lesson3, 10);
+
+
 
         Student student2 = new Student("Anna", new HashMap<>());
-        student2.getLessonsMap().put(lesson4, 10);
-        student2.getLessonsMap().put(lesson2, 6);
+        student2.putLesson(lesson4, 10);
+        student2.putLesson(lesson2, 6);
 
         Student student3 = new Student("Lilit", new HashMap<>());
-        student3.getLessonsMap().put(lesson3, 5);
-        student3.getLessonsMap().put(lesson2, 10);
-        student3.getLessonsMap().put(lesson1, 6);
-        student3.getLessonsMap().put(lesson4, 10);
+        student3.putLesson(lesson3, 5);
+        student3.putLesson(lesson2, 10);
+        student3.putLesson(lesson1, 6);
+        student3.putLesson(lesson4, 10);
 
         Student student4 = new Student("Karen", new HashMap<>());
-        student4.getLessonsMap().put(lesson1, 9);
-        student4.getLessonsMap().put(lesson4, 6);
+        student4.putLesson(lesson1, 9);
+        student4.putLesson(lesson4, 6);
 
         Map<Lesson, List<Student>> topStudentsByAverageGrade = new HashMap<>();
 
@@ -37,8 +39,8 @@ public class Main {
 
         for (Lesson lesson : lessons) {
             List<Student> sortedStudentsList = students.stream()
-                    .filter(student -> student.getLessonsMap().containsKey(lesson))
-                    .sorted((st1, st2) -> Student.averageGrade(st2) - Student.averageGrade(st1))
+                    .filter(student -> student.putLesson().containsKey(lesson))
+                    .sorted((st1, st2) -> st2.averageGrade() - st1.averageGrade())
                     .collect(Collectors.toList());
             topStudentsByAverageGrade.put(lesson, sortedStudentsList);
         }
@@ -51,10 +53,10 @@ public class Main {
         Map<Lesson, List<Student>> topStudentsForEachLesson = new HashMap<>();
         for (Lesson lesson : lessons) {
             Integer max = studentsList.get(lesson).stream()
-                    .max(Comparator.comparingInt(s -> s.getLessonsMap().get(lesson)))
-                    .get().getLessonsMap().get(lesson);
+                    .max(Comparator.comparingInt(s -> s.putLesson().get(lesson)))
+                    .get().putLesson().get(lesson);
             topStudentsForEachLesson.put(lesson, studentsList.get(lesson).stream()
-                    .filter(s -> s.getLessonsMap().get(lesson).equals(max))
+                    .filter(s -> s.putLesson().get(lesson).equals(max))
                     .collect(Collectors.toList()));
         }
 
