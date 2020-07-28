@@ -3,6 +3,7 @@ package strem.students;
 public final class Lesson {
     private final String name;
 
+
     public Lesson(String name) {
         this.name = name;
     }
