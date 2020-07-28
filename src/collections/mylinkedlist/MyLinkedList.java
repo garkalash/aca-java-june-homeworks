@@ -1,6 +1,5 @@
 package collections.mylinkedlist;
 
-
 public class MyLinkedList<T> {
     private MyNode<T> head;
 
@@ -50,8 +49,6 @@ public class MyLinkedList<T> {
             }
         }
         throw new IndexOutOfBoundsException();
-
-
     }
 
     public T get(Integer index) {

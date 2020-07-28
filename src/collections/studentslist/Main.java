@@ -46,7 +46,7 @@ public class Main {
             topStudentsByAverageGrade.get(lesson).sort(new Comparator<Student>() {
                 @Override
                 public int compare(Student st1, Student st2) {
-                    return Student.averageGrade(st2) - Student.averageGrade(st1);
+                    return st2.averageGrade() - st1.averageGrade();
                 }
             });
         }
