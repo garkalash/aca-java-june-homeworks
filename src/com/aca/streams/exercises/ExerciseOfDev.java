@@ -5,9 +5,7 @@ import com.aca.streams.models.Country;
 import com.aca.streams.persistance.CityDao;
 import com.aca.streams.persistance.CountryDao;
 import com.aca.streams.persistance.InMemoryWorldDao;
-
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Find the highest populated capital city of each continent
@@ -18,7 +16,25 @@ import java.util.stream.Collectors;
  */
 public class ExerciseOfDev {
     public static void main(String[] args) {
-        System.out.println(sortCountriesByCapitalsPopulation_Narek());
+
+    }
+
+    private Map<String, City> highestPopCitiesOfContinents_Arsen ()
+    {
+        CountryDao countryDao = InMemoryWorldDao.getInstance();
+        CityDao cityDao = InMemoryWorldDao.getInstance();
+        Map<String, City> highestPopulatedCapitals = new HashMap<>();
+        for (String continent : countryDao.getAllContinents()) {
+            Optional<City> optionalCity = countryDao.findAllCountries()
+                    .stream()
+                    .filter(Objects::nonNull)
+                    .filter(country -> country.getContinent().equals(continent))
+                    .map(country -> cityDao.findCityById(country.getCapital()))
+                    .filter(Objects::nonNull)
+                    .max(Comparator.comparingInt(City::getPopulation));
+            optionalCity.ifPresent(city -> highestPopulatedCapitals.put(continent, optionalCity.get()));
+        }
+        return highestPopulatedCapitals;
     }
 
     public static Map<String, City> sortCountriesByCapitalsPopulation_Narek() {
