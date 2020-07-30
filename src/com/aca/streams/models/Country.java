@@ -102,7 +102,7 @@ public class Country {
 
     @Override
     public String toString() {
-        return "Country [ name=" + name + ", population=" + population + "]";
+        return "Country [ name=" + name + ", population=" + population + "]\n";
     }
 
 }
