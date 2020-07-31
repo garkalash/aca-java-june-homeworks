@@ -26,6 +26,8 @@ public class Movie {
 		this.title = title;
 		this.year = year;
 		this.imdb = imdb;
+		genres = new ArrayList<>();
+		directors = new ArrayList<>();
 	}
 
 	public int getId() {
@@ -101,7 +103,7 @@ public class Movie {
 	@Override
 	public String toString() {
 		return "Movie [title=" + title + ", year=" + year
-				 + "]";
+				 + "]\n";
 	}
 	//endregion
 }
