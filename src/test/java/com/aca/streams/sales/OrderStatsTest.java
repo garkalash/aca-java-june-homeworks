@@ -59,7 +59,7 @@ public class OrderStatsTest {
     @Test
     public void task2Test1() {
         final Stream<Order> orders = orderStream;
-        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes_Narek(orders);
+        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes(orders);
         assertEquals("There are 3 orders with size = 15 in this stream",3, orderSizes.get(15).size());
         assertEquals("Order #108233 has size = 21", 108233, (long)orderSizes.get(21).get(0).getOrderId());
         assertEquals("There is no orders with size = 3 in this stream", null, orderSizes.get(0));
@@ -67,7 +67,7 @@ public class OrderStatsTest {
 
     @Test
     public void task2Test2() {
-        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes_Narek(Stream.empty());
+        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes(Stream.empty());
         assertEquals("Empty stream of order should produce empty map", 0, orderSizes.size());
     }
 
@@ -87,7 +87,7 @@ public class OrderStatsTest {
 
     @Test
     public void task4Test1() {
-        final Map<String, Long> cardsForCustomer = OrderStats.cardsCountForCustomer_Narek(customerStream);
+        final Map<String, Long> cardsForCustomer = OrderStats.cardsCountForCustomer(customerStream);
 
         final long actual1 = cardsForCustomer.get("DonnaDonna@gmail.com");
         final long actual2 = cardsForCustomer.get("super-rory@tut.by");
@@ -101,32 +101,32 @@ public class OrderStatsTest {
         assertEquals("John was using 1 credit card, not " + actual4, 1, actual4);
         assertEquals("Rory was using 3 credit cards, not" + actual5, 3, actual5);
 
-        final Map<String, Long> emptyMap = OrderStats.cardsCountForCustomer_Narek(Stream.empty());
+        final Map<String, Long> emptyMap = OrderStats.cardsCountForCustomer(Stream.empty());
         assertTrue(emptyMap.isEmpty());
     }
 
     @Test
     public void task5Test1() {
-        final Optional<String> mostPopularCountry = OrderStats.mostPopularCountry_Narek(customerStream);
+        final Optional<String> mostPopularCountry = OrderStats.mostPopularCountry(customerStream);
         assertEquals(Optional.of("Great Britain"), mostPopularCountry);
     }
 
     @Test
     public void task5Test2() {
-        final Optional<String> mostPopularCountry = OrderStats.mostPopularCountry_Narek(customerStream.skip(2));
+        final Optional<String> mostPopularCountry = OrderStats.mostPopularCountry(customerStream.skip(2));
         assertEquals(Optional.of("USA"), mostPopularCountry);
     }
 
     @Test
     public void task5Test3() {
-        final Optional<String> mostPopularCountry = OrderStats.mostPopularCountry_Narek(Stream.empty());
+        final Optional<String> mostPopularCountry = OrderStats.mostPopularCountry(Stream.empty());
         assertEquals(Optional.empty(), mostPopularCountry);
     }
 
     @Test
     public void task6Test1() {
         final String testCardNumber = "9785 5409 1111 5555";
-        final BigDecimal avgPrice = OrderStats.averageProductPriceForCreditCard_Narek(customerStream, testCardNumber);
+        final BigDecimal avgPrice = OrderStats.averageProductPriceForCreditCard(customerStream, testCardNumber);
         assertEquals("Invalid average product price for card " + testCardNumber,
                 495.83, avgPrice.setScale(2, RoundingMode.CEILING).doubleValue(), 0.01);
     }
@@ -134,7 +134,7 @@ public class OrderStatsTest {
     @Test
     public void task6Test2() {
         final String testCardNumber = "4111 3456 5454 9900";
-        final BigDecimal avgPrice = OrderStats.averageProductPriceForCreditCard_Narek(customerStream, testCardNumber);
+        final BigDecimal avgPrice = OrderStats.averageProductPriceForCreditCard(customerStream, testCardNumber);
         assertEquals("Invalid average product price for card " + testCardNumber,
                 524.99, avgPrice.setScale(2, RoundingMode.CEILING).doubleValue(), 0.01);
     }
@@ -142,7 +142,7 @@ public class OrderStatsTest {
     @Test
     public void task6Test3() {
         final String testCardNumber = "6677 5432 9587 1670";
-        final BigDecimal avgPrice = OrderStats.averageProductPriceForCreditCard_Narek(customerStream, testCardNumber);
+        final BigDecimal avgPrice = OrderStats.averageProductPriceForCreditCard(customerStream, testCardNumber);
         assertEquals("Invalid average product price for card " + testCardNumber,
                 505.64, avgPrice.setScale(2, RoundingMode.CEILING).doubleValue(), 0.01);
     }
@@ -150,14 +150,14 @@ public class OrderStatsTest {
     @Test
     public void task6Test4() {
         final String testCardNumber = "9785 5409 1111 5555";
-        final BigDecimal zeroPrice = OrderStats.averageProductPriceForCreditCard_Narek(Stream.empty(), testCardNumber);
+        final BigDecimal zeroPrice = OrderStats.averageProductPriceForCreditCard(Stream.empty(), testCardNumber);
         assertEquals("Average product price for empty stream of customers should be 0",
                 BigDecimal.ZERO, zeroPrice);
     }
 
     @Test
     public void task6Test5() {
-        final BigDecimal nonExistingCard = OrderStats.averageProductPriceForCreditCard_Narek(customerStream, "INVALID");
+        final BigDecimal nonExistingCard = OrderStats.averageProductPriceForCreditCard(customerStream, "INVALID");
         assertEquals("Average product price for non-existing card should be 0",
                 BigDecimal.ZERO, nonExistingCard);
     }

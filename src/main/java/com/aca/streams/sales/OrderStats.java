@@ -28,6 +28,17 @@ class OrderStats {
      * @param cardType credit card type
      * @return list, containing orders paid with provided card type
      */
+    static List<Order> ordersForCardTypeN(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
+        List<Order> orders = new ArrayList<>();
+        customers.forEach(customer -> {
+           customer.getOrders().stream().forEach(order -> {
+               if (order.getPaymentInfo().getCardType() == cardType){
+                   orders.add(order);
+               };});
+        });
+        return orders;
+    }
+
     static List<Order> ordersForCardType_Armine(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
         return customers
                 .map(Customer::getOrders)
@@ -66,19 +77,9 @@ class OrderStats {
      * @param orders stream of orders
      * @return map, where order size values mapped to lists of orders
      */
-
-    static Map<Integer, List<Order>> orderSizes_Narek(final Stream<Order> orders) {
-
-        Map<Integer, List<Order>> integerListMap = orders
-                .filter(Objects::nonNull)
-                .collect(Collectors.groupingBy(order -> Math.toIntExact(order.getOrderItems().stream()
-                        .map(orderItem -> orderItem.getQuantity())
-                        .count()), Collectors.toList()));
-
-        return integerListMap;
+    static Map<Integer, List<Order>> orderSizes(final Stream<Order> orders) {
+        return orders.collect(Collectors.groupingBy(order -> order.getOrderItems().size(), Collectors.toList()));
     }
-
-
 
     /**
      * Task 3 (⚫⚫⚫⚪⚪)
@@ -104,7 +105,7 @@ class OrderStats {
      * @param customers stream of customers
      * @return map, where for each customer email there is a long referencing a number of different credit cards this customer uses.
      */
-    static Map<String, Long> cardsCountForCustomer_Narek(final Stream<Customer> customers) {
+    static Map<String, Long> cardsCountForCustomer(final Stream<Customer> customers) {
         return null;
     }
 
@@ -128,7 +129,7 @@ class OrderStats {
      * @param customers stream of customers
      * @return java.util.Optional containing the name of the most popular country
      */
-    static Optional<String> mostPopularCountry_Narek(final Stream<Customer> customers) {
+    static Optional<String> mostPopularCountry(final Stream<Customer> customers) {
         return null;
     }
 
@@ -151,7 +152,7 @@ class OrderStats {
      * @param cardNumber card number to check
      * @return average price of the product, ordered with the provided card
      */
-    static BigDecimal averageProductPriceForCreditCard_Narek(final Stream<Customer> customers, final String cardNumber) {
+    static BigDecimal averageProductPriceForCreditCard(final Stream<Customer> customers, final String cardNumber) {
         return null;
     }
 }
