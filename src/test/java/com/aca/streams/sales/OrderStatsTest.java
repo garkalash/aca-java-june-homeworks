@@ -59,7 +59,7 @@ public class OrderStatsTest {
     @Test
     public void task2Test1() {
         final Stream<Order> orders = orderStream;
-        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes(orders);
+        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes_Narek(orders);
         assertEquals("There are 3 orders with size = 15 in this stream",3, orderSizes.get(15).size());
         assertEquals("Order #108233 has size = 21", 108233, (long)orderSizes.get(21).get(0).getOrderId());
         assertEquals("There is no orders with size = 3 in this stream", null, orderSizes.get(0));
@@ -67,7 +67,7 @@ public class OrderStatsTest {
 
     @Test
     public void task2Test2() {
-        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes(Stream.empty());
+        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes_Narek(Stream.empty());
         assertEquals("Empty stream of order should produce empty map", 0, orderSizes.size());
     }
 

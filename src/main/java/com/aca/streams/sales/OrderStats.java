@@ -77,8 +77,12 @@ class OrderStats {
      * @param orders stream of orders
      * @return map, where order size values mapped to lists of orders
      */
-    static Map<Integer, List<Order>> orderSizes(final Stream<Order> orders) {
-        return orders.collect(Collectors.groupingBy(order -> order.getOrderItems().size(), Collectors.toList()));
+    static Map<Integer, List<Order>> orderSizes_Narek(final Stream<Order> orders) {
+        return orders
+                .filter(Objects::nonNull)
+                .collect(Collectors.groupingBy(order -> Math.toIntExact(order.getOrderItems().stream()
+                        .map(orderItem -> orderItem.getQuantity())
+                        .reduce(0, Integer::sum)), Collectors.toList()));
     }
 
     /**
