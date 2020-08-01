@@ -1,7 +1,6 @@
 package com.aca.streams.sales;
 
 import com.aca.streams.models.*;
-
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -47,6 +46,15 @@ class OrderStats {
                 .filter(order -> order.getPaymentInfo().getCardType() == cardType)
                 .collect(Collectors.toList());
         return orderList;
+    }
+
+    static List<Order> ordersForCardType_Arsen(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
+        return customers
+                .map(Customer::getOrders)
+                .filter(Objects::nonNull)
+                .flatMap(Collection::stream)
+                .filter(order -> order.getPaymentInfo().getCardType() == cardType)
+                .collect(Collectors.toList());
     }
 
     /**
