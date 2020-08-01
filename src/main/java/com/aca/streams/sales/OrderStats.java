@@ -4,6 +4,7 @@ import com.aca.streams.models.Customer;
 import com.aca.streams.models.Order;
 import com.aca.streams.models.PaymentInfo;
 import com.aca.streams.models.Product;
+import com.sun.org.apache.xpath.internal.operations.Or;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -32,8 +33,15 @@ class OrderStats {
      * @param cardType credit card type
      * @return list, containing orders paid with provided card type
      */
-    static List<Order> ordersForCardType(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
-        return null;
+    static List<Order> ordersForCardType_Narek(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
+        List<Order> orderList = customers
+                .filter(Objects::nonNull)
+                .map(Customer::getOrders)
+                .filter(Objects::nonNull)
+                .flatMap(Collection::stream)
+                .filter(order -> order.getPaymentInfo().getCardType() == cardType)
+                .collect(Collectors.toList());
+        return orderList;
     }
 
     /**
@@ -45,9 +53,13 @@ class OrderStats {
      * @param orders stream of orders
      * @return map, where order size values mapped to lists of orders
      */
-    static Map<Integer, List<Order>> orderSizes(final Stream<Order> orders) {
+
+    static Map<Integer, List<Order>> orderSizes_Narek(final Stream<Order> orders) {
+
         return orders.collect(Collectors.groupingBy(order -> order.getOrderItems().size(), Collectors.toList()));
     }
+
+
 
     /**
      * Task 3 (⚫⚫⚫⚪⚪)
@@ -59,10 +71,10 @@ class OrderStats {
      * @param color product color to test
      * @return boolean, representing if every order in the stream contains product of specified color
      */
-    static Boolean hasColorProduct(final Stream<Order> orders, final Product.Color color) {
+    static Boolean hasColorProduct_Narek(final Stream<Order> orders, final Product.Color color) {
         return orders.anyMatch(order -> order.getOrderItems()
                         .stream()
-                        .anyMatch(orderItem -> orderItem.getProduct().getColor() == color));
+                        .anyMatch(orderItem -> orderItem.getProduct().getColor().equals(color)));
     }
 
     /**
@@ -73,7 +85,7 @@ class OrderStats {
      * @param customers stream of customers
      * @return map, where for each customer email there is a long referencing a number of different credit cards this customer uses.
      */
-    static Map<String, Long> cardsCountForCustomer(final Stream<Customer> customers) {
+    static Map<String, Long> cardsCountForCustomer_Narek(final Stream<Customer> customers) {
         return null;
     }
 
@@ -97,7 +109,7 @@ class OrderStats {
      * @param customers stream of customers
      * @return java.util.Optional containing the name of the most popular country
      */
-    static Optional<String> mostPopularCountry(final Stream<Customer> customers) {
+    static Optional<String> mostPopularCountry_Narek(final Stream<Customer> customers) {
         return null;
     }
 
@@ -120,7 +132,7 @@ class OrderStats {
      * @param cardNumber card number to check
      * @return average price of the product, ordered with the provided card
      */
-    static BigDecimal averageProductPriceForCreditCard(final Stream<Customer> customers, final String cardNumber) {
+    static BigDecimal averageProductPriceForCreditCard_Narek(final Stream<Customer> customers, final String cardNumber) {
         return null;
     }
 }
