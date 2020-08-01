@@ -59,7 +59,7 @@ public class OrderStatsTest {
     @Test
     public void task2Test1() {
         final Stream<Order> orders = orderStream;
-        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes_Narek(orders);
+        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes(orders);
         assertEquals("There are 3 orders with size = 15 in this stream",3, orderSizes.get(15).size());
         assertEquals("Order #108233 has size = 21", 108233, (long)orderSizes.get(21).get(0).getOrderId());
         assertEquals("There is no orders with size = 3 in this stream", null, orderSizes.get(0));
@@ -67,21 +67,21 @@ public class OrderStatsTest {
 
     @Test
     public void task2Test2() {
-        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes_Narek(Stream.empty());
+        final Map<Integer, List<Order>> orderSizes = OrderStats.orderSizes(Stream.empty());
         assertEquals("Empty stream of order should produce empty map", 0, orderSizes.size());
     }
 
     @Test
     public void task3Test1() {
         final Stream<Order> orders = orderStream.limit(2);
-        final boolean hasColorProduct = OrderStats.hasColorProduct_Narek(orders, Product.Color.RED);
+        final boolean hasColorProduct = OrderStats.hasColorProduct(orders, Product.Color.RED);
         assertEquals("Each of the orders in this stream contains red product", true, hasColorProduct);
     }
 
     @Test
     public void task3Test2() {
         final Stream<Order> orders = orderStream.limit(4).skip(1);
-        final boolean hasColorProduct = OrderStats.hasColorProduct_Narek(orders, Product.Color.BLUE);
+        final boolean hasColorProduct = OrderStats.hasColorProduct(orders, Product.Color.BLUE);
         assertEquals("One of the orders in this stream does not contains any blue products", false, hasColorProduct);
     }
 

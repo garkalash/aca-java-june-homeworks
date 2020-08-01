@@ -1,10 +1,6 @@
 package com.aca.streams.sales;
 
-import com.aca.streams.models.Customer;
-import com.aca.streams.models.Order;
-import com.aca.streams.models.PaymentInfo;
-import com.aca.streams.models.Product;
-import com.sun.org.apache.xpath.internal.operations.Or;
+import com.aca.streams.models.*;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -33,6 +29,15 @@ class OrderStats {
      * @param cardType credit card type
      * @return list, containing orders paid with provided card type
      */
+    static List<Order> ordersForCardType_Armine(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
+        return customers
+                .map(Customer::getOrders)
+                .flatMap(Collection::stream)
+                .filter(order -> order.getPaymentInfo().getCardType() == cardType)
+                .collect(Collectors.toList());
+
+    }
+
     static List<Order> ordersForCardType_Narek(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
         List<Order> orderList = customers
                 .filter(Objects::nonNull)
@@ -53,9 +58,7 @@ class OrderStats {
      * @param orders stream of orders
      * @return map, where order size values mapped to lists of orders
      */
-
-    static Map<Integer, List<Order>> orderSizes_Narek(final Stream<Order> orders) {
-
+    static Map<Integer, List<Order>> orderSizes(final Stream<Order> orders) {
         return orders.collect(Collectors.groupingBy(order -> order.getOrderItems().size(), Collectors.toList()));
     }
 
@@ -71,10 +74,10 @@ class OrderStats {
      * @param color product color to test
      * @return boolean, representing if every order in the stream contains product of specified color
      */
-    static Boolean hasColorProduct_Narek(final Stream<Order> orders, final Product.Color color) {
+    static Boolean hasColorProduct(final Stream<Order> orders, final Product.Color color) {
         return orders.anyMatch(order -> order.getOrderItems()
                         .stream()
-                        .anyMatch(orderItem -> orderItem.getProduct().getColor().equals(color)));
+                        .anyMatch(orderItem -> orderItem.getProduct().getColor() == color));
     }
 
     /**
