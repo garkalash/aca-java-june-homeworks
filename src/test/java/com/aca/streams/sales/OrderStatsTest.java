@@ -74,14 +74,14 @@ public class OrderStatsTest {
     @Test
     public void task3Test1() {
         final Stream<Order> orders = orderStream.limit(2);
-        final boolean hasColorProduct = OrderStats.hasColorProduct(orders, Product.Color.RED);
+        final boolean hasColorProduct = OrderStats.hasColorProduct_Narek(orders, Product.Color.RED);
         assertEquals("Each of the orders in this stream contains red product", true, hasColorProduct);
     }
 
     @Test
     public void task3Test2() {
         final Stream<Order> orders = orderStream.limit(4).skip(1);
-        final boolean hasColorProduct = OrderStats.hasColorProduct(orders, Product.Color.BLUE);
+        final boolean hasColorProduct = OrderStats.hasColorProduct_Narek(orders, Product.Color.BLUE);
         assertEquals("One of the orders in this stream does not contains any blue products", false, hasColorProduct);
     }
 

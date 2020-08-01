@@ -91,8 +91,9 @@ class OrderStats {
      * @param color product color to test
      * @return boolean, representing if every order in the stream contains product of specified color
      */
-    static Boolean hasColorProduct(final Stream<Order> orders, final Product.Color color) {
-        return orders.anyMatch(order -> order.getOrderItems()
+    static Boolean hasColorProduct_Narek(final Stream<Order> orders, final Product.Color color) {
+
+        return orders.allMatch(order -> order.getOrderItems()
                         .stream()
                         .anyMatch(orderItem -> orderItem.getProduct().getColor() == color));
     }
