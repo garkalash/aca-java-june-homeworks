@@ -33,7 +33,7 @@ public class GadgetClient {
             e.printStackTrace();
         }
 
-        //
+        //`
         Gadget usbAudio = new USBAudio(9, 11000, 10, 8);
         gadgetList.add(usbAudio);
         gadgetList.add(new PenVideoRecorder(2, 6500, 7, "blue"));
@@ -41,7 +41,7 @@ public class GadgetClient {
         for (Gadget gadget: gadgetList) {
             gadgetManeger.SellItem(gadget.getClass());
         }
-        
+
         System.out.println(gadgetManeger.getInStockAmount());
         System.out.println(gadgetManeger.getSoldAmount());
         usbAudio.setPrice(10000);
