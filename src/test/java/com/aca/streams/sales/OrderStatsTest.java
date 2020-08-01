@@ -87,7 +87,7 @@ public class OrderStatsTest {
 
     @Test
     public void task4Test1() {
-        final Map<String, Long> cardsForCustomer = OrderStats.cardsCountForCustomer(customerStream);
+        final Map<String, Long> cardsForCustomer = OrderStats.cardsCountForCustomer_Narek(customerStream);
 
         final long actual1 = cardsForCustomer.get("DonnaDonna@gmail.com");
         final long actual2 = cardsForCustomer.get("super-rory@tut.by");
@@ -101,7 +101,7 @@ public class OrderStatsTest {
         assertEquals("John was using 1 credit card, not " + actual4, 1, actual4);
         assertEquals("Rory was using 3 credit cards, not" + actual5, 3, actual5);
 
-        final Map<String, Long> emptyMap = OrderStats.cardsCountForCustomer(Stream.empty());
+        final Map<String, Long> emptyMap = OrderStats.cardsCountForCustomer_Narek(Stream.empty());
         assertTrue(emptyMap.isEmpty());
     }
 

@@ -110,8 +110,15 @@ class OrderStats {
      * @param customers stream of customers
      * @return map, where for each customer email there is a long referencing a number of different credit cards this customer uses.
      */
-    static Map<String, Long> cardsCountForCustomer(final Stream<Customer> customers) {
-        return null;
+    static Map<String, Long> cardsCountForCustomer_Narek(final Stream<Customer> customers) {
+       return customers
+                .collect(Collectors.toMap(customer -> customer.getEmail(),
+                        customer -> customer.getOrders()
+                        .stream()
+                        .map(order -> order.getPaymentInfo())
+                        .distinct()
+                        .count()
+                ));
     }
 
     /**
