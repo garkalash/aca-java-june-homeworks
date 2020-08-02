@@ -1,8 +1,12 @@
 package com.aca.streams.sales;
 
 import com.aca.streams.models.*;
+
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
+import java.util.function.Function;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -84,6 +88,15 @@ class OrderStats {
                         .map(orderItem -> orderItem.getQuantity())
                         .reduce(0, Integer::sum)), Collectors.toList()));
     }
+    static Map<Integer, List<Order>> orderSizes_Armine(final Stream<Order> orders) {
+        return orders
+                .filter(Objects::nonNull)
+                .collect(Collectors.groupingBy(order -> (order.getOrderItems().stream()
+                        .map(OrderItem::getQuantity)
+                        .reduce(0, Integer::sum)), Collectors.toList()));
+    }
+
+
 
     /**
      * Task 3 (⚫⚫⚫⚪⚪)
@@ -101,6 +114,12 @@ class OrderStats {
                         .stream()
                         .anyMatch(orderItem -> orderItem.getProduct().getColor() == color));
     }
+    static Boolean hasColorProduct_Armine(final Stream<Order> orders, final Product.Color color) {
+        return orders
+                .allMatch(order -> order.getOrderItems().stream()
+                        .anyMatch(orderItem -> orderItem.getProduct().getColor() == color));
+    }
+
 
     /**
      * Task 4 (⚫⚫⚫⚫⚪)
@@ -120,6 +139,15 @@ class OrderStats {
                         .count()
                 ));
     }
+    static Map<String, Long> cardsCountForCustomer_Armine(final Stream<Customer> customers) {
+        return customers.collect(Collectors.toMap(Customer::getEmail,
+                customer -> customer.getOrders().stream()
+                        .map(order -> order.getPaymentInfo().getCardNumber())
+                        .distinct()
+                        .count()));
+    }
+
+
 
     /**
      * Task 5 (⚫⚫⚫⚫⚫)
@@ -184,9 +212,32 @@ class OrderStats {
                 length = country.toString().length();
             }
         }
-        
+
         return mostPopularCountry;
     }
+
+    static Optional<String> mostPopularCountry_Armine(final Stream<Customer> customers) {
+        List<Customer> customerList = customers.collect(Collectors.toList());
+        if (customerList.size() == 0) {
+            return Optional.empty();
+        }
+        Map<String, Long> customersCountryMap = customerList.stream()
+                .filter(Objects::nonNull)
+                .map(Customer::getAddress)
+                .filter(Objects::nonNull)
+                .map(AddressInfo::getCountry)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        Long maxCountOfCustomers = customersCountryMap.entrySet().stream()
+                .max(Map.Entry.comparingByValue()).get().getValue();
+        return customersCountryMap.entrySet().stream()
+                .filter(stringLongEntry -> stringLongEntry.getValue().equals(maxCountOfCustomers))
+                .min(Comparator.comparing(stringLongEntry -> stringLongEntry.getKey().length()))
+                .map(Map.Entry::getKey);
+
+    }
+
+
+
 
     /**
      * Task 6 (⚫⚫⚫⚫⚫)
@@ -194,10 +245,10 @@ class OrderStats {
      * Given a stream of customers, return the average product price for the provided credit card number.
      *
      * Info: If order contains the following order items:
-     *  [
-     *      Product1(price = 100$, quantity = 2),
-     *      Product2(price = 160$, quantity = 1)
-     *  ]
+     * [
+     * Product1(price = 100$, quantity = 2),
+     * Product2(price = 160$, quantity = 1)
+     * ]
      * then the average product price for this order will be 120$ ((100 * 2 + 160 * 1) / 3)
      *
      * Hint: Since product prices are represented as BigDecimal objects, you are provided with the collector implementation
@@ -207,7 +258,29 @@ class OrderStats {
      * @param cardNumber card number to check
      * @return average price of the product, ordered with the provided card
      */
-    static BigDecimal averageProductPriceForCreditCard(final Stream<Customer> customers, final String cardNumber) {
-        return null;
+    static BigDecimal averageProductPriceForCreditCard_Armine(final Stream<Customer> customers, final String cardNumber) {
+        List<OrderItem> orderList = customers
+                .filter(Objects::nonNull)
+                .map(Customer::getOrders)
+                .filter(Objects::nonNull)
+                .flatMap(Collection::stream)
+                .filter(order -> order.getPaymentInfo().getCardNumber().equals(cardNumber))
+                .map(Order::getOrderItems)
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+        int productsQuantity = orderList.stream()
+                .map(OrderItem::getQuantity)
+                .mapToInt(Integer::intValue).sum();
+
+        if (productsQuantity == 0) {
+            return BigDecimal.ZERO;
+        }
+
+        return orderList.stream()
+                .map(orderItem -> orderItem.getProduct().getPrice().multiply(BigDecimal.valueOf(orderItem.getQuantity())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .divide(BigDecimal.valueOf(productsQuantity), 3, RoundingMode.HALF_DOWN);
+
+
     }
 }
