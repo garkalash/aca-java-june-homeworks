@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
 import java.util.function.Function;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -170,7 +169,7 @@ class OrderStats {
      * @param customers stream of customers
      * @return java.util.Optional containing the name of the most popular country
      */
-    static Optional<String> mostPopularCountry(final Stream<Customer> customers) {
+    static Optional<String> mostPopularCountry_Narek(final Stream<Customer> customers) {
 
         List<Optional<String>> listCountries = customers
                 .map(customer -> Optional.of(customer.getAddress().getCountry()))
@@ -283,5 +282,32 @@ class OrderStats {
                 .divide(BigDecimal.valueOf(productsQuantity), 3, RoundingMode.HALF_DOWN);
 
 
+    }
+
+    static BigDecimal averageProductPriceForCreditCard_Narek(final Stream<Customer> customers, final String cardNumber) {
+        List<OrderItem> orderItemListByCardNumber = customers
+                .filter(Objects::nonNull)
+                .map(customer -> customer.getOrders())
+                .filter(Objects::nonNull)
+                .flatMap(Collection::stream)
+                .filter(order -> order.getPaymentInfo().getCardNumber().equals(cardNumber))
+                .map(order -> order.getOrderItems())
+                .flatMap(Collection::stream)
+                .collect(Collectors.toList());
+
+        if (orderItemListByCardNumber.size() == 0) {
+            return BigDecimal.ZERO;
+        }
+
+        Integer productsQuantityByCardNumber = orderItemListByCardNumber.stream()
+                .map(orderItem -> orderItem.getQuantity())
+                .reduce(0, Integer::sum);
+
+        BigDecimal averagePrice = orderItemListByCardNumber.stream()
+                .map(orderItem -> orderItem.getProduct().getPrice().multiply(BigDecimal.valueOf(orderItem.getQuantity())))
+                .reduce(BigDecimal.ZERO, BigDecimal::add)
+                .divide(BigDecimal.valueOf(productsQuantityByCardNumber), 3, RoundingMode.HALF_DOWN);
+
+        return averagePrice;
     }
 }
