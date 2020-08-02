@@ -142,7 +142,50 @@ class OrderStats {
      * @return java.util.Optional containing the name of the most popular country
      */
     static Optional<String> mostPopularCountry(final Stream<Customer> customers) {
-        return null;
+
+        List<Optional<String>> listCountries = customers
+                .map(customer -> Optional.of(customer.getAddress().getCountry()))
+                .collect(Collectors.toList());
+
+        if (listCountries.isEmpty()) {
+            return Optional.empty();
+        }
+
+        Map<Optional<String>, Integer> stringIntegerMap = new HashMap<>();
+
+        for (Optional<String> country : listCountries) {
+            if (stringIntegerMap.containsKey(country)) {
+                stringIntegerMap.put(country, stringIntegerMap.get(country) + 1);
+            } else {
+                stringIntegerMap.put(country, 1);
+            }
+        }
+
+        Integer maxPopularity = Collections.max(stringIntegerMap.values());
+
+        List<Optional<String>> listOfMostPopularCountries = new ArrayList<>();
+
+        for (Optional<String> country : stringIntegerMap.keySet()) {
+            if (stringIntegerMap.get(country) == maxPopularity) {
+                listOfMostPopularCountries.add(country);
+            }
+        }
+
+        if (listOfMostPopularCountries.contains(Optional.empty())) {
+            return Optional.empty();
+        }
+
+        Optional<String> mostPopularCountry = Optional.empty();
+        Integer length = Integer.MAX_VALUE;
+
+        for (Optional<String> country : listOfMostPopularCountries) {
+            if (!country.equals(Optional.empty()) && country.toString().length() < length) {
+                mostPopularCountry = country;
+                length = country.toString().length();
+            }
+        }
+        
+        return mostPopularCountry;
     }
 
     /**
