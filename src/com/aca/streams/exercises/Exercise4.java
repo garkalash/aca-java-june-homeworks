@@ -15,7 +15,8 @@ import java.util.stream.Collectors;
  */
 public class Exercise4 {
     public static void main(String[] args) {
-        //implementation here
+        Exercise4 testExcersize = new Exercise4();
+        System.out.println(testExcersize.countriesByPopulationDensities_Arsen()+ "\n");
     }
 
     public static List<Country> sortCountriesByPopulation_Narek() {
@@ -29,15 +30,16 @@ public class Exercise4 {
                                 country1.getPopulation()/country1.getSurfaceArea() == country2.getPopulation()/country2.getSurfaceArea() ? 0 :
                                         country1.getPopulation()/country1.getSurfaceArea() < country2.getPopulation()/country2.getSurfaceArea() ? 1 : -1)
                 .collect(Collectors.toList());
-    }
+                }
+
 
     private List<Country> countriesByPopulationDensities_Arsen ()
     {
         CountryDao countryDao = InMemoryWorldDao.getInstance();
         return countryDao.findAllCountries()
                 .stream()
-                .filter(country -> country.getPopulation()!= 0)
-                .sorted((p1,p2) -> p2.getPopulation() - p1.getPopulation())
+                .filter(country -> country.getSurfaceArea() != 0)
+                .sorted((p1,p2) -> (int) (p2.getPopulation()/p2.getSurfaceArea() - p1.getPopulation()/p1.getSurfaceArea()))
                 .collect(Collectors.toList());
     }
 }
