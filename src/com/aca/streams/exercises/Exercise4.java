@@ -36,8 +36,8 @@ public class Exercise4 {
         CountryDao countryDao = InMemoryWorldDao.getInstance();
         return countryDao.findAllCountries()
                 .stream()
-                .filter(country -> country.getPopulation()!= 0)
-                .sorted((p1,p2) -> p2.getPopulation() - p1.getPopulation())
+                .filter(country -> country.getsurfaceArea()!= 0)
+                .sorted((p1,p2) -> p2.getPopulation()/p2.getsurfaceArea - p1.getPopulation()/p1.getsurfaceArea)
                 .collect(Collectors.toList());
     }
 }
