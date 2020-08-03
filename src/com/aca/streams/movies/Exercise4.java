@@ -6,8 +6,11 @@ import com.aca.streams.service.InMemoryMovieService;
 import com.aca.streams.service.MovieService;
 
 
+import java.lang.reflect.Array;
+import java.security.cert.CollectionCertStoreParameters;
 import java.util.*;
 
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -18,7 +21,6 @@ import java.util.stream.Collectors;
  */
 public class Exercise4 {
     public static void main(String[] args) {
-
     }
 
     private Map<Genre, Movie> sortByGroupId() {
@@ -32,7 +34,7 @@ public class Exercise4 {
 
         Map<Genre, Movie> movieGenreMap = new HashMap<>();
 
-        genreList.forEach(genre->movieService.findAllMovies().forEach(movie -> {
+        genreList.forEach(genre -> movieService.findAllMovies().forEach(movie -> {
                     if (movie.getGenres().contains(genre)) {
                         movieGenreMap.put(genre, movie);
                     }
@@ -41,4 +43,11 @@ public class Exercise4 {
 
         return movieGenreMap;
     }
+
+    public Map<Genre, List<Movie>> getMoviesByGenre_Armine() {
+        MovieService movieService = InMemoryMovieService.getInstance();
+        return movieService.findAllGenres().stream()
+                .collect(Collectors.toMap(genre -> genre, (genre) -> new ArrayList<>(movieService.findAllMoviesByGenre(genre.getName()))));
+    }
+
 }

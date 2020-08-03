@@ -1,12 +1,15 @@
 package com.aca.streams.movies;
 
 import com.aca.streams.models.Director;
+import com.aca.streams.models.Movie;
 import com.aca.streams.service.InMemoryMovieService;
 import com.aca.streams.service.MovieService;
 
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -32,4 +35,16 @@ public class Exercise1 {
 
         return moviesNumber;
     }
+
+    public Map<Director, Long> getMoviesNumberByDirector_Armine() {
+
+
+        MovieService movieService = InMemoryMovieService.getInstance();
+        return movieService.findAllMovies().stream()
+                .filter(Objects::nonNull)
+                .map(Movie::getDirectors)
+                .flatMap(Collection::stream)
+                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+    }
+
 }

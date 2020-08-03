@@ -5,6 +5,7 @@ import com.aca.streams.models.Movie;
 import com.aca.streams.service.InMemoryMovieService;
 import com.aca.streams.service.MovieService;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -30,4 +31,18 @@ public class Exercise2 {
 
         return moviesDramaComedyList;
     }
+
+    public List<Movie> finedMovesByGenreArmine (Genre genre){
+        MovieService movieService = InMemoryMovieService.getInstance();
+        return movieService.findAllMovies().stream()
+                .filter(Objects::nonNull)
+                .filter(movie -> movie.getGenres().contains(genre))
+                .collect(Collectors.toList());
+
+    }
+
+
+
+
+
 }

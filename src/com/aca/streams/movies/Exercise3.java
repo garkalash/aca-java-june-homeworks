@@ -4,8 +4,8 @@ import com.aca.streams.models.Movie;
 import com.aca.streams.service.InMemoryMovieService;
 import com.aca.streams.service.MovieService;
 
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -28,5 +28,12 @@ public class Exercise3 {
                 .collect(Collectors.toList());
 
         return moviesByYearList;
+    }
+
+    public TreeMap<Integer, List<Movie>> moviesListByYear_Armine() {
+        MovieService movieService = InMemoryMovieService.getInstance();
+       return movieService.findAllMovies().stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.groupingBy(Movie::getYear,TreeMap::new,Collectors.toList()));
     }
 }
