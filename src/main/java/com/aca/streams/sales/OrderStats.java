@@ -1,9 +1,7 @@
 package com.aca.streams.sales;
 
 import com.aca.streams.models.*;
-
 import java.math.BigDecimal;
-
 import java.math.RoundingMode;
 import java.util.*;
 import java.util.function.Function;
@@ -81,13 +79,18 @@ class OrderStats {
      * @param orders stream of orders
      * @return map, where order size values mapped to lists of orders
      */
+
     static Map<Integer, List<Order>> orderSizes_Narek(final Stream<Order> orders) {
-        return orders
+
+        Map<Integer, List<Order>> integerListMap = orders
                 .filter(Objects::nonNull)
                 .collect(Collectors.groupingBy(order -> Math.toIntExact(order.getOrderItems().stream()
                         .map(orderItem -> orderItem.getQuantity())
-                        .reduce(0, Integer::sum)), Collectors.toList()));
+                        .count()), Collectors.toList()));
+
+        return integerListMap;
     }
+
     static Map<Integer, List<Order>> orderSizes_Armine(final Stream<Order> orders) {
         return orders
                 .filter(Objects::nonNull)
@@ -96,6 +99,11 @@ class OrderStats {
                         .reduce(0, Integer::sum)), Collectors.toList()));
     }
 
+    static Map<Integer, List<Order>> orderSizes_Arsen (final Stream<Order> orders) {
+        return orders.collect(Collectors.groupingBy((quantity -> quantity.getOrderItems().stream()
+                .filter(Objects::nonNull)
+                .map(OrderItem::getQuantity).reduce(0, Integer::sum)), Collectors.toList()));
+    }
 
 
     /**
@@ -121,6 +129,11 @@ class OrderStats {
     }
 
 
+    static Boolean hasColorProduct_Arsen(final Stream<Order> orders, final Product.Color color) {
+            return orders.allMatch(order -> order.getOrderItems().stream()
+                    .anyMatch(product ->product.getProduct().getColor().equals(color)));
+    }
+
     /**
      * Task 4 (⚫⚫⚫⚫⚪)
      *
@@ -145,6 +158,16 @@ class OrderStats {
                         .map(order -> order.getPaymentInfo().getCardNumber())
                         .distinct()
                         .count()));
+    }
+
+    static Map<String, Long> cardsCountForCustomer_Arsen(final Stream<Customer> customers) {
+        return customers.collect(Collectors.toMap(Customer::getEmail, customer -> customer.getOrders().stream()
+                .filter(Objects::nonNull)
+                .map(Order::getPaymentInfo)
+                .filter(Objects::nonNull)
+                .map(PaymentInfo::getCardNumber)
+                .distinct()
+                .count()));
     }
 
 
@@ -245,10 +268,10 @@ class OrderStats {
      * Given a stream of customers, return the average product price for the provided credit card number.
      *
      * Info: If order contains the following order items:
-     * [
-     * Product1(price = 100$, quantity = 2),
-     * Product2(price = 160$, quantity = 1)
-     * ]
+     *  [
+     *      Product1(price = 100$, quantity = 2),
+     *      Product2(price = 160$, quantity = 1)
+     *  ]
      * then the average product price for this order will be 120$ ((100 * 2 + 160 * 1) / 3)
      *
      * Hint: Since product prices are represented as BigDecimal objects, you are provided with the collector implementation
