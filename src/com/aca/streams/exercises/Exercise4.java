@@ -15,8 +15,7 @@ import java.util.stream.Collectors;
  */
 public class Exercise4 {
     public static void main(String[] args) {
-        Exercise4 testExcersize = new Exercise4();
-        System.out.println(testExcersize.countriesByPopulationDensities_Arsen()+ "\n");
+        //implementation here
     }
 
     public static List<Country> sortCountriesByPopulation_Narek() {
@@ -30,8 +29,7 @@ public class Exercise4 {
                                 country1.getPopulation()/country1.getSurfaceArea() == country2.getPopulation()/country2.getSurfaceArea() ? 0 :
                                         country1.getPopulation()/country1.getSurfaceArea() < country2.getPopulation()/country2.getSurfaceArea() ? 1 : -1)
                 .collect(Collectors.toList());
-                }
-
+    }
 
     private List<Country> countriesByPopulationDensities_Arsen ()
     {
