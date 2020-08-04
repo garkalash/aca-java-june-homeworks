@@ -97,7 +97,7 @@ class OrderStats {
                 .filter(Objects::nonNull)
                 .collect(Collectors.groupingBy(order -> Math.toIntExact(order.getOrderItems().stream()
                         .map(orderItem -> orderItem.getQuantity())
-                        .count()), Collectors.toList()));
+                        .reduce(0, Integer::sum)), Collectors.toList()));
 
         return integerListMap;
     }
@@ -400,7 +400,7 @@ class OrderStats {
         BigDecimal averagePrice = orderItemListByCardNumber.stream()
                 .map(orderItem -> orderItem.getProduct().getPrice().multiply(BigDecimal.valueOf(orderItem.getQuantity())))
                 .reduce(BigDecimal.ZERO, BigDecimal::add)
-                .divide(BigDecimal.valueOf(productsQuantityByCardNumber), 3, RoundingMode.HALF_DOWN);
+                .divide(BigDecimal.valueOf(productsQuantityByCardNumber), 3);
 
         return averagePrice;
     }
