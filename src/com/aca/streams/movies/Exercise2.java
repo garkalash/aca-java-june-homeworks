@@ -1,11 +1,9 @@
 package com.aca.streams.movies;
 
-import com.aca.streams.models.Genre;
-import com.aca.streams.models.Movie;
+import com.aca.streams.models.*;
 import com.aca.streams.service.InMemoryMovieService;
 import com.aca.streams.service.MovieService;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -18,31 +16,18 @@ import java.util.stream.Collectors;
  */
 public class Exercise2 {
     public static void main(String[] args) {
-
+        Exercise2 testExercise = new Exercise2();
+        System.out.println(testExercise.moviesByGenre_Arsen());
     }
 
-    private List<Movie> listOfDramaAndComedy() {
+    public List<Movie> moviesByGenre_Arsen() {
         MovieService movieService = InMemoryMovieService.getInstance();
-
-        List<Movie> moviesDramaComedyList = movieService.findAllMovies().stream()
-                .filter(Objects::nonNull)
-                .filter(movie -> movie.getGenres().contains(new Genre(2, "Drama")) && movie.getGenres().contains(new Genre(1,"Comedy")))
-                .collect(Collectors.toList());
-
-        return moviesDramaComedyList;
+            Genre drama = new Genre(2,"Drama");
+            Genre comedy = new Genre(1,"Comedy");
+            return movieService.findAllMovies().stream()
+                    .filter(Objects::nonNull)
+                    .filter(movie -> movie.getGenres().contains(drama) && movie.getGenres().contains(comedy))
+                    .collect(Collectors.toList());
     }
-
-    public List<Movie> finedMovesByGenreArmine (Genre genre){
-        MovieService movieService = InMemoryMovieService.getInstance();
-        return movieService.findAllMovies().stream()
-                .filter(Objects::nonNull)
-                .filter(movie -> movie.getGenres().contains(genre))
-                .collect(Collectors.toList());
-
-    }
-
-
-
-
-
 }
+

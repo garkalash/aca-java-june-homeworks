@@ -1,11 +1,9 @@
 package com.aca.streams.movies;
 
 import com.aca.streams.models.Movie;
-import com.aca.streams.service.InMemoryMovieService;
-import com.aca.streams.service.MovieService;
+import com.aca.streams.service.*;
 
 import java.util.*;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -16,7 +14,8 @@ import java.util.stream.Collectors;
  */
 public class Exercise3 {
     public static void main(String[] args) {
-
+        Exercise3 testExercise = new Exercise3();
+        System.out.print(testExercise.groupMoviesByYear_Arsen());
     }
 
     private List<Movie> listMoviesByYear() {
@@ -35,5 +34,13 @@ public class Exercise3 {
        return movieService.findAllMovies().stream()
                 .filter(Objects::nonNull)
                 .collect(Collectors.groupingBy(Movie::getYear,TreeMap::new,Collectors.toList()));
+    }
+
+    public Map<Integer, List<Movie>> groupMoviesByYear_Arsen() {
+        MovieService movieService = InMemoryMovieService.getInstance();
+        return movieService.findAllMovies().stream()
+                .filter(Objects::nonNull)
+                .sorted(Comparator.comparingInt(Movie::getYear))
+                .collect(Collectors.groupingBy(Movie::getYear, Collectors.toList()));
     }
 }

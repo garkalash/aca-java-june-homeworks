@@ -1,15 +1,10 @@
 package com.aca.streams.movies;
 
-import com.aca.streams.models.Director;
-import com.aca.streams.models.Movie;
-import com.aca.streams.service.InMemoryMovieService;
-import com.aca.streams.service.MovieService;
+import com.aca.streams.models.*;
+import com.aca.streams.service.*;
 
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Map;
-import java.util.Objects;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 /**
@@ -21,30 +16,15 @@ import java.util.stream.Collectors;
  */
 public class Exercise1 {
     public static void main(String[] args) {
-
+        Exercise1 testExcersize = new Exercise1();
+        System.out.println(testExcersize.numberOfMoviesByDirector());
     }
 
-    private Map<Director, Long> numberOfMoviesByDirector() {
-        MovieService movieService = InMemoryMovieService.getInstance();
-
-        Map<Director, Long> moviesNumber = movieService.findAllMovies().stream()
-                .filter(Objects::nonNull)
-                .map(movie -> movie.getDirectors())
-                .flatMap(Collection::stream)
-                .collect(Collectors.groupingBy(director -> director, Collectors.counting()));
-
-        return moviesNumber;
-    }
-
-    public Map<Director, Long> getMoviesNumberByDirector_Armine() {
-
-
+    public Map<Director, Long> numberOfMoviesByDirector () {
         MovieService movieService = InMemoryMovieService.getInstance();
         return movieService.findAllMovies().stream()
-                .filter(Objects::nonNull)
                 .map(Movie::getDirectors)
                 .flatMap(Collection::stream)
-                .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+                .collect(Collectors.groupingBy(director -> director, Collectors.counting() ));
     }
-
 }

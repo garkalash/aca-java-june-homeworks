@@ -5,9 +5,6 @@ import com.aca.streams.models.Movie;
 import com.aca.streams.service.InMemoryMovieService;
 import com.aca.streams.service.MovieService;
 
-
-import java.lang.reflect.Array;
-import java.security.cert.CollectionCertStoreParameters;
 import java.util.*;
 
 import java.util.function.Function;
@@ -21,7 +18,10 @@ import java.util.stream.Collectors;
  */
 public class Exercise4 {
     public static void main(String[] args) {
+        Exercise4 testExercise = new Exercise4();
+        System.out.println(testExercise.moviesByGenre_Arsen());
     }
+
 
     private Map<Genre, Movie> sortByGroupId() {
         MovieService movieService = InMemoryMovieService.getInstance();
@@ -50,4 +50,10 @@ public class Exercise4 {
                 .collect(Collectors.toMap(genre -> genre, (genre) -> new ArrayList<>(movieService.findAllMoviesByGenre(genre.getName()))));
     }
 
+    public Map<Genre, List<Movie>> moviesByGenre_Arsen() {
+        MovieService movieService = InMemoryMovieService.getInstance();
+        return movieService.findAllGenres().stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.toMap(genre -> genre, movie -> new ArrayList<>(movieService.findAllMoviesByGenre(movie.getName()))));
+    }
 }
