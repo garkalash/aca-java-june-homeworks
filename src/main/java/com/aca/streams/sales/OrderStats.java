@@ -1,6 +1,9 @@
 package com.aca.streams.sales;
 
 import com.aca.streams.models.*;
+
+import javax.swing.text.html.Option;
+import javax.swing.text.html.parser.Entity;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
@@ -30,7 +33,7 @@ class OrderStats {
      * @param cardType credit card type
      * @return list, containing orders paid with provided card type
      */
-    static List<Order> ordersForCardTypeN(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
+    static List<Order> ordersForCardTypeNare(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
         List<Order> orders = new ArrayList<>();
         customers.forEach(customer -> {
            customer.getOrders().stream().forEach(order -> {
@@ -104,6 +107,14 @@ class OrderStats {
                 .filter(Objects::nonNull)
                 .map(OrderItem::getQuantity).reduce(0, Integer::sum)), Collectors.toList()));
     }
+    static Map<Integer, List<Order>> orderSizesNare(final Stream<Order> orders) {
+
+        Map<Integer,List<Order>> ordersBySize =orders.filter(Objects::nonNull).collect(Collectors.groupingBy(order -> order.getOrderItems().stream().collect(Collectors.summingInt(OrderItem::getQuantity)),Collectors.toList()));
+        return ordersBySize;
+    }
+
+
+
 
 
     /**
@@ -116,11 +127,13 @@ class OrderStats {
      * @param color product color to test
      * @return boolean, representing if every order in the stream contains product of specified color
      */
+
+
     static Boolean hasColorProduct_Narek(final Stream<Order> orders, final Product.Color color) {
 
         return orders.allMatch(order -> order.getOrderItems()
-                        .stream()
-                        .anyMatch(orderItem -> orderItem.getProduct().getColor() == color));
+                .stream()
+                .anyMatch(orderItem -> orderItem.getProduct().getColor() == color));
     }
     static Boolean hasColorProduct_Armine(final Stream<Order> orders, final Product.Color color) {
         return orders
@@ -130,9 +143,22 @@ class OrderStats {
 
 
     static Boolean hasColorProduct_Arsen(final Stream<Order> orders, final Product.Color color) {
-            return orders.allMatch(order -> order.getOrderItems().stream()
-                    .anyMatch(product ->product.getProduct().getColor().equals(color)));
+        return orders.allMatch(order -> order.getOrderItems().stream()
+                .anyMatch(product ->product.getProduct().getColor().equals(color)));
     }
+
+    static Boolean hasColorProductNare(final Stream<Order> orders, final Product.Color color) {
+
+        return orders.filter(Objects::nonNull).allMatch(order -> order.getOrderItems().stream().anyMatch(orderItem -> orderItem.getProduct().getColor() == color
+        ));
+
+    }
+
+
+
+
+
+
 
     /**
      * Task 4 (⚫⚫⚫⚫⚪)
@@ -142,14 +168,15 @@ class OrderStats {
      * @param customers stream of customers
      * @return map, where for each customer email there is a long referencing a number of different credit cards this customer uses.
      */
+
     static Map<String, Long> cardsCountForCustomer_Narek(final Stream<Customer> customers) {
-       return customers
+        return customers
                 .collect(Collectors.toMap(customer -> customer.getEmail(),
                         customer -> customer.getOrders()
-                        .stream()
-                        .map(order -> order.getPaymentInfo())
-                        .distinct()
-                        .count()
+                                .stream()
+                                .map(order -> order.getPaymentInfo())
+                                .distinct()
+                                .count()
                 ));
     }
     static Map<String, Long> cardsCountForCustomer_Armine(final Stream<Customer> customers) {
@@ -168,6 +195,20 @@ class OrderStats {
                 .map(PaymentInfo::getCardNumber)
                 .distinct()
                 .count()));
+    }
+
+
+    static Map<String, Long> cardsCountForCustomerNare(final Stream<Customer> customers) {
+        Map<String, Long> cardsCount =customers
+                .filter(Objects::nonNull)
+                .collect(Collectors.toMap(o -> o.getEmail(),o -> o.getOrders().stream().map(order -> order.getPaymentInfo().getCardNumber())))
+                .entrySet()
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey, stringStreamEntry -> stringStreamEntry.getValue().distinct().count()));
+
+
+        return cardsCount;
+
     }
 
 
@@ -192,6 +233,7 @@ class OrderStats {
      * @param customers stream of customers
      * @return java.util.Optional containing the name of the most popular country
      */
+
     static Optional<String> mostPopularCountry_Narek(final Stream<Customer> customers) {
 
         List<Optional<String>> listCountries = customers
@@ -258,6 +300,27 @@ class OrderStats {
                 .map(Map.Entry::getKey);
 
     }
+
+    static Optional<String> mostPopularCountryNare(final Stream<Customer> customers) {
+
+        Optional<Map.Entry<String, Long>> stringOptional= customers.
+                filter(Objects::nonNull).
+                collect(Collectors.groupingBy(customer -> customer.getAddress().getCountry(), Collectors.counting())).
+                entrySet().
+                stream().
+                max((o1, o2) -> {
+                    if(o1.getValue().equals(o2.getValue())) {
+                        return o1.getKey().length() - o2.getKey().length();
+                    }
+                    return Math.toIntExact(o1.getValue() - o2.getValue());
+                });
+        if(stringOptional.isPresent()) {
+            return Optional.of(stringOptional.get().getKey());
+        }
+
+        return Optional.empty();
+    }
+
 
 
 
@@ -332,5 +395,64 @@ class OrderStats {
                 .divide(BigDecimal.valueOf(productsQuantityByCardNumber), 3, RoundingMode.HALF_DOWN);
 
         return averagePrice;
+    }
+
+
+    static BigDecimal averageProductPriceForCreditCard_NareFirstSolution(final Stream<Customer> customers, final String cardNumber) {
+
+
+        Double average =customers.
+                filter(Objects::nonNull).
+                map(customer -> customer.
+                        getOrders()).
+                flatMap(Collection::stream).
+                filter(order -> order.getPaymentInfo().getCardNumber().equals(cardNumber)).
+                map(order -> order.getOrderItems()).
+                flatMap(Collection::stream)
+                .collect(Collectors.collectingAndThen(Collectors.toSet(), orderItems -> {
+                    Double sum =orderItems
+                            .parallelStream()
+                            .mapToDouble(value -> value.getProduct().getPrice().multiply(BigDecimal.valueOf(value.getQuantity())).doubleValue()).sum();
+                    Double qty = orderItems.parallelStream().mapToDouble(value -> value.getQuantity().doubleValue()).sum();
+                    Double division = sum/qty;
+                    return division;
+                }));
+
+
+        return BigDecimal.valueOf(average);
+
+
+    }
+
+
+    static BigDecimal averageProductPriceForCreditCard_NareSecondSolution(final Stream<Customer> customers, final String cardNumber) {
+        final ResultContainer resultContainer = new ResultContainer();
+        customers.
+                filter(Objects::nonNull).
+                map(customer -> customer.
+                        getOrders()).
+
+                flatMap(Collection::stream).
+                filter(order -> order.getPaymentInfo().getCardNumber().equals(cardNumber)).
+                map(order -> order.getOrderItems()).
+                flatMap(Collection::stream)
+                .forEach(orderItem -> resultContainer.add(orderItem.getProduct().getPrice(), orderItem.getQuantity()));
+        return resultContainer.average();
+    }
+
+
+
+}
+class ResultContainer{
+    private BigDecimal sum = BigDecimal.ZERO;
+    private Integer qty = 0;
+
+    public  void add(BigDecimal _sum, Integer _qty){
+        sum = sum.add(_sum);
+        qty = qty + _qty;
+    }
+
+    public BigDecimal average(){
+        return sum.divide(BigDecimal.valueOf(qty.doubleValue()), RoundingMode.HALF_EVEN).setScale(2, RoundingMode.HALF_EVEN);
     }
 }
