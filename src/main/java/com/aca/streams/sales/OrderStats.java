@@ -73,6 +73,14 @@ class OrderStats {
                 .collect(Collectors.toList());
     }
 
+    static List<Order> ordersForCardType_Raf(final Stream<Customer> customers, PaymentInfo.CardType cardType) {
+        return customers
+                .map(Customer::getOrders)
+                .flatMap(Collection::stream)
+                .filter(order -> order.getPaymentInfo().getCardType() == cardType)
+                .collect(Collectors.toList());
+    }
+
     /**
      * Task 2 (⚫⚫⚪⚪⚪)
      *
