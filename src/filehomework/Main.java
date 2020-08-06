@@ -27,7 +27,7 @@ public class Main {
             }
         }
         for (File copyFile : copyFiles) {
-            copiedFilePath = Paths.get("file\\newFile\\" + copyFile.getName()+"copy");
+            copiedFilePath = Paths.get("file\\newFile\\" + copyFile.getName());
             try {
                 Files.copy(copyFile.toPath(), copiedFilePath, StandardCopyOption.COPY_ATTRIBUTES);
             } catch (IOException e) {
