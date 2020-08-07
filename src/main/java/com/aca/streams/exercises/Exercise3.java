@@ -28,4 +28,14 @@ public class Exercise3 {
                 .sorted((country1, country2) -> country2.getCities().size() - country1.getCities().size())
                 .collect(Collectors.toList());
     }
+
+    public List<Country> sortCountriesByNumberOfCities_Armine() {
+        CountryDao countryDao = InMemoryWorldDao.getInstance();
+        return countryDao.findAllCountries().stream()
+                .filter(Objects::nonNull)
+                .filter(country -> country.getCities() != null)
+                .sorted((country1, country2) -> country2.getCities().size() - country1.getCities().size())
+                .collect(Collectors.toList());
+    }
+
 }

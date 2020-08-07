@@ -31,4 +31,15 @@ public class Exercise4 {
                                                 country1.getPopulation()/country1.getSurfaceArea() < country2.getPopulation()/country2.getSurfaceArea() ? 1 : -1)
                 .collect(Collectors.toList());
     }
+
+    public List<Country> sortCountriesByPopulation_Armine() {
+        CountryDao countryDao = InMemoryWorldDao.getInstance();
+        return countryDao.findAllCountries().stream()
+                .filter(Objects::nonNull)
+                .filter(country -> country.getPopulation() != 0)
+                .sorted((country1, country2) -> country2.getPopulation() - country1.getPopulation())
+                .collect(Collectors.toList());
+
+    }
+
 }
