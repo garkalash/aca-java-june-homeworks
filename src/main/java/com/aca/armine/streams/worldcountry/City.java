@@ -1,4 +1,4 @@
-package strem.worldcountry;
+package com.aca.armine.streams.worldcountry;
 
 public class City {
     private int id;
