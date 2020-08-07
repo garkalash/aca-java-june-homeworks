@@ -1,0 +1,30 @@
+{"Average rise":"$107.47799999999995","Total spend for raise":"$214.9559999999999","Section":"QA","Older than 50":2,"Total workers":7},
+{"Average rise":"$90.03550000000001","Total spend for raise":"$360.14200000000005","Section":"Development","Older than 50":4,"Total workers":14},
+{"Average rise":"$62.11733333333333","Total spend for raise":"$186.35199999999998","Section":"Management","Older than 50":3,"Total workers":10},
+{{"Most costly section":"Development"}}
+{"Maximum salary increase":Optional[
+Employee{
+id=5f2cf5c49eaff69e78d70bcc
+index=22
+balance=$1,925.33
+salary=$1,239.85
+age=55
+email=arlinebartlett@velos.com
+phone=+1 (879) 412-3260
+birthDay=2017-08-19T11:02:03 -04:00
+section=Development
+}
+]}
+{"Minimum salary increase":Optional[
+Employee{
+id=5f2cf5c4ffce544da58497e0
+index=6
+balance=$2,194.41
+salary=$562.88
+age=55
+email=arlinebartlett@velos.com
+phone=+1 (910) 579-2059
+birthDay=2020-01-30T04:03:48 -04:00
+section=Management
+}
+]}

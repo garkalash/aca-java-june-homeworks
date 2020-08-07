@@ -1,0 +1,337 @@
+[
+Employee{
+id=5f2cf5c4fbb49a6ff66288c9
+index=1
+balance=$1,754.92
+salary=$1063.854
+age=55
+email=arlinebartlett@velos.com
+phone=+1 (960) 407-3679
+birthDay=2019-08-10T10:54:37 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c4ef6a887c73aaf754
+index=2
+balance=$3,630.20
+salary=$1,655.04
+age=22
+email=arlinebartlett@velos.com
+phone=+1 (865) 555-3026
+birthDay=2016-08-07T04:28:36 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c48f41371e258542b5
+index=5
+balance=$2,058.07
+salary=$1,325.46
+age=26
+email=arlinebartlett@velos.com
+phone=+1 (897) 480-2977
+birthDay=2017-02-23T02:59:23 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c42459c5cc9e9eead0
+index=9
+balance=$1,251.60
+salary=$730.42
+age=30
+email=arlinebartlett@velos.com
+phone=+1 (918) 431-3771
+birthDay=2016-08-25T08:48:14 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c4b029f0b8e8c14fa5
+index=11
+balance=$2,080.04
+salary=$1,079.55
+age=25
+email=arlinebartlett@velos.com
+phone=+1 (977) 425-2038
+birthDay=2017-12-26T12:37:08 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c46b888bdf3718cd5f
+index=12
+balance=$2,675.47
+salary=$1,672.98
+age=30
+email=arlinebartlett@velos.com
+phone=+1 (933) 426-3612
+birthDay=2018-07-27T11:02:00 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c4fed6bc90fb88e5ee
+index=14
+balance=$3,985.23
+salary=$776.831
+age=54
+email=arlinebartlett@velos.com
+phone=+1 (891) 436-3844
+birthDay=2020-05-01T11:41:18 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c4d1bd1f8b8742cdfa
+index=16
+balance=$2,479.56
+salary=$1,262.50
+age=23
+email=arlinebartlett@velos.com
+phone=+1 (854) 492-3519
+birthDay=2017-05-06T10:36:36 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c4d368c69f2838da95
+index=17
+balance=$2,314.10
+salary=$757.0419999999999
+age=54
+email=arlinebartlett@velos.com
+phone=+1 (925) 519-3470
+birthDay=2014-11-22T05:11:01 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c49eaff69e78d70bcc
+index=22
+balance=$1,925.33
+salary=$1363.835
+age=55
+email=arlinebartlett@velos.com
+phone=+1 (879) 412-3260
+birthDay=2017-08-19T11:02:03 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c4c96c6b86304974d6
+index=24
+balance=$3,793.81
+salary=$1,110.02
+age=45
+email=arlinebartlett@velos.com
+phone=+1 (939) 546-2506
+birthDay=2018-03-19T12:27:19 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c47a6de5c8486a873c
+index=26
+balance=$2,651.73
+salary=$1,480.20
+age=49
+email=arlinebartlett@velos.com
+phone=+1 (814) 581-2601
+birthDay=2020-05-30T11:53:12 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c43a3e0dbaf717b3b7
+index=27
+balance=$1,952.85
+salary=$1,386.89
+age=41
+email=arlinebartlett@velos.com
+phone=+1 (917) 600-2924
+birthDay=2014-12-05T10:02:23 -04:00
+section=Development
+}
+, 
+Employee{
+id=5f2cf5c49d19d4182e66f69c
+index=28
+balance=$1,534.69
+salary=$1,329.90
+age=29
+email=arlinebartlett@velos.com
+phone=+1 (869) 491-2480
+birthDay=2014-02-20T09:44:29 -04:00
+section=Development
+}
+]{"Development":[
+Employee{
+id=5f2cf5c4fbb49a6ff66288c9
+index=1
+balance=$1,754.92
+salary=$1063.854
+age=55
+email=arlinebartlett@velos.com
+phone=+1 (960) 407-3679
+birthDay=2019-08-10T10:54:37 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c4ef6a887c73aaf754
+index=2
+balance=$3,630.20
+salary=$1,655.04
+age=22
+email=arlinebartlett@velos.com
+phone=+1 (865) 555-3026
+birthDay=2016-08-07T04:28:36 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c48f41371e258542b5
+index=5
+balance=$2,058.07
+salary=$1,325.46
+age=26
+email=arlinebartlett@velos.com
+phone=+1 (897) 480-2977
+birthDay=2017-02-23T02:59:23 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c42459c5cc9e9eead0
+index=9
+balance=$1,251.60
+salary=$730.42
+age=30
+email=arlinebartlett@velos.com
+phone=+1 (918) 431-3771
+birthDay=2016-08-25T08:48:14 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c4b029f0b8e8c14fa5
+index=11
+balance=$2,080.04
+salary=$1,079.55
+age=25
+email=arlinebartlett@velos.com
+phone=+1 (977) 425-2038
+birthDay=2017-12-26T12:37:08 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c46b888bdf3718cd5f
+index=12
+balance=$2,675.47
+salary=$1,672.98
+age=30
+email=arlinebartlett@velos.com
+phone=+1 (933) 426-3612
+birthDay=2018-07-27T11:02:00 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c4fed6bc90fb88e5ee
+index=14
+balance=$3,985.23
+salary=$776.831
+age=54
+email=arlinebartlett@velos.com
+phone=+1 (891) 436-3844
+birthDay=2020-05-01T11:41:18 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c4d1bd1f8b8742cdfa
+index=16
+balance=$2,479.56
+salary=$1,262.50
+age=23
+email=arlinebartlett@velos.com
+phone=+1 (854) 492-3519
+birthDay=2017-05-06T10:36:36 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c4d368c69f2838da95
+index=17
+balance=$2,314.10
+salary=$757.0419999999999
+age=54
+email=arlinebartlett@velos.com
+phone=+1 (925) 519-3470
+birthDay=2014-11-22T05:11:01 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c49eaff69e78d70bcc
+index=22
+balance=$1,925.33
+salary=$1363.835
+age=55
+email=arlinebartlett@velos.com
+phone=+1 (879) 412-3260
+birthDay=2017-08-19T11:02:03 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c4c96c6b86304974d6
+index=24
+balance=$3,793.81
+salary=$1,110.02
+age=45
+email=arlinebartlett@velos.com
+phone=+1 (939) 546-2506
+birthDay=2018-03-19T12:27:19 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c47a6de5c8486a873c
+index=26
+balance=$2,651.73
+salary=$1,480.20
+age=49
+email=arlinebartlett@velos.com
+phone=+1 (814) 581-2601
+birthDay=2020-05-30T11:53:12 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c43a3e0dbaf717b3b7
+index=27
+balance=$1,952.85
+salary=$1,386.89
+age=41
+email=arlinebartlett@velos.com
+phone=+1 (917) 600-2924
+birthDay=2014-12-05T10:02:23 -04:00
+section=Development
+}
+,
+Employee{
+id=5f2cf5c49d19d4182e66f69c
+index=28
+balance=$1,534.69
+salary=$1,329.90
+age=29
+email=arlinebartlett@velos.com
+phone=+1 (869) 491-2480
+birthDay=2014-02-20T09:44:29 -04:00
+section=Development
+}
+]}
