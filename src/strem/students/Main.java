@@ -1,5 +1,7 @@
 package strem.students;
 
+import com.aca.armine.collections.studentslist.Lesson;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
