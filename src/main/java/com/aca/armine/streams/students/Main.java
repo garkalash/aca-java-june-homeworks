@@ -1,4 +1,4 @@
-package strem.students;
+package com.aca.armine.streams.students;
 
 import com.aca.armine.collections.studentslist.Lesson;
 
