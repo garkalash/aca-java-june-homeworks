@@ -1,5 +1,22 @@
 package com.aca.files;
 
+import com.aca.armine.serialization.Employee;
+import com.aca.files.model.Car;
+import com.aca.files.model.SalesItem;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 import com.aca.files.model.SoldItem;
 import com.aca.files.utility.JsonBuilder;
 import com.google.gson.reflect.TypeToken;
@@ -58,6 +75,38 @@ public class SalesService {
     /* 13 given price range return list of items*/
     /* 14 given power range return list of items*/
     /* 15 given power range return list of items*/
+
+    public List<SalesItem> convertFromJson(String jsonFilePath) {
+        Path path = Paths.get(jsonFilePath);
+        Gson gson = new Gson();
+        File file = path.toFile();
+        List<SalesItem> salesItems = null;
+        try (Reader reader = new FileReader(file)) {
+           salesItems = gson.fromJson(reader, new TypeToken<List<SalesItem>>() {
+            }.getType());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return salesItems;
+    }
+    public Car getMostExpensiveCar (List<SalesItem> salesItems) {
+        Map<Car, Double> carListByPrice = salesItems.stream()
+                .collect(Collectors.toMap(SalesItem::getCar, salesItem -> Double.parseDouble((salesItem.getPrice()).replaceAll("[^0-9.]", ""))));
+        return carListByPrice.entrySet().stream()
+                .max(Map.Entry.comparingByValue()).get().getKey();
+
+    }
+
+    public static void main(String[] args) {
+        Path path = Paths.get("src/main/resources/car_sales.json");
+        SalesService salesService = new SalesService();
+        List<SalesItem> salesItems =  salesService.convertFromJson(path.toString());
+
+        System.out.println( salesService.getMostExpensiveCar(salesItems).getModel());
+
+
+    }
 
 
 }
