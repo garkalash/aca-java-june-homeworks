@@ -1,16 +1,13 @@
 package com.aca.files;
 
 import com.aca.files.model.FileIsEmptyException;
-import com.aca.files.model.SalesItem;
+import com.aca.files.model.SoldItem;
+import com.aca.files.utility.JsonBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.Reader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.io.*;
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,6 +17,11 @@ import java.util.stream.Collectors;
  * @created: 8/8/2020, 9:11 AM
  */
 public class SalesService {
+    private List<SoldItem> soldItems;
+
+    public SalesService() {
+        soldItems = readFromJson();
+    }
 
     /* 1 Get the most expensive sold car*/
     /* 2 Get the cheapest sold car*/
@@ -45,64 +47,75 @@ public class SalesService {
     /* 14 given power range return list of items*/
     /* 15 given power range return list of items*/
 
-    public List<SalesItem> convertFromJson() {
+    private List<SoldItem> readFromJson() {
         File file = new File(
                 Objects.requireNonNull(SalesService.class.getClassLoader().getResource("car_sales.json")).getFile());
-        Gson gson = new Gson();
-        List<SalesItem>   salesItems = null;
-         try (Reader reader = new FileReader(file)) {
-        salesItems = gson.fromJson(reader, new TypeToken<List<SalesItem>>() {
+        Gson gson = JsonBuilder.GSON_INSTANCE();
+        List<SoldItem> soldItems = null;
+        try (Reader reader = new FileReader(file)) {
+            soldItems = gson.fromJson(reader, new TypeToken<List<SoldItem>>() {
             }.getType());
 
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Optional<List<SalesItem>> optionalSalesItemsList = Optional.ofNullable(salesItems);
-         if(optionalSalesItemsList.isPresent()){
-             return salesItems;
-         }else {
-             throw new FileIsEmptyException("File is Empty");
-         }
+        Optional<List<SoldItem>> optionalSoldItemsList = Optional.ofNullable(soldItems);
+        if (optionalSoldItemsList.isPresent()) {
+            return soldItems;
+        } else {
+            throw new FileIsEmptyException("File is Empty");
+        }
+    }
+
+    private void writeInJson(List<SoldItem> soldItems, String fileName) {
+        File file = new File("src/main/resources/" + fileName);
+        Gson gson = JsonBuilder.GSON_INSTANCE2();
+        try (Writer writer = new FileWriter(file)) {
+            gson.toJson(soldItems, new TypeToken<List<SoldItem>>() {
+            }.getType(), writer);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /* 1 Get the most expensive sold car*/
-    public String getMostExpensiveCar(List<SalesItem> salesItems) {
-        SalesItem mostExpensiveCar = salesItems.stream()
+    public String getMostExpensiveCar() {
+        SoldItem mostExpensiveCar = soldItems.stream()
                 .filter(Objects::nonNull)
-                .max(Comparator.comparing(salesItem -> Double.parseDouble((salesItem.getPrice()).replaceAll("[^0-9.]", "")))).get();
+                .max(Comparator.comparing(SoldItem::getPrice)).get();
         return mostExpensiveCar.getCar().getModel();
-
     }
 
     /* 6 Get the newest year*/
-    public String getLastSellingDate(List<SalesItem> salesItems) {
-        SalesService salesService = new SalesService();
-        return salesItems.stream()
+    public LocalDateTime getLastSellingDate() {
+        return soldItems.stream()
                 .filter(Objects::nonNull)
-                .max(Comparator.comparing(salesItem -> salesService.convertStringToDate(salesItem.getSoldDate()))).get().getSoldDate();
-
-    }
-
-    public Date convertStringToDate(String dateByString) {
-        dateByString = dateByString.replaceAll("[A-Z]", " ");
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        try {
-            return formatter.parse(dateByString);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
+                .max(Comparator.comparing(SoldItem::getSoldDate)).get().getSoldDate();
     }
 
 
     /* 11 given model return list of items*/
-    public List<SalesItem> getItemsListByModel(String model) {
-        SalesService salesService = new SalesService();
-        List<SalesItem> salesItems = salesService.convertFromJson();
-        return salesItems.stream()
+    public List<SoldItem> getItemsListByModel(String model) {
+        return soldItems.stream()
                 .filter(Objects::nonNull)
-                .filter(salesItem -> salesItem.getCar().getModel().equals(model))
+                .filter(soldItem -> soldItem.getCar().getModel().equals(model))
                 .collect(Collectors.toList());
+    }
+
+
+    /* 16
+     */
+    public void writeSoldItemsInFileByModel() {
+        List<String> carModels = soldItems.stream()
+                .map(soldItem -> soldItem.getCar().getModel())
+                .distinct()
+                .collect(Collectors.toList());
+        for (String carModel : carModels) {
+            List<SoldItem> list = getItemsListByModel(carModel);
+            writeInJson(list,carModel.concat(".json"));
+        }
+
     }
 
 }
