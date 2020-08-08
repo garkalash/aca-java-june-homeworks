@@ -28,7 +28,7 @@ public class SalesService {
     }
 
     public void read(){
-        try (Reader reader = new FileReader(new File("D:\\project\\lvl_course_homeworks\\src\\main\\resources\\car_sales.json"))) {
+        try (Reader reader = new FileReader(new File("YOUR_PATH"))) {
             List<SoldItem> salesItems = JsonBuilder.GSON_INSTANCE().fromJson(reader, new TypeToken<List<SoldItem>>() {
             }.getType());
             System.out.println(salesItems);
