@@ -1,4 +1,4 @@
-package com.aca.naresilanyan.homework;
+package com.aca.naresilanyan.oopHomework;
 
 public class Main {
 }

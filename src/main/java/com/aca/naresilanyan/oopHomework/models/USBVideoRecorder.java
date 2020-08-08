@@ -1,4 +1,4 @@
-package com.aca.naresilanyan.homework.models;
+package com.aca.naresilanyan.oopHomework.models;
 
 import java.util.List;
 

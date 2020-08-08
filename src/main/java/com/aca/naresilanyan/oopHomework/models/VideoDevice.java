@@ -1,4 +1,4 @@
-package com.aca.naresilanyan.homework.models;
+package com.aca.naresilanyan.oopHomework.models;
 
 public interface VideoDevice {
     final static String hd = "HD";

@@ -1,8 +1,5 @@
-package com.aca.naresilanyan.homework.models;
+package com.aca.naresilanyan.oopHomework.models;
 
-import com.aca.naresilanyan.homework.models.AudioDevice;
-import com.aca.naresilanyan.homework.models.Gadget;
-import com.aca.naresilanyan.homework.models.VideoDevice;
 
 import java.util.*;
 import java.util.logging.Logger;
