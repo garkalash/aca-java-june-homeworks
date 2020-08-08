@@ -1,0 +1,2319 @@
+[
+  {
+    "_id": "5f2e323be953c1e0df570b23",
+    "price": "$8,138.46",
+    "soldDate": "2020-08-27T11:00:50.544Z",
+    "buyer": {
+      "first": "Fischer",
+      "last": "Madden",
+      "phone": "+374 (883) 525-3685"
+    },
+    "seller": {
+      "first": "Daugherty",
+      "last": "Kramer",
+      "phone": "+374 (883) 403-2455"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 251,
+      "carYear": 2009,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b2c134081040967b3",
+    "price": "$9,868.67",
+    "soldDate": "2020-08-28T01:43:57.039Z",
+    "buyer": {
+      "first": "Darla",
+      "last": "Murphy",
+      "phone": "+374 (898) 592-3590"
+    },
+    "seller": {
+      "first": "Pate",
+      "last": "Sharpe",
+      "phone": "+374 (817) 502-2515"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 144,
+      "carYear": 2007,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b965f7522c242762e",
+    "price": "$7,340.46",
+    "soldDate": "2020-08-23T00:48:29.064Z",
+    "buyer": {
+      "first": "Elvira",
+      "last": "Fitzgerald",
+      "phone": "+374 (908) 570-2839"
+    },
+    "seller": {
+      "first": "Jackson",
+      "last": "Gentry",
+      "phone": "+374 (886) 470-2740"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 345,
+      "carYear": 2005,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b9100901afa17ca11",
+    "price": "$8,926.07",
+    "soldDate": "2020-08-30T06:28:49.499Z",
+    "buyer": {
+      "first": "Alyce",
+      "last": "Wolf",
+      "phone": "+374 (999) 553-3465"
+    },
+    "seller": {
+      "first": "Laura",
+      "last": "Barnett",
+      "phone": "+374 (867) 593-3492"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 126,
+      "carYear": 2002,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b5f5a811643e011b1",
+    "price": "$10,670.90",
+    "soldDate": "2020-08-12T10:41:45.215Z",
+    "buyer": {
+      "first": "Parker",
+      "last": "Simon",
+      "phone": "+374 (858) 591-2322"
+    },
+    "seller": {
+      "first": "Rios",
+      "last": "Leblanc",
+      "phone": "+374 (929) 599-2765"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 468,
+      "carYear": 2000,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b5aa6b6430122e0f3",
+    "price": "$5,207.37",
+    "soldDate": "2020-08-17T00:03:50.238Z",
+    "buyer": {
+      "first": "Rita",
+      "last": "Cooley",
+      "phone": "+374 (961) 407-3464"
+    },
+    "seller": {
+      "first": "Mathis",
+      "last": "Noel",
+      "phone": "+374 (917) 400-3957"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 298,
+      "carYear": 1999,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323be77d31d586054202",
+    "price": "$11,075.75",
+    "soldDate": "2020-08-19T01:32:15.201Z",
+    "buyer": {
+      "first": "Charles",
+      "last": "Copeland",
+      "phone": "+374 (885) 503-3097"
+    },
+    "seller": {
+      "first": "Ashlee",
+      "last": "Holloway",
+      "phone": "+374 (814) 543-3360"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 208,
+      "carYear": 2015,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bbf37e79244024f31",
+    "price": "$6,491.89",
+    "soldDate": "2020-08-28T04:44:36.265Z",
+    "buyer": {
+      "first": "Espinoza",
+      "last": "Haney",
+      "phone": "+374 (889) 569-3561"
+    },
+    "seller": {
+      "first": "Ware",
+      "last": "Trevino",
+      "phone": "+374 (898) 444-2283"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 724,
+      "carYear": 1999,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b5c027b9006102d04",
+    "price": "$6,469.74",
+    "soldDate": "2020-08-26T03:32:49.519Z",
+    "buyer": {
+      "first": "Ashley",
+      "last": "Graham",
+      "phone": "+374 (965) 563-3736"
+    },
+    "seller": {
+      "first": "Lillie",
+      "last": "Glover",
+      "phone": "+374 (826) 551-3316"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 629,
+      "carYear": 1998,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b20bb2243ca9385a2",
+    "price": "$13,523.29",
+    "soldDate": "2020-08-22T01:28:34.034Z",
+    "buyer": {
+      "first": "Wilkerson",
+      "last": "Erickson",
+      "phone": "+374 (923) 550-2038"
+    },
+    "seller": {
+      "first": "Marylou",
+      "last": "Weeks",
+      "phone": "+374 (907) 561-2320"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 527,
+      "carYear": 2003,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b2858142f06cdd075",
+    "price": "$13,525.56",
+    "soldDate": "2020-08-21T17:35:16.282Z",
+    "buyer": {
+      "first": "Brandie",
+      "last": "Haynes",
+      "phone": "+374 (814) 553-2850"
+    },
+    "seller": {
+      "first": "Chelsea",
+      "last": "Norris",
+      "phone": "+374 (925) 589-2681"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 315,
+      "carYear": 2015,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bc619b00540429720",
+    "price": "$12,484.50",
+    "soldDate": "2020-08-25T05:36:23.645Z",
+    "buyer": {
+      "first": "Browning",
+      "last": "Lindsey",
+      "phone": "+374 (979) 598-2380"
+    },
+    "seller": {
+      "first": "Gilda",
+      "last": "Cooke",
+      "phone": "+374 (920) 553-2720"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 747,
+      "carYear": 2015,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b3ddf2cc8c310972a",
+    "price": "$7,204.93",
+    "soldDate": "2020-08-17T21:29:26.577Z",
+    "buyer": {
+      "first": "Lorena",
+      "last": "Price",
+      "phone": "+374 (979) 584-2478"
+    },
+    "seller": {
+      "first": "Jewell",
+      "last": "Frank",
+      "phone": "+374 (901) 415-3620"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 586,
+      "carYear": 2011,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b42e79b379b767ee8",
+    "price": "$14,141.00",
+    "soldDate": "2020-08-15T09:38:04.831Z",
+    "buyer": {
+      "first": "Hernandez",
+      "last": "Harrison",
+      "phone": "+374 (927) 435-3277"
+    },
+    "seller": {
+      "first": "Reeves",
+      "last": "Glass",
+      "phone": "+374 (977) 462-3577"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 565,
+      "carYear": 2013,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b551ff5c6710d00ba",
+    "price": "$11,227.16",
+    "soldDate": "2020-08-28T09:51:23.886Z",
+    "buyer": {
+      "first": "Haney",
+      "last": "Mcguire",
+      "phone": "+374 (882) 516-3384"
+    },
+    "seller": {
+      "first": "Hunt",
+      "last": "House",
+      "phone": "+374 (905) 434-2501"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 759,
+      "carYear": 2003,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b3d513b4a5931f921",
+    "price": "$14,192.72",
+    "soldDate": "2020-08-20T03:58:26.449Z",
+    "buyer": {
+      "first": "Sherri",
+      "last": "Nunez",
+      "phone": "+374 (877) 414-2079"
+    },
+    "seller": {
+      "first": "Ladonna",
+      "last": "Boyer",
+      "phone": "+374 (886) 408-2749"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 229,
+      "carYear": 2019,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323ba5ca629d86b366a4",
+    "price": "$2,416.16",
+    "soldDate": "2020-08-18T09:28:15.729Z",
+    "buyer": {
+      "first": "Miller",
+      "last": "Craft",
+      "phone": "+374 (873) 575-2887"
+    },
+    "seller": {
+      "first": "Mcmillan",
+      "last": "Howe",
+      "phone": "+374 (822) 575-2325"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 657,
+      "carYear": 2018,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b3b89971dc90c8d60",
+    "price": "$2,028.52",
+    "soldDate": "2020-08-11T01:55:21.141Z",
+    "buyer": {
+      "first": "Fry",
+      "last": "Finley",
+      "phone": "+374 (800) 484-2773"
+    },
+    "seller": {
+      "first": "Lacy",
+      "last": "Miles",
+      "phone": "+374 (847) 585-3253"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 632,
+      "carYear": 2018,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b06957b1462a9d45f",
+    "price": "$12,911.00",
+    "soldDate": "2020-08-25T15:55:18.629Z",
+    "buyer": {
+      "first": "Suzanne",
+      "last": "Fry",
+      "phone": "+374 (821) 534-2605"
+    },
+    "seller": {
+      "first": "Susanne",
+      "last": "Mason",
+      "phone": "+374 (852) 488-2666"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 637,
+      "carYear": 2007,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b82ccf33a41a00bc5",
+    "price": "$8,191.75",
+    "soldDate": "2020-08-26T10:37:00.865Z",
+    "buyer": {
+      "first": "Travis",
+      "last": "Warren",
+      "phone": "+374 (882) 532-3243"
+    },
+    "seller": {
+      "first": "Kent",
+      "last": "Hogan",
+      "phone": "+374 (840) 440-2995"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 470,
+      "carYear": 2015,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bf49c33d93d8a490e",
+    "price": "$13,092.42",
+    "soldDate": "2020-08-24T07:28:05.347Z",
+    "buyer": {
+      "first": "Bradford",
+      "last": "Patton",
+      "phone": "+374 (863) 453-3490"
+    },
+    "seller": {
+      "first": "Maxine",
+      "last": "Stuart",
+      "phone": "+374 (957) 551-3190"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 435,
+      "carYear": 2005,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b0c74d497e0635d5d",
+    "price": "$9,816.31",
+    "soldDate": "2020-08-28T08:20:10.629Z",
+    "buyer": {
+      "first": "Lloyd",
+      "last": "Morgan",
+      "phone": "+374 (827) 558-2534"
+    },
+    "seller": {
+      "first": "Stephens",
+      "last": "Kirby",
+      "phone": "+374 (972) 401-3207"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 736,
+      "carYear": 2001,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b003aac292846f8a1",
+    "price": "$11,521.52",
+    "soldDate": "2020-08-30T22:20:44.864Z",
+    "buyer": {
+      "first": "Norma",
+      "last": "Diaz",
+      "phone": "+374 (910) 563-3928"
+    },
+    "seller": {
+      "first": "Kaitlin",
+      "last": "Kidd",
+      "phone": "+374 (800) 538-3018"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 480,
+      "carYear": 2003,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323baea6af7e98233e8f",
+    "price": "$8,322.01",
+    "soldDate": "2020-08-27T12:16:28.106Z",
+    "buyer": {
+      "first": "Talley",
+      "last": "Conner",
+      "phone": "+374 (901) 471-3761"
+    },
+    "seller": {
+      "first": "Marsha",
+      "last": "Skinner",
+      "phone": "+374 (817) 590-3924"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 644,
+      "carYear": 2013,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b01126ddffe4aace6",
+    "price": "$12,465.97",
+    "soldDate": "2020-08-22T10:42:08.492Z",
+    "buyer": {
+      "first": "Robertson",
+      "last": "Barlow",
+      "phone": "+374 (916) 454-2548"
+    },
+    "seller": {
+      "first": "Betsy",
+      "last": "Evans",
+      "phone": "+374 (869) 443-2974"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 529,
+      "carYear": 2013,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bcd87ab195481dc4e",
+    "price": "$3,270.91",
+    "soldDate": "2020-08-09T19:41:29.179Z",
+    "buyer": {
+      "first": "Carole",
+      "last": "Velasquez",
+      "phone": "+374 (988) 457-2190"
+    },
+    "seller": {
+      "first": "Beasley",
+      "last": "Travis",
+      "phone": "+374 (999) 586-3252"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 544,
+      "carYear": 2012,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b606780f62750c534",
+    "price": "$2,779.88",
+    "soldDate": "2020-08-20T14:49:08.248Z",
+    "buyer": {
+      "first": "Hewitt",
+      "last": "Molina",
+      "phone": "+374 (965) 433-3270"
+    },
+    "seller": {
+      "first": "Madden",
+      "last": "Cannon",
+      "phone": "+374 (998) 470-3865"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 794,
+      "carYear": 2002,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b9466e4f3de382944",
+    "price": "$1,855.50",
+    "soldDate": "2020-08-17T04:57:09.770Z",
+    "buyer": {
+      "first": "Kathy",
+      "last": "Fields",
+      "phone": "+374 (845) 445-3186"
+    },
+    "seller": {
+      "first": "Morales",
+      "last": "Simpson",
+      "phone": "+374 (879) 539-3215"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 714,
+      "carYear": 1999,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b9d103921bf84f81f",
+    "price": "$5,953.65",
+    "soldDate": "2020-08-20T09:16:51.792Z",
+    "buyer": {
+      "first": "Moore",
+      "last": "Castaneda",
+      "phone": "+374 (918) 520-2631"
+    },
+    "seller": {
+      "first": "Rasmussen",
+      "last": "Dale",
+      "phone": "+374 (903) 469-3130"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 671,
+      "carYear": 2016,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b8acab9314bfe727b",
+    "price": "$2,975.91",
+    "soldDate": "2020-08-26T12:02:12.580Z",
+    "buyer": {
+      "first": "Baird",
+      "last": "Lindsay",
+      "phone": "+374 (961) 412-3048"
+    },
+    "seller": {
+      "first": "Carrillo",
+      "last": "Howard",
+      "phone": "+374 (850) 423-2262"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 425,
+      "carYear": 2018,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b4754e234086cef99",
+    "price": "$3,941.93",
+    "soldDate": "2020-08-26T18:13:30.728Z",
+    "buyer": {
+      "first": "Noreen",
+      "last": "Levy",
+      "phone": "+374 (830) 508-2540"
+    },
+    "seller": {
+      "first": "Keri",
+      "last": "Gay",
+      "phone": "+374 (882) 541-3281"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 661,
+      "carYear": 2017,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bd5f8f395aec1834a",
+    "price": "$1,844.93",
+    "soldDate": "2020-08-13T10:25:16.022Z",
+    "buyer": {
+      "first": "Imogene",
+      "last": "Santana",
+      "phone": "+374 (800) 600-2752"
+    },
+    "seller": {
+      "first": "Louella",
+      "last": "Compton",
+      "phone": "+374 (855) 594-3575"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 462,
+      "carYear": 2003,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bd2b4557d1a9a20a1",
+    "price": "$9,117.88",
+    "soldDate": "2020-08-10T02:42:32.592Z",
+    "buyer": {
+      "first": "Good",
+      "last": "Harding",
+      "phone": "+374 (896) 513-3363"
+    },
+    "seller": {
+      "first": "Jody",
+      "last": "Maxwell",
+      "phone": "+374 (920) 558-2046"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 599,
+      "carYear": 2014,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b52328ee8b91d437f",
+    "price": "$14,310.22",
+    "soldDate": "2020-08-23T19:39:41.165Z",
+    "buyer": {
+      "first": "Allie",
+      "last": "Goodwin",
+      "phone": "+374 (800) 540-2515"
+    },
+    "seller": {
+      "first": "Colette",
+      "last": "Kemp",
+      "phone": "+374 (823) 407-3425"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 238,
+      "carYear": 2005,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b46014506d5996b51",
+    "price": "$10,366.63",
+    "soldDate": "2020-08-11T04:04:21.046Z",
+    "buyer": {
+      "first": "Arnold",
+      "last": "Ray",
+      "phone": "+374 (822) 506-3963"
+    },
+    "seller": {
+      "first": "Duffy",
+      "last": "Ratliff",
+      "phone": "+374 (893) 444-3304"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 691,
+      "carYear": 2004,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b8ccd0c4f49f28f8d",
+    "price": "$10,925.51",
+    "soldDate": "2020-08-08T10:44:49.222Z",
+    "buyer": {
+      "first": "Wilder",
+      "last": "Gilliam",
+      "phone": "+374 (800) 494-2829"
+    },
+    "seller": {
+      "first": "Luann",
+      "last": "May",
+      "phone": "+374 (997) 437-2421"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 155,
+      "carYear": 2009,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bbc887d1c716ee49a",
+    "price": "$3,199.38",
+    "soldDate": "2020-08-15T03:26:05.423Z",
+    "buyer": {
+      "first": "Twila",
+      "last": "Mckinney",
+      "phone": "+374 (870) 402-3315"
+    },
+    "seller": {
+      "first": "Nell",
+      "last": "Gibson",
+      "phone": "+374 (801) 442-2278"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 622,
+      "carYear": 2014,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bb73ece8a72399a67",
+    "price": "$12,182.08",
+    "soldDate": "2020-08-16T09:17:42.342Z",
+    "buyer": {
+      "first": "Loraine",
+      "last": "Mosley",
+      "phone": "+374 (871) 446-2571"
+    },
+    "seller": {
+      "first": "Bauer",
+      "last": "Alston",
+      "phone": "+374 (902) 513-2100"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 705,
+      "carYear": 2008,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b906d287095b25fc5",
+    "price": "$4,335.62",
+    "soldDate": "2020-08-31T19:49:05.864Z",
+    "buyer": {
+      "first": "Anita",
+      "last": "Mcclure",
+      "phone": "+374 (932) 417-2707"
+    },
+    "seller": {
+      "first": "Crawford",
+      "last": "Thornton",
+      "phone": "+374 (893) 495-3368"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 341,
+      "carYear": 2005,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b4a59f4c0bf4d444b",
+    "price": "$12,435.53",
+    "soldDate": "2020-08-24T15:05:40.755Z",
+    "buyer": {
+      "first": "Flowers",
+      "last": "Dudley",
+      "phone": "+374 (937) 487-3625"
+    },
+    "seller": {
+      "first": "Baxter",
+      "last": "Hopper",
+      "phone": "+374 (882) 492-2033"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 645,
+      "carYear": 2004,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b15326695c372e1ab",
+    "price": "$9,520.39",
+    "soldDate": "2020-08-21T16:02:52.846Z",
+    "buyer": {
+      "first": "Ballard",
+      "last": "Moss",
+      "phone": "+374 (977) 495-2217"
+    },
+    "seller": {
+      "first": "Judy",
+      "last": "Stout",
+      "phone": "+374 (936) 542-2896"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 602,
+      "carYear": 2009,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b27d62dc06e0f03f5",
+    "price": "$10,876.61",
+    "soldDate": "2020-08-24T05:58:38.416Z",
+    "buyer": {
+      "first": "Kristi",
+      "last": "Houston",
+      "phone": "+374 (948) 504-2423"
+    },
+    "seller": {
+      "first": "Montoya",
+      "last": "Noble",
+      "phone": "+374 (837) 522-2006"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 749,
+      "carYear": 2001,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b64bb6edda1a39719",
+    "price": "$11,192.27",
+    "soldDate": "2020-08-24T09:23:51.118Z",
+    "buyer": {
+      "first": "Marcella",
+      "last": "Carpenter",
+      "phone": "+374 (908) 402-2165"
+    },
+    "seller": {
+      "first": "Obrien",
+      "last": "Gould",
+      "phone": "+374 (859) 577-3305"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 577,
+      "carYear": 2018,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b33ec3f7fb03de4eb",
+    "price": "$8,486.76",
+    "soldDate": "2020-08-31T13:19:23.290Z",
+    "buyer": {
+      "first": "Marion",
+      "last": "Sims",
+      "phone": "+374 (917) 435-2335"
+    },
+    "seller": {
+      "first": "Morgan",
+      "last": "Drake",
+      "phone": "+374 (841) 537-3378"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 187,
+      "carYear": 2015,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b8e9fee82d4a81f6a",
+    "price": "$5,002.46",
+    "soldDate": "2020-08-10T05:46:36.832Z",
+    "buyer": {
+      "first": "Barbara",
+      "last": "Cox",
+      "phone": "+374 (896) 579-3588"
+    },
+    "seller": {
+      "first": "Erin",
+      "last": "Campos",
+      "phone": "+374 (970) 510-2725"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 742,
+      "carYear": 2003,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bcea9da2bf50b3255",
+    "price": "$10,825.31",
+    "soldDate": "2020-08-30T15:14:38.271Z",
+    "buyer": {
+      "first": "Thelma",
+      "last": "England",
+      "phone": "+374 (983) 514-3008"
+    },
+    "seller": {
+      "first": "Cole",
+      "last": "Mcneil",
+      "phone": "+374 (917) 402-2087"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 587,
+      "carYear": 2012,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bf2d93043bd82d200",
+    "price": "$7,528.81",
+    "soldDate": "2020-08-31T04:31:08.302Z",
+    "buyer": {
+      "first": "Nettie",
+      "last": "Stafford",
+      "phone": "+374 (838) 430-2156"
+    },
+    "seller": {
+      "first": "Middleton",
+      "last": "Koch",
+      "phone": "+374 (918) 548-2285"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 153,
+      "carYear": 2015,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b59f8868f0af210d9",
+    "price": "$5,454.84",
+    "soldDate": "2020-08-28T16:47:58.966Z",
+    "buyer": {
+      "first": "Bates",
+      "last": "Patterson",
+      "phone": "+374 (887) 565-2594"
+    },
+    "seller": {
+      "first": "Mullen",
+      "last": "Dillon",
+      "phone": "+374 (913) 523-2791"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 281,
+      "carYear": 2006,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b04fcda26dbfabe6e",
+    "price": "$3,896.11",
+    "soldDate": "2020-08-14T14:49:32.513Z",
+    "buyer": {
+      "first": "Dee",
+      "last": "Chen",
+      "phone": "+374 (985) 496-2107"
+    },
+    "seller": {
+      "first": "Hutchinson",
+      "last": "Reid",
+      "phone": "+374 (895) 446-2490"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 341,
+      "carYear": 2009,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bfe07177342adc86e",
+    "price": "$8,121.55",
+    "soldDate": "2020-08-19T02:00:34.358Z",
+    "buyer": {
+      "first": "Olsen",
+      "last": "Bauer",
+      "phone": "+374 (855) 481-2215"
+    },
+    "seller": {
+      "first": "Hansen",
+      "last": "Vang",
+      "phone": "+374 (819) 491-3367"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 599,
+      "carYear": 2017,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b1c1ddfad09edaf07",
+    "price": "$6,152.31",
+    "soldDate": "2020-08-30T05:28:01.882Z",
+    "buyer": {
+      "first": "Dickerson",
+      "last": "Elliott",
+      "phone": "+374 (855) 466-2257"
+    },
+    "seller": {
+      "first": "Marquez",
+      "last": "Cleveland",
+      "phone": "+374 (925) 541-2123"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 226,
+      "carYear": 1998,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b4a71c8e8833bfd8b",
+    "price": "$6,831.15",
+    "soldDate": "2020-08-23T15:44:14.305Z",
+    "buyer": {
+      "first": "Lynn",
+      "last": "Phillips",
+      "phone": "+374 (830) 475-3099"
+    },
+    "seller": {
+      "first": "Marian",
+      "last": "Sandoval",
+      "phone": "+374 (942) 446-2683"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 409,
+      "carYear": 2011,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323be757f0d8bada6ece",
+    "price": "$1,946.39",
+    "soldDate": "2020-08-20T00:47:41.631Z",
+    "buyer": {
+      "first": "Horne",
+      "last": "Stevens",
+      "phone": "+374 (923) 584-3690"
+    },
+    "seller": {
+      "first": "Frieda",
+      "last": "Leonard",
+      "phone": "+374 (818) 421-2828"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 119,
+      "carYear": 2008,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bb8060a085f839aa9",
+    "price": "$3,628.98",
+    "soldDate": "2020-08-20T20:32:02.644Z",
+    "buyer": {
+      "first": "Crane",
+      "last": "Key",
+      "phone": "+374 (800) 402-3649"
+    },
+    "seller": {
+      "first": "Bertie",
+      "last": "Bass",
+      "phone": "+374 (933) 558-3380"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 737,
+      "carYear": 2019,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b60d650919b225986",
+    "price": "$9,404.34",
+    "soldDate": "2020-08-10T18:01:38.661Z",
+    "buyer": {
+      "first": "Whitley",
+      "last": "Miller",
+      "phone": "+374 (979) 531-3236"
+    },
+    "seller": {
+      "first": "Spencer",
+      "last": "Martin",
+      "phone": "+374 (932) 562-2219"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 178,
+      "carYear": 2001,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b3d87c7679e5ea142",
+    "price": "$6,163.01",
+    "soldDate": "2020-08-10T06:44:24.178Z",
+    "buyer": {
+      "first": "Terrell",
+      "last": "Albert",
+      "phone": "+374 (856) 425-2088"
+    },
+    "seller": {
+      "first": "Clayton",
+      "last": "Mccall",
+      "phone": "+374 (851) 465-2987"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 284,
+      "carYear": 2018,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bfab1389216a6cb2c",
+    "price": "$11,323.92",
+    "soldDate": "2020-08-19T07:47:11.626Z",
+    "buyer": {
+      "first": "Thornton",
+      "last": "Pope",
+      "phone": "+374 (898) 408-3089"
+    },
+    "seller": {
+      "first": "Blankenship",
+      "last": "Head",
+      "phone": "+374 (900) 501-3954"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 755,
+      "carYear": 1999,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b709f727ef0ff7d71",
+    "price": "$10,956.32",
+    "soldDate": "2020-08-25T04:45:19.865Z",
+    "buyer": {
+      "first": "Shaffer",
+      "last": "Barton",
+      "phone": "+374 (949) 570-3366"
+    },
+    "seller": {
+      "first": "Gonzalez",
+      "last": "Mullen",
+      "phone": "+374 (977) 544-2698"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 277,
+      "carYear": 2008,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bd443660871caee96",
+    "price": "$6,866.29",
+    "soldDate": "2020-08-13T18:10:18.297Z",
+    "buyer": {
+      "first": "Frank",
+      "last": "Weiss",
+      "phone": "+374 (914) 419-3654"
+    },
+    "seller": {
+      "first": "Juarez",
+      "last": "Shaffer",
+      "phone": "+374 (943) 521-3700"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 289,
+      "carYear": 2002,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323be916a8b3c6a56f8f",
+    "price": "$3,156.51",
+    "soldDate": "2020-08-10T22:44:08.046Z",
+    "buyer": {
+      "first": "Kidd",
+      "last": "Hart",
+      "phone": "+374 (987) 450-2565"
+    },
+    "seller": {
+      "first": "Ramirez",
+      "last": "Coleman",
+      "phone": "+374 (961) 561-2201"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 449,
+      "carYear": 2015,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b89d2a2b83bc016e1",
+    "price": "$7,016.54",
+    "soldDate": "2020-08-10T15:59:11.814Z",
+    "buyer": {
+      "first": "Buckner",
+      "last": "Cobb",
+      "phone": "+374 (822) 435-2730"
+    },
+    "seller": {
+      "first": "Lucinda",
+      "last": "Todd",
+      "phone": "+374 (869) 540-3489"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 496,
+      "carYear": 2007,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b0d83e57d9b7c3898",
+    "price": "$11,436.39",
+    "soldDate": "2020-08-22T01:24:13.976Z",
+    "buyer": {
+      "first": "Franco",
+      "last": "Joyner",
+      "phone": "+374 (841) 418-3221"
+    },
+    "seller": {
+      "first": "Michael",
+      "last": "Slater",
+      "phone": "+374 (990) 547-2662"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 407,
+      "carYear": 2005,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b60b406a27bf1b5f8",
+    "price": "$4,948.42",
+    "soldDate": "2020-08-18T20:12:25.166Z",
+    "buyer": {
+      "first": "Rocha",
+      "last": "Buckley",
+      "phone": "+374 (968) 423-3225"
+    },
+    "seller": {
+      "first": "Saundra",
+      "last": "Chase",
+      "phone": "+374 (887) 597-2193"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 591,
+      "carYear": 2017,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bf503c7007a3e4e54",
+    "price": "$12,817.88",
+    "soldDate": "2020-08-28T00:49:22.133Z",
+    "buyer": {
+      "first": "Rowena",
+      "last": "Mendez",
+      "phone": "+374 (993) 522-3969"
+    },
+    "seller": {
+      "first": "Kitty",
+      "last": "Walsh",
+      "phone": "+374 (936) 571-3092"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 257,
+      "carYear": 2008,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bdceefbadff26b96c",
+    "price": "$2,992.00",
+    "soldDate": "2020-08-08T23:59:57.225Z",
+    "buyer": {
+      "first": "Leanna",
+      "last": "Griffin",
+      "phone": "+374 (988) 497-3239"
+    },
+    "seller": {
+      "first": "Haley",
+      "last": "Townsend",
+      "phone": "+374 (905) 568-2466"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 245,
+      "carYear": 2019,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b894cb8c0b1bf14c1",
+    "price": "$2,394.34",
+    "soldDate": "2020-08-17T11:58:54.844Z",
+    "buyer": {
+      "first": "Nelda",
+      "last": "Sweeney",
+      "phone": "+374 (811) 553-2520"
+    },
+    "seller": {
+      "first": "Montgomery",
+      "last": "Matthews",
+      "phone": "+374 (817) 408-3152"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 764,
+      "carYear": 2014,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b2c1a9cea2886989b",
+    "price": "$9,855.54",
+    "soldDate": "2020-08-24T22:08:03.529Z",
+    "buyer": {
+      "first": "Lesa",
+      "last": "Mccarty",
+      "phone": "+374 (804) 522-2318"
+    },
+    "seller": {
+      "first": "Jane",
+      "last": "Higgins",
+      "phone": "+374 (985) 495-3206"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 600,
+      "carYear": 2010,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b610acd631f1b3cf6",
+    "price": "$6,548.50",
+    "soldDate": "2020-08-09T11:41:52.211Z",
+    "buyer": {
+      "first": "Yolanda",
+      "last": "Mcmillan",
+      "phone": "+374 (991) 598-2979"
+    },
+    "seller": {
+      "first": "Wendy",
+      "last": "Witt",
+      "phone": "+374 (960) 572-3024"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 304,
+      "carYear": 1998,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b2fe9da7b288e96e2",
+    "price": "$7,382.19",
+    "soldDate": "2020-08-08T08:37:54.049Z",
+    "buyer": {
+      "first": "Ruth",
+      "last": "Freeman",
+      "phone": "+374 (985) 478-2714"
+    },
+    "seller": {
+      "first": "Schmidt",
+      "last": "Austin",
+      "phone": "+374 (846) 488-2413"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 322,
+      "carYear": 2016,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323be434d704183d1942",
+    "price": "$6,756.68",
+    "soldDate": "2020-08-13T02:47:20.629Z",
+    "buyer": {
+      "first": "Clay",
+      "last": "Faulkner",
+      "phone": "+374 (817) 478-3611"
+    },
+    "seller": {
+      "first": "Britney",
+      "last": "Meyers",
+      "phone": "+374 (866) 460-2269"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 158,
+      "carYear": 2000,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323be96b01c9d33aef21",
+    "price": "$7,113.16",
+    "soldDate": "2020-08-27T09:04:07.183Z",
+    "buyer": {
+      "first": "Finch",
+      "last": "Adkins",
+      "phone": "+374 (858) 595-2797"
+    },
+    "seller": {
+      "first": "Stark",
+      "last": "Workman",
+      "phone": "+374 (889) 411-3622"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 456,
+      "carYear": 2006,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b9b51dfdc6da93d15",
+    "price": "$1,523.86",
+    "soldDate": "2020-08-20T00:37:34.950Z",
+    "buyer": {
+      "first": "Cervantes",
+      "last": "Acevedo",
+      "phone": "+374 (935) 523-2028"
+    },
+    "seller": {
+      "first": "Morgan",
+      "last": "Mccarthy",
+      "phone": "+374 (962) 408-2434"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 473,
+      "carYear": 2018,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bde9451a5b1b70547",
+    "price": "$12,249.61",
+    "soldDate": "2020-08-15T04:04:07.961Z",
+    "buyer": {
+      "first": "Theresa",
+      "last": "Hutchinson",
+      "phone": "+374 (974) 547-2761"
+    },
+    "seller": {
+      "first": "Boyer",
+      "last": "Guzman",
+      "phone": "+374 (888) 513-3288"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 798,
+      "carYear": 2000,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b884a84742bec6169",
+    "price": "$10,852.74",
+    "soldDate": "2020-08-27T02:28:22.515Z",
+    "buyer": {
+      "first": "Johnston",
+      "last": "Mercer",
+      "phone": "+374 (882) 594-2065"
+    },
+    "seller": {
+      "first": "Jennie",
+      "last": "Horne",
+      "phone": "+374 (819) 411-3913"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 608,
+      "carYear": 2009,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b0a946dd8302d186e",
+    "price": "$9,374.76",
+    "soldDate": "2020-08-18T04:02:25.574Z",
+    "buyer": {
+      "first": "Valdez",
+      "last": "Fisher",
+      "phone": "+374 (839) 437-3234"
+    },
+    "seller": {
+      "first": "Underwood",
+      "last": "Kent",
+      "phone": "+374 (807) 575-2564"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 158,
+      "carYear": 2008,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323be3ae2a7aec844e12",
+    "price": "$6,250.59",
+    "soldDate": "2020-08-27T21:29:00.717Z",
+    "buyer": {
+      "first": "Ayala",
+      "last": "Clarke",
+      "phone": "+374 (991) 450-2660"
+    },
+    "seller": {
+      "first": "Hahn",
+      "last": "Hammond",
+      "phone": "+374 (940) 495-2511"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 599,
+      "carYear": 2010,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b25ae09ea045a4f3e",
+    "price": "$12,994.29",
+    "soldDate": "2020-08-09T23:22:37.869Z",
+    "buyer": {
+      "first": "Roy",
+      "last": "Blackburn",
+      "phone": "+374 (928) 422-3609"
+    },
+    "seller": {
+      "first": "Catalina",
+      "last": "Bailey",
+      "phone": "+374 (946) 418-3643"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 602,
+      "carYear": 2014,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b6c37e9b1457fbbf6",
+    "price": "$8,630.24",
+    "soldDate": "2020-08-26T14:18:21.723Z",
+    "buyer": {
+      "first": "Carey",
+      "last": "Stanley",
+      "phone": "+374 (831) 540-3731"
+    },
+    "seller": {
+      "first": "Murray",
+      "last": "Gonzales",
+      "phone": "+374 (848) 417-2339"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 194,
+      "carYear": 1999,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b24b14ffba81ca278",
+    "price": "$4,913.04",
+    "soldDate": "2020-08-28T04:04:16.299Z",
+    "buyer": {
+      "first": "Livingston",
+      "last": "Soto",
+      "phone": "+374 (994) 534-3888"
+    },
+    "seller": {
+      "first": "Angelita",
+      "last": "Curtis",
+      "phone": "+374 (880) 460-2091"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 174,
+      "carYear": 1999,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b552765eba6b965bc",
+    "price": "$6,304.66",
+    "soldDate": "2020-08-21T12:17:01.898Z",
+    "buyer": {
+      "first": "Felecia",
+      "last": "Frederick",
+      "phone": "+374 (866) 509-3664"
+    },
+    "seller": {
+      "first": "Wiley",
+      "last": "Burks",
+      "phone": "+374 (887) 480-2580"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 569,
+      "carYear": 2014,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b0feb84bb63d3db73",
+    "price": "$11,566.39",
+    "soldDate": "2020-08-28T20:01:44.336Z",
+    "buyer": {
+      "first": "Rollins",
+      "last": "Hayes",
+      "phone": "+374 (819) 402-2378"
+    },
+    "seller": {
+      "first": "Hamilton",
+      "last": "Oliver",
+      "phone": "+374 (871) 560-3033"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 401,
+      "carYear": 2013,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bc13cf7b81576a9fe",
+    "price": "$14,683.34",
+    "soldDate": "2020-08-12T22:24:36.483Z",
+    "buyer": {
+      "first": "Randi",
+      "last": "Randolph",
+      "phone": "+374 (992) 552-3444"
+    },
+    "seller": {
+      "first": "Francis",
+      "last": "Zamora",
+      "phone": "+374 (987) 408-2293"
+    },
+    "car": {
+      "model": "Lexus",
+      "horsePower": 781,
+      "carYear": 2006,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b267d9fd403b58f8c",
+    "price": "$10,982.36",
+    "soldDate": "2020-08-26T02:14:49.131Z",
+    "buyer": {
+      "first": "Rush",
+      "last": "Lane",
+      "phone": "+374 (897) 509-3659"
+    },
+    "seller": {
+      "first": "English",
+      "last": "Wall",
+      "phone": "+374 (861) 439-3325"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 349,
+      "carYear": 2013,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b432b4da91a1f3e8a",
+    "price": "$12,288.29",
+    "soldDate": "2020-08-12T02:59:15.031Z",
+    "buyer": {
+      "first": "Wright",
+      "last": "Booker",
+      "phone": "+374 (826) 492-3426"
+    },
+    "seller": {
+      "first": "Jeannine",
+      "last": "Hanson",
+      "phone": "+374 (934) 576-3769"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 492,
+      "carYear": 2010,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323beaba2ca64f457c45",
+    "price": "$4,855.60",
+    "soldDate": "2020-08-27T10:50:22.390Z",
+    "buyer": {
+      "first": "Martinez",
+      "last": "Swanson",
+      "phone": "+374 (818) 446-2367"
+    },
+    "seller": {
+      "first": "Susanna",
+      "last": "Moore",
+      "phone": "+374 (872) 587-3724"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 574,
+      "carYear": 2001,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b0e2e0fa10e0c5b3b",
+    "price": "$12,262.13",
+    "soldDate": "2020-08-17T22:50:06.433Z",
+    "buyer": {
+      "first": "Mcgee",
+      "last": "Gillespie",
+      "phone": "+374 (871) 508-2172"
+    },
+    "seller": {
+      "first": "Mclaughlin",
+      "last": "Cohen",
+      "phone": "+374 (831) 574-2010"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 577,
+      "carYear": 2018,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b0ea6f41bfb2a7726",
+    "price": "$8,075.07",
+    "soldDate": "2020-08-08T11:25:49.517Z",
+    "buyer": {
+      "first": "Nash",
+      "last": "Jimenez",
+      "phone": "+374 (836) 442-2432"
+    },
+    "seller": {
+      "first": "Aisha",
+      "last": "Gilmore",
+      "phone": "+374 (867) 462-2520"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 762,
+      "carYear": 2007,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323bf049a146352b251e",
+    "price": "$8,329.29",
+    "soldDate": "2020-08-31T05:35:18.019Z",
+    "buyer": {
+      "first": "Christine",
+      "last": "Wolfe",
+      "phone": "+374 (888) 418-2216"
+    },
+    "seller": {
+      "first": "Kline",
+      "last": "Hays",
+      "phone": "+374 (897) 459-3881"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 653,
+      "carYear": 2004,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b252d7086ea0f6a97",
+    "price": "$13,267.07",
+    "soldDate": "2020-08-21T09:18:11.731Z",
+    "buyer": {
+      "first": "Marcie",
+      "last": "Pickett",
+      "phone": "+374 (882) 526-3975"
+    },
+    "seller": {
+      "first": "Terri",
+      "last": "Burns",
+      "phone": "+374 (942) 542-3682"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 192,
+      "carYear": 2012,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323b6ec208a217412c98",
+    "price": "$10,067.19",
+    "soldDate": "2020-08-16T22:47:24.773Z",
+    "buyer": {
+      "first": "Kemp",
+      "last": "Burnett",
+      "phone": "+374 (954) 574-3197"
+    },
+    "seller": {
+      "first": "Trudy",
+      "last": "Chang",
+      "phone": "+374 (810) 467-3912"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 306,
+      "carYear": 2012,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b155878b724bc22cb",
+    "price": "$8,023.04",
+    "soldDate": "2020-08-13T12:39:13.829Z",
+    "buyer": {
+      "first": "Abby",
+      "last": "Cardenas",
+      "phone": "+374 (984) 403-3326"
+    },
+    "seller": {
+      "first": "Jodi",
+      "last": "Wilcox",
+      "phone": "+374 (966) 599-3998"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 749,
+      "carYear": 2019,
+      "defects": []
+    }
+  },
+  {
+    "_id": "5f2e323be027223dbff6ee0b",
+    "price": "$4,229.61",
+    "soldDate": "2020-08-16T08:43:26.198Z",
+    "buyer": {
+      "first": "Katelyn",
+      "last": "Davidson",
+      "phone": "+374 (937) 479-3756"
+    },
+    "seller": {
+      "first": "Chrystal",
+      "last": "Stephenson",
+      "phone": "+374 (815) 561-2520"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 710,
+      "carYear": 2001,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bc8a6af675aa69ea9",
+    "price": "$13,975.32",
+    "soldDate": "2020-08-14T16:21:26.295Z",
+    "buyer": {
+      "first": "Morris",
+      "last": "Chandler",
+      "phone": "+374 (960) 480-3446"
+    },
+    "seller": {
+      "first": "Jensen",
+      "last": "Branch",
+      "phone": "+374 (964) 513-3409"
+    },
+    "car": {
+      "model": "Lada",
+      "horsePower": 227,
+      "carYear": 2013,
+      "defects": [
+        "bad_engine",
+        "minor_scratches",
+        "crashed"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b25aed2fb7addac6f",
+    "price": "$6,448.22",
+    "soldDate": "2020-08-31T07:04:39.010Z",
+    "buyer": {
+      "first": "Dixon",
+      "last": "Duncan",
+      "phone": "+374 (964) 484-3024"
+    },
+    "seller": {
+      "first": "Lucia",
+      "last": "Mcintyre",
+      "phone": "+374 (814) 511-2527"
+    },
+    "car": {
+      "model": "Honda",
+      "horsePower": 287,
+      "carYear": 2007,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b92158c3224fffe06",
+    "price": "$14,676.31",
+    "soldDate": "2020-08-26T14:06:22.781Z",
+    "buyer": {
+      "first": "Leach",
+      "last": "Wilkinson",
+      "phone": "+374 (899) 494-2490"
+    },
+    "seller": {
+      "first": "Palmer",
+      "last": "Galloway",
+      "phone": "+374 (922) 528-3784"
+    },
+    "car": {
+      "model": "Toyota",
+      "horsePower": 173,
+      "carYear": 2008,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bd1781894a5dbb19a",
+    "price": "$5,925.48",
+    "soldDate": "2020-08-18T11:21:58.401Z",
+    "buyer": {
+      "first": "Pollard",
+      "last": "Jensen",
+      "phone": "+374 (840) 530-3140"
+    },
+    "seller": {
+      "first": "Marguerite",
+      "last": "Bowers",
+      "phone": "+374 (919) 516-3292"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 669,
+      "carYear": 2009,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323bfd676b0160844f49",
+    "price": "$5,616.05",
+    "soldDate": "2020-08-28T03:02:13.264Z",
+    "buyer": {
+      "first": "Lottie",
+      "last": "Paul",
+      "phone": "+374 (923) 476-2528"
+    },
+    "seller": {
+      "first": "Greer",
+      "last": "Reynolds",
+      "phone": "+374 (966) 560-2041"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 178,
+      "carYear": 2006,
+      "defects": [
+        "bad_engine"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b6ff6c6637c9deb99",
+    "price": "$13,486.53",
+    "soldDate": "2020-08-13T03:45:32.541Z",
+    "buyer": {
+      "first": "Vargas",
+      "last": "Barnes",
+      "phone": "+374 (974) 492-3647"
+    },
+    "seller": {
+      "first": "Mcbride",
+      "last": "Farmer",
+      "phone": "+374 (945) 590-3720"
+    },
+    "car": {
+      "model": "Mercedes-Benz",
+      "horsePower": 691,
+      "carYear": 2007,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  },
+  {
+    "_id": "5f2e323b868a8b6d4f612ea0",
+    "price": "$11,464.52",
+    "soldDate": "2020-08-29T16:02:39.050Z",
+    "buyer": {
+      "first": "Benjamin",
+      "last": "Brock",
+      "phone": "+374 (806) 438-2329"
+    },
+    "seller": {
+      "first": "Massey",
+      "last": "Foster",
+      "phone": "+374 (872) 435-3356"
+    },
+    "car": {
+      "model": "BMW",
+      "horsePower": 122,
+      "carYear": 1999,
+      "defects": [
+        "bad_engine",
+        "minor_scratches"
+      ]
+    }
+  }
+]
