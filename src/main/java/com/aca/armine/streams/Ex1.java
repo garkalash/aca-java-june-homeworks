@@ -1,4 +1,4 @@
-package strem;
+package com.aca.armine.streams;
 
 
 import java.util.Arrays;
