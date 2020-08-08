@@ -1,27 +1,38 @@
 package com.aca.files;
 
-import com.aca.armine.serialization.Employee;
-import com.aca.files.model.Car;
-import com.aca.files.model.SalesItem;
-import com.google.gson.Gson;
+import com.aca.files.model.SoldItem;
+import com.aca.files.utility.JsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @author: garik
  * @created: 8/8/2020, 9:11 AM
  */
 public class SalesService {
+
+    public static void main(String[] args) {
+            SalesService salesService = new SalesService();
+            salesService.read();
+    }
+
+    public void read(){
+        try (Reader reader = new FileReader(new File("D:\\project\\lvl_course_homeworks\\src\\main\\resources\\car_sales.json"))) {
+            List<SoldItem> salesItems = JsonBuilder.GSON_INSTANCE().fromJson(reader, new TypeToken<List<SoldItem>>() {
+            }.getType());
+            System.out.println(salesItems);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     /* 1 Get the most expensive sold car*/
     /* 2 Get the cheapest sold car*/
@@ -47,38 +58,6 @@ public class SalesService {
     /* 13 given price range return list of items*/
     /* 14 given power range return list of items*/
     /* 15 given power range return list of items*/
-
-    public List<SalesItem> convertFromJson(String jsonFilePath) {
-        Path path = Paths.get(jsonFilePath);
-        Gson gson = new Gson();
-        File file = path.toFile();
-        List<SalesItem> salesItems = null;
-        try (Reader reader = new FileReader(file)) {
-           salesItems = gson.fromJson(reader, new TypeToken<List<SalesItem>>() {
-            }.getType());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return salesItems;
-    }
-    public Car getMostExpensiveCar (List<SalesItem> salesItems) {
-        Map<Car, Double> carListByPrice = salesItems.stream()
-                .collect(Collectors.toMap(SalesItem::getCar, salesItem -> Double.parseDouble((salesItem.getPrice()).replaceAll("[^0-9.]", ""))));
-        return carListByPrice.entrySet().stream()
-                .max(Map.Entry.comparingByValue()).get().getKey();
-
-    }
-
-    public static void main(String[] args) {
-        Path path = Paths.get("src/main/resources/car_sales.json");
-        SalesService salesService = new SalesService();
-        List<SalesItem> salesItems =  salesService.convertFromJson(path.toString());
-
-        System.out.println( salesService.getMostExpensiveCar(salesItems).getModel());
-
-
-    }
 
 
 }
