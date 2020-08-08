@@ -1,13 +1,11 @@
 package com.aca.streams.exercises;
 
 import com.aca.streams.models.City;
-import com.aca.streams.models.Country;
 import com.aca.streams.persistance.CityDao;
 import com.aca.streams.persistance.CountryDao;
 import com.aca.streams.persistance.InMemoryWorldDao;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 /**
  * Find the highest populated capital city of each continent

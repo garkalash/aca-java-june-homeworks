@@ -1,13 +1,19 @@
 package com.aca.files;
 
+import com.aca.files.model.Car;
+import com.aca.files.model.Order;
 import com.aca.files.model.SoldItem;
 import com.aca.files.utility.JsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import org.json.simple.JSONArray;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -59,5 +65,12 @@ public class SalesService {
     /* 14 given power range return list of items*/
     /* 15 given power range return list of items*/
 
-
+    private Car oldestYearCar() throws IOException, ParseException {
+        JSONParser jsonParser = new JSONParser();
+        FileReader fileReader = new FileReader("src/main/resources/car_sales.json");
+        JSONArray orders = (JSONArray) jsonParser.parse(fileReader);
+        List<Order> orderList = new ArrayList<>();
+        return null;
+    }
 }
+
