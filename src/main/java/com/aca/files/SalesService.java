@@ -1,10 +1,38 @@
 package com.aca.files;
 
+import com.aca.files.model.SoldItem;
+import com.aca.files.utility.JsonBuilder;
+import com.google.gson.reflect.TypeToken;
+
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.Reader;
+import java.util.List;
+
 /**
  * @author: garik
  * @created: 8/8/2020, 9:11 AM
  */
 public class SalesService {
+
+    public static void main(String[] args) {
+            SalesService salesService = new SalesService();
+            salesService.read();
+    }
+
+    public void read(){
+        try (Reader reader = new FileReader(new File("D:\\project\\lvl_course_homeworks\\src\\main\\resources\\car_sales.json"))) {
+            List<SoldItem> salesItems = JsonBuilder.GSON_INSTANCE().fromJson(reader, new TypeToken<List<SoldItem>>() {
+            }.getType());
+            System.out.println(salesItems);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     /* 1 Get the most expensive sold car*/
     /* 2 Get the cheapest sold car*/

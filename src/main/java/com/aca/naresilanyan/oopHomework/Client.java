@@ -1,7 +1,6 @@
-package com.aca.naresilanyan.homework;
+package com.aca.naresilanyan.oopHomework;
 
-import com.aca.naresilanyan.homework.models.Manager;
-import com.aca.naresilanyan.homework.models.*;
+import com.aca.naresilanyan.oopHomework.models.*;
 
 import java.io.*;
 import java.nio.file.Path;

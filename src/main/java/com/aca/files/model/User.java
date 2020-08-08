@@ -1,10 +1,13 @@
 package com.aca.files.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * @author: garik
  * @created" 8/8/2020, 9:08 AM
  */
 public class User {
+    @SerializedName("first")
     private String name;
     private String last;
     private String phone;

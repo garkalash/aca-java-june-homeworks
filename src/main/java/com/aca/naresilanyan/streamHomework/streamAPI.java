@@ -1,4 +1,4 @@
-package com.aca.naresilanyan.streamAPI;
+package com.aca.naresilanyan.streamHomework;
 
 import java.util.*;
 import java.util.function.Consumer;

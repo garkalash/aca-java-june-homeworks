@@ -1,5 +1,7 @@
 package com.aca.files.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
 /**
@@ -8,7 +10,10 @@ import java.util.List;
  */
 public class Car {
     private String model;
+
+    @SerializedName("horsePower")
     private Integer hp;
+
     private Integer carYear;
     private List<String> defects;
 
