@@ -110,6 +110,33 @@ public class SalesService {
         return mostExpensiveCar.getCar().getModel();
     }
 
+    /* 4 Get the weakest sold car*/
+    public Integer getWeakestSoldCar() {
+        Car mostExpensiveCar;
+        mostExpensiveCar = soldItems.stream()
+                .filter(Objects::nonNull)
+                .min(Comparator.comparing(soldItem -> soldItem.getCar().getHp()))
+                .get().getCar();
+        return mostExpensiveCar.getHp();
+    }
+
+    /* 8 group by model count*/
+    public Map<String, List<SoldItem>> groupByModelCount() {
+        return soldItems.stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.groupingBy(soldItem -> soldItem.getCar().getModel()));
+    }
+
+    /* 12 given year range return list of items*/
+    public List<SoldItem> listOfItemsByYearRange(int from, int to) {
+        return soldItems.stream()
+                .filter(Objects::nonNull)
+                .filter(soldItem -> soldItem.getCar().getCarYear() > from)
+                .filter(soldItem -> soldItem.getCar().getCarYear() < to)
+                .collect(Collectors.toList());
+
+    }
+
     /* 6 Get the newest year*/
     public LocalDateTime getLastSellingDate() {
         return soldItems.stream()
