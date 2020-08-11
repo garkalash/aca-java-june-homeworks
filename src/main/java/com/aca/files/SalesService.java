@@ -12,6 +12,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -92,7 +93,7 @@ public class SalesService {
 
     private void writeInJson(List<SoldItem> soldItems, String fileName) {
         File file = new File("src/main/resources/" + fileName);
-        Gson gson = JsonBuilder.GSON_INSTANCE2();
+        Gson gson = JsonBuilder.GSON_INSTANCE();
         try (Writer writer = new FileWriter(file)) {
             gson.toJson(soldItems, new TypeToken<List<SoldItem>>() {
             }.getType(), writer);
@@ -110,6 +111,17 @@ public class SalesService {
         return mostExpensiveCar.getCar().getModel();
     }
 
+    /* 2 Get the cheapest sold car*/
+//    Nare
+
+    public String getCheapestCar(){
+        return soldItems
+                .stream()
+                .filter(Objects::nonNull)
+                .min((o1, o2) -> (o1.getPrice().compareTo(o2.getPrice()))).get().getCar().getModel();
+
+    }
+
     /* 4 Get the weakest sold car*/
     public Integer getWeakestSoldCar() {
         Car mostExpensiveCar;
@@ -120,11 +132,68 @@ public class SalesService {
         return mostExpensiveCar.getHp();
     }
 
+    /* 6 Get the newest year*/
+    public LocalDateTime getLastSellingDate() {
+        return soldItems.stream()
+                .filter(Objects::nonNull)
+                .max(Comparator.comparing(SoldItem::getSoldDate)).get().getSoldDate();
+    }
+
+    /* 7 what is our profit if
+     * 1500 - 3000 - 1%
+     * 3001 - 6000 - 1.2%
+     * 6001 - 10000 - 1.5%
+     * 10001 - 13000 - 1.7%
+     * 13000 - 15000 - 1.8%
+     */
+//    Nare
+
+    public BigDecimal changedProfit(){
+
+    Double profit =soldItems
+            .stream()
+            .mapToDouble(value -> {
+                BigDecimal price = value.getPrice();
+                BigDecimal sum = BigDecimal.ZERO;
+
+                if(price.compareTo(BigDecimal.valueOf(1500))>0 && price.compareTo( BigDecimal.valueOf( 3000 )) < 0 ){
+                    sum = sum.add(price.multiply(BigDecimal.valueOf(1/100))) ;
+                }
+                else if (price.compareTo(BigDecimal.valueOf(3001))>0 && price.compareTo( BigDecimal.valueOf( 6000 )) < 0 ){
+                    sum = sum.add(price.multiply(BigDecimal.valueOf(1.2/100))) ;
+
+                }
+                else if (price.compareTo(BigDecimal.valueOf(6001))>0 && price.compareTo( BigDecimal.valueOf( 10000 )) < 0 ){
+                    sum = sum.add(price.multiply(BigDecimal.valueOf(1.5/100))) ;
+
+                }
+                else if (price.compareTo(BigDecimal.valueOf(10001))>0 && price.compareTo( BigDecimal.valueOf( 13000 )) < 0 ){
+                    sum = sum.add(price.multiply(BigDecimal.valueOf(1.7/100))) ;
+
+                }
+                else if (price.compareTo(BigDecimal.valueOf(13001))>0 && price.compareTo( BigDecimal.valueOf( 15000 )) < 0 ){
+                    sum = sum.add(price.multiply(BigDecimal.valueOf(1.8/100))) ;
+
+                }
+                return sum.doubleValue();}).sum();
+
+        return BigDecimal.valueOf(profit);
+    }
+
     /* 8 group by model count*/
     public Map<String, List<SoldItem>> groupByModelCount() {
         return soldItems.stream()
                 .filter(Objects::nonNull)
                 .collect(Collectors.groupingBy(soldItem -> soldItem.getCar().getModel()));
+    }
+
+
+    /* 11 given model return list of items*/
+    public List<SoldItem> getItemsListByModel(String model) {
+        return soldItems.stream()
+                .filter(Objects::nonNull)
+                .filter(soldItem -> soldItem.getCar().getModel().equals(model))
+                .collect(Collectors.toList());
     }
 
     /* 12 given year range return list of items*/
@@ -135,22 +204,6 @@ public class SalesService {
                 .filter(soldItem -> soldItem.getCar().getCarYear() < to)
                 .collect(Collectors.toList());
 
-    }
-
-    /* 6 Get the newest year*/
-    public LocalDateTime getLastSellingDate() {
-        return soldItems.stream()
-                .filter(Objects::nonNull)
-                .max(Comparator.comparing(SoldItem::getSoldDate)).get().getSoldDate();
-    }
-
-
-    /* 11 given model return list of items*/
-    public List<SoldItem> getItemsListByModel(String model) {
-        return soldItems.stream()
-                .filter(Objects::nonNull)
-                .filter(soldItem -> soldItem.getCar().getModel().equals(model))
-                .collect(Collectors.toList());
     }
 
 
