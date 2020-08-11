@@ -8,10 +8,15 @@ import java.util.stream.Collectors;
 public class Manager {
 
     private List<Employee> employees;
+    private JsonConverter jsonConverter;
 
     public Manager() {
-        JsonConverter jsonConverter = new JsonConverter();
+        jsonConverter = new JsonConverter();
         employees = jsonConverter.readFromJson();
+    }
+
+    public JsonConverter getJsonConverter() {
+        return jsonConverter;
     }
 
     public List<Employee> getEmployees() {
@@ -57,7 +62,7 @@ public class Manager {
     }
 
 
-    public Map<String, List<Employee>> getEmployeesMaptBySection(List<Employee> employeeList) {
+    private Map<String, List<Employee>> getEmployeesMapBySection(List<Employee> employeeList) {
         return employeeList.stream()
                 .filter(Objects::nonNull)
                 .map(Employee::getSection)
@@ -68,7 +73,7 @@ public class Manager {
     }
 
     public String getTheMostAffectedSection() {
-        Map<String, BigDecimal> newMap = getEmployeesMaptBySection(employees).entrySet().stream()
+        Map<String, BigDecimal> newMap = getEmployeesMapBySection(employees).entrySet().stream()
                 .collect(Collectors.toMap(Map.Entry::getKey, stringListEntry ->
                         getEmployeeNewSalarySum(stringListEntry.getValue()).subtract(getEmployeeOldSalarySum(stringListEntry.getValue()))));
         return newMap.entrySet().stream()

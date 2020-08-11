@@ -4,15 +4,16 @@ public class MainEmployee {
 
     public static void main(String[] args) {
         Manager manager = new Manager();
-        JsonConverter jsonConverter = new JsonConverter();
+        //task1
         manager.increaseSalary(manager.getOver50EmployeesList(), 10d);
-        jsonConverter.writeInJson2(manager, "report.json");
+        //task2
+        manager.getJsonConverter().writeInJson2(manager, "report.json");
+        //task3
         for (String section : manager.getSectionList()) {
-            jsonConverter.writeInJson1(manager.getEmployeesListBySection(section), section.concat(".json"));
+            manager.getJsonConverter().writeInJson1(manager.getEmployeesListBySection(section), section.concat(".json"));
 
         }
        manager.getSortedListByBalance();
-
 
 
     }

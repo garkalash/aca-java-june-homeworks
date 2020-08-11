@@ -13,7 +13,7 @@ public class Employee {
     private String phone;
     private LocalDateTime birthDate;
     private String section;
-    private BigDecimal newSalary= new BigDecimal(0);
+    private BigDecimal newSalary= BigDecimal.ZERO;
 
     public String getId() {
         return id;

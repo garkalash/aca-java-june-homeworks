@@ -57,7 +57,7 @@ public class JsonBuilderEmployee {
             return jsonObject;
 
         };
-        gsonBuilder.registerTypeAdapter(Employee.class, serializer).create();
+        gsonBuilder.registerTypeAdapter(Employee.class, serializer);
 
         return gsonBuilder.create();
     }
@@ -65,19 +65,20 @@ public class JsonBuilderEmployee {
         GsonBuilder gsonBuilder = new GsonBuilder();
 
         JsonSerializer<Manager> serializer = (manager, type, jsonSerializationContext) -> {
+            Gson gson = new Gson();
 
             JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("Employees count by section", new Gson().toJson(manager.getEmployeesCountBySection(manager.getEmployees())));
-            jsonObject.addProperty("Over 50 employees count by section",new Gson().toJson(manager.getEmployeesCountBySection(manager.getOver50EmployeesList())));
-            jsonObject.addProperty("Money for salary increasing", new Gson().toJson(manager.getMoneyForSalaryIncrease().toString().concat(" USD")));
-            jsonObject.addProperty("The most affected section ", new Gson().toJson(manager.getTheMostAffectedSection()));
-            jsonObject.addProperty("Increased salary average",new Gson().toJson(manager.getIncreasedSalaryAverage().toString().concat(" USD")));
-            jsonObject.add("Employee with Max increased salary", new Gson().toJsonTree(manager.getEmployeeWithMaxIncreased()));
-            jsonObject.add("Employee with Min increased salary", new Gson().toJsonTree(manager.getEmployeeWithMinIncreased()));
+            jsonObject.addProperty("Employees count by section", gson.toJson(manager.getEmployeesCountBySection(manager.getEmployees())));
+            jsonObject.addProperty("Over 50 employees count by section",gson.toJson(manager.getEmployeesCountBySection(manager.getOver50EmployeesList())));
+            jsonObject.addProperty("Money for salary increasing", gson.toJson(manager.getMoneyForSalaryIncrease().toString().concat(" USD")));
+            jsonObject.addProperty("The most affected section ", gson.toJson(manager.getTheMostAffectedSection()));
+            jsonObject.addProperty("Increased salary average",gson.toJson(manager.getIncreasedSalaryAverage().toString().concat(" USD")));
+            jsonObject.add("Employee with Max increased salary", GSON_INSTANCE1().toJsonTree(manager.getEmployeeWithMaxIncreased()));
+            jsonObject.add("Employee with Min increased salary", GSON_INSTANCE1().toJsonTree(manager.getEmployeeWithMinIncreased()));
             return jsonObject;
 
         };
-        gsonBuilder.registerTypeAdapter(Manager.class, serializer).create();
+        gsonBuilder.registerTypeAdapter(Manager.class, serializer);
 
         return gsonBuilder.create();
     }
