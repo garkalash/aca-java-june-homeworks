@@ -4,6 +4,8 @@ import com.aca.files.model.*;
 import com.aca.files.utility.JsonBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.aca.files.model.Car;
+import com.aca.files.model.Order;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -24,15 +26,37 @@ public class SalesService {
 
     public SalesService() {
         soldItems = readFromJson();
-
     }
 
     public static void main(String[] args) {
-
             SalesService salesService = new SalesService();
-
+            salesService.read();
+            List<Pair> priceRanges = new ArrayList<>();
+            Pair range1 = new Pair(1500,3000);
+            Pair range2 = new Pair(3001,6000);
+            Pair range3 = new Pair(6001,10000);
+            Pair range4 = new Pair(10001,13000);
+            Pair range5 = new Pair(10001,15000);
+            priceRanges.add(range1);
+            priceRanges.add(range2);
+            priceRanges.add(range3);
+            priceRanges.add(range4);
+            priceRanges.add(range5);
+        System.out.println(salesService.groupByPriceRange(priceRanges));
     }
 
+    public void read(){
+        try (Reader reader = new FileReader(new File("src/main/resources/car_sales.json"))) {
+            List<SoldItem> salesItems = JsonBuilder.GSON_INSTANCE().fromJson(reader, new TypeToken<List<SoldItem>>() {
+            }.getType());
+            System.out.println(salesItems);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
 
     /* 1 Get the most expensive sold car*/
     /* 2 Get the cheapest sold car*/
@@ -98,7 +122,8 @@ public class SalesService {
         return mostExpensiveCar.getCar().getModel();
     }
 
-    /* 2 Get the cheapest sold car*/
+
+   /* 2 Get the cheapest sold car*/
 //    Nare
 
     public String getCheapestCar(){
@@ -117,6 +142,14 @@ public class SalesService {
                 .min(Comparator.comparing(soldItem -> soldItem.getCar().getHp()))
                 .get().getCar();
         return mostExpensiveCar.getHp();
+    }
+
+    /* 5 Get the oldest year*/
+    public LocalDateTime getOldestYearofSale() {
+        Optional<LocalDateTime> oldestYearOfSale = soldItems.stream()
+                .map(SoldItem::getSoldDate)
+                .min(Comparator.comparing(soldDate->soldDate));
+        return oldestYearOfSale.orElseGet(this::getOldestYearofSale);
     }
 
     /* 6 Get the newest year*/
@@ -153,8 +186,21 @@ public class SalesService {
                 .filter(Objects::nonNull)
                 .collect(Collectors.groupingBy(soldItem -> soldItem.getCar().getModel()));
     }
+    /* 10 group by by range*/
+    public Map<String, List<Car>> groupByPriceRange (List<Pair> priceRanges) {
+       Map<String, List<Car>> grouppedByPriceCars = new HashMap<>();
+       List<Car> grouppedCars;
+        for (Pair range : priceRanges) {
+               grouppedCars = soldItems.stream()
+                .filter(soldItem -> soldItem.getPrice().intValue() > range.getFrom() && soldItem.getPrice().intValue() < range.getTo())
+                    .map(SoldItem::getCar)
+                .collect(Collectors.toList());
+                 grouppedByPriceCars.put(range.toString(), grouppedCars);
+        }
+        return grouppedByPriceCars;
+    }
 
-/* 11 given model return list of items*/
+    /* 11 given model return list of items*/
     public List<SoldItem> getItemsListByModel(String model) {
         return soldItems.stream()
                 .filter(Objects::nonNull)
@@ -172,6 +218,17 @@ public class SalesService {
                 .collect(Collectors.toList());
     }
 
+    /* 15 given power range return list of items*/
+    public List<Car> itemsByPowerRange(String range) {
+        range = range.trim();
+        String rangeFrom = range.split("-")[0];
+        String rangeTo = range.split("-")[1];
+        return soldItems.stream()
+                .filter(Objects::nonNull)
+                .map(SoldItem::getCar)
+                .filter(car->car.getHp() >= Integer.parseInt(rangeFrom) && car.getHp() <= Integer.parseInt(rangeTo))
+                .collect(Collectors.toList());
+    }
 
     /* 16
      */
@@ -186,17 +243,7 @@ public class SalesService {
         }
 
     }
-
-    private Car oldestYearCar() throws IOException, ParseException {
-        JSONParser jsonParser = new JSONParser();
-        FileReader fileReader = new FileReader("src/main/resources/car_sales.json");
-        JSONArray orders = (JSONArray) jsonParser.parse(fileReader);
-        List<Order> orderList = new ArrayList<>();
-        return null;
-    }
-
-
-// get Json String of solditems per defects count
+    // get Json String of solditems per defects count
 
     public Map<Integer, String> getJsonStringByDefects(){
         Map<Integer,List<SoldItem>> soldItemsByDefect = soldItems
@@ -205,13 +252,12 @@ public class SalesService {
                         .groupingBy(soldItem -> soldItem.getCar().getDefects().size(),Collectors.toList()));
 
 
-       return soldItemsByDefect
+        return soldItemsByDefect
                 .entrySet()
                 .stream()
                 .collect(Collectors.toMap(o -> o.getKey(), o -> JsonBuilder.GSON_INSTANCE().toJson(o.getValue())));
 
 
     }
-
 }
 
