@@ -1,12 +1,9 @@
 package com.aca.files;
 
-import com.aca.files.model.FileIsEmptyException;
-import com.aca.files.model.SoldItem;
+import com.aca.files.model.*;
 import com.aca.files.utility.JsonBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.aca.files.model.Car;
-import com.aca.files.model.Order;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -23,15 +20,18 @@ import java.util.stream.Collectors;
  * @created: 8/8/2020, 9:11 AM
  */
 public class SalesService {
-    private List<SoldItem> soldItems;
+    private final List<SoldItem> soldItems;
 
     public SalesService() {
         soldItems = readFromJson();
     }
 
     public static void main(String[] args) {
+
             SalesService salesService = new SalesService();
             salesService.read();
+
+
     }
 
     public void read(){
@@ -147,35 +147,15 @@ public class SalesService {
      * 13000 - 15000 - 1.8%
      */
 //    Nare
-
     public BigDecimal changedProfit(){
-
-    Double profit =soldItems
-            .stream()
-            .mapToDouble(value -> {
-                BigDecimal price = value.getPrice();
-                BigDecimal sum = BigDecimal.ZERO;
-
-                if(price.compareTo(BigDecimal.valueOf(1500))>0 && price.compareTo( BigDecimal.valueOf( 3000 )) < 0 ){
-                    sum = sum.add(price.multiply(BigDecimal.valueOf(1/100))) ;
-                }
-                else if (price.compareTo(BigDecimal.valueOf(3001))>0 && price.compareTo( BigDecimal.valueOf( 6000 )) < 0 ){
-                    sum = sum.add(price.multiply(BigDecimal.valueOf(1.2/100))) ;
-
-                }
-                else if (price.compareTo(BigDecimal.valueOf(6001))>0 && price.compareTo( BigDecimal.valueOf( 10000 )) < 0 ){
-                    sum = sum.add(price.multiply(BigDecimal.valueOf(1.5/100))) ;
-
-                }
-                else if (price.compareTo(BigDecimal.valueOf(10001))>0 && price.compareTo( BigDecimal.valueOf( 13000 )) < 0 ){
-                    sum = sum.add(price.multiply(BigDecimal.valueOf(1.7/100))) ;
-
-                }
-                else if (price.compareTo(BigDecimal.valueOf(13001))>0 && price.compareTo( BigDecimal.valueOf( 15000 )) < 0 ){
-                    sum = sum.add(price.multiply(BigDecimal.valueOf(1.8/100))) ;
-
-                }
-                return sum.doubleValue();}).sum();
+        Double profit =soldItems
+                .stream()
+                .mapToDouble(value -> {
+                    BigDecimal price = value.getPrice();
+                    Reward reward = new Reward();
+                    return reward.rewardCalculator(price);
+                })
+                .sum();
 
         return BigDecimal.valueOf(profit);
     }
@@ -187,8 +167,7 @@ public class SalesService {
                 .collect(Collectors.groupingBy(soldItem -> soldItem.getCar().getModel()));
     }
 
-
-    /* 11 given model return list of items*/
+/* 11 given model return list of items*/
     public List<SoldItem> getItemsListByModel(String model) {
         return soldItems.stream()
                 .filter(Objects::nonNull)
@@ -197,13 +176,13 @@ public class SalesService {
     }
 
     /* 12 given year range return list of items*/
-    public List<SoldItem> listOfItemsByYearRange(int from, int to) {
-        return soldItems.stream()
+//    Nare
+    public List<SoldItem> getSoldItemsByYearRange(Integer startYear, Integer endYear){
+        return soldItems
+                .stream()
                 .filter(Objects::nonNull)
-                .filter(soldItem -> soldItem.getCar().getCarYear() > from)
-                .filter(soldItem -> soldItem.getCar().getCarYear() < to)
+                .filter(soldItem -> (soldItem.getCar().getCarYear()>=startYear) && (soldItem.getCar().getCarYear() <= endYear))
                 .collect(Collectors.toList());
-
     }
 
 
@@ -220,6 +199,7 @@ public class SalesService {
         }
 
     }
+
     private Car oldestYearCar() throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
         FileReader fileReader = new FileReader("src/main/resources/car_sales.json");
@@ -227,5 +207,24 @@ public class SalesService {
         List<Order> orderList = new ArrayList<>();
         return null;
     }
+
+
+// get Json String of solditems per defects count
+
+    public Map<Integer, String> getJsonStringByDefects(){
+        Map<Integer,List<SoldItem>> soldItemsByDefect = soldItems
+                .stream()
+                .collect(Collectors
+                        .groupingBy(soldItem -> soldItem.getCar().getDefects().size(),Collectors.toList()));
+
+
+       return soldItemsByDefect
+                .entrySet()
+                .stream()
+                .collect(Collectors.toMap(o -> o.getKey(), o -> JsonBuilder.GSON_INSTANCE().toJson(o.getValue())));
+
+
+    }
+
 }
 
