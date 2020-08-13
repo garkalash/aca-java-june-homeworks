@@ -24,28 +24,15 @@ public class SalesService {
 
     public SalesService() {
         soldItems = readFromJson();
+
     }
 
     public static void main(String[] args) {
 
             SalesService salesService = new SalesService();
-            salesService.read();
-
 
     }
 
-    public void read(){
-        try (Reader reader = new FileReader(new File("YOUR_PATH"))) {
-            List<SoldItem> salesItems = JsonBuilder.GSON_INSTANCE().fromJson(reader, new TypeToken<List<SoldItem>>() {
-            }.getType());
-            System.out.println(salesItems);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-
-    }
 
     /* 1 Get the most expensive sold car*/
     /* 2 Get the cheapest sold car*/
@@ -118,7 +105,7 @@ public class SalesService {
         return soldItems
                 .stream()
                 .filter(Objects::nonNull)
-                .min((o1, o2) -> (o1.getPrice().compareTo(o2.getPrice()))).get().getCar().getModel();
+                .min(Comparator.comparing(SoldItem::getPrice)).get().getCar().getModel();
 
     }
 
@@ -147,13 +134,13 @@ public class SalesService {
      * 13000 - 15000 - 1.8%
      */
 //    Nare
-    public BigDecimal changedProfit(){
+    public BigDecimal getProfit(){
         Double profit =soldItems
                 .stream()
                 .mapToDouble(value -> {
                     BigDecimal price = value.getPrice();
                     Reward reward = new Reward();
-                    return reward.rewardCalculator(price);
+                    return reward.profitCalculator(price);
                 })
                 .sum();
 
