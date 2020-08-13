@@ -1,17 +1,15 @@
 package com.aca.files;
 
-import com.aca.files.model.FileIsEmptyException;
-import com.aca.files.model.SoldItem;
+import com.aca.files.model.*;
 import com.aca.files.utility.JsonBuilder;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.aca.files.model.Car;
-import com.aca.files.model.Order;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -22,29 +20,19 @@ import java.util.stream.Collectors;
  * @created: 8/8/2020, 9:11 AM
  */
 public class SalesService {
-    private List<SoldItem> soldItems;
+    private final List<SoldItem> soldItems;
 
     public SalesService() {
         soldItems = readFromJson();
+
     }
 
     public static void main(String[] args) {
+
             SalesService salesService = new SalesService();
-            salesService.read();
-    }
-
-    public void read(){
-        try (Reader reader = new FileReader(new File("YOUR_PATH"))) {
-            List<SoldItem> salesItems = JsonBuilder.GSON_INSTANCE().fromJson(reader, new TypeToken<List<SoldItem>>() {
-            }.getType());
-            System.out.println(salesItems);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
 
     }
+
 
     /* 1 Get the most expensive sold car*/
     /* 2 Get the cheapest sold car*/
@@ -92,7 +80,7 @@ public class SalesService {
 
     private void writeInJson(List<SoldItem> soldItems, String fileName) {
         File file = new File("src/main/resources/" + fileName);
-        Gson gson = JsonBuilder.GSON_INSTANCE2();
+        Gson gson = JsonBuilder.GSON_INSTANCE();
         try (Writer writer = new FileWriter(file)) {
             gson.toJson(soldItems, new TypeToken<List<SoldItem>>() {
             }.getType(), writer);
@@ -110,6 +98,17 @@ public class SalesService {
         return mostExpensiveCar.getCar().getModel();
     }
 
+    /* 2 Get the cheapest sold car*/
+//    Nare
+
+    public String getCheapestCar(){
+        return soldItems
+                .stream()
+                .filter(Objects::nonNull)
+                .min(Comparator.comparing(SoldItem::getPrice)).get().getCar().getModel();
+
+    }
+
     /* 4 Get the weakest sold car*/
     public Integer getWeakestSoldCar() {
         Car mostExpensiveCar;
@@ -120,23 +119,6 @@ public class SalesService {
         return mostExpensiveCar.getHp();
     }
 
-    /* 8 group by model count*/
-    public Map<String, List<SoldItem>> groupByModelCount() {
-        return soldItems.stream()
-                .filter(Objects::nonNull)
-                .collect(Collectors.groupingBy(soldItem -> soldItem.getCar().getModel()));
-    }
-
-    /* 12 given year range return list of items*/
-    public List<SoldItem> listOfItemsByYearRange(int from, int to) {
-        return soldItems.stream()
-                .filter(Objects::nonNull)
-                .filter(soldItem -> soldItem.getCar().getCarYear() > from)
-                .filter(soldItem -> soldItem.getCar().getCarYear() < to)
-                .collect(Collectors.toList());
-
-    }
-
     /* 6 Get the newest year*/
     public LocalDateTime getLastSellingDate() {
         return soldItems.stream()
@@ -144,12 +126,49 @@ public class SalesService {
                 .max(Comparator.comparing(SoldItem::getSoldDate)).get().getSoldDate();
     }
 
+    /* 7 what is our profit if
+     * 1500 - 3000 - 1%
+     * 3001 - 6000 - 1.2%
+     * 6001 - 10000 - 1.5%
+     * 10001 - 13000 - 1.7%
+     * 13000 - 15000 - 1.8%
+     */
+//    Nare
+    public BigDecimal getProfit(){
+        Double profit =soldItems
+                .stream()
+                .mapToDouble(value -> {
+                    BigDecimal price = value.getPrice();
+                    Reward reward = new Reward();
+                    return reward.profitCalculator(price);
+                })
+                .sum();
 
-    /* 11 given model return list of items*/
+        return BigDecimal.valueOf(profit);
+    }
+
+    /* 8 group by model count*/
+    public Map<String, List<SoldItem>> groupByModelCount() {
+        return soldItems.stream()
+                .filter(Objects::nonNull)
+                .collect(Collectors.groupingBy(soldItem -> soldItem.getCar().getModel()));
+    }
+
+/* 11 given model return list of items*/
     public List<SoldItem> getItemsListByModel(String model) {
         return soldItems.stream()
                 .filter(Objects::nonNull)
                 .filter(soldItem -> soldItem.getCar().getModel().equals(model))
+                .collect(Collectors.toList());
+    }
+
+    /* 12 given year range return list of items*/
+//    Nare
+    public List<SoldItem> getSoldItemsByYearRange(Integer startYear, Integer endYear){
+        return soldItems
+                .stream()
+                .filter(Objects::nonNull)
+                .filter(soldItem -> (soldItem.getCar().getCarYear()>=startYear) && (soldItem.getCar().getCarYear() <= endYear))
                 .collect(Collectors.toList());
     }
 
@@ -167,6 +186,7 @@ public class SalesService {
         }
 
     }
+
     private Car oldestYearCar() throws IOException, ParseException {
         JSONParser jsonParser = new JSONParser();
         FileReader fileReader = new FileReader("src/main/resources/car_sales.json");
@@ -174,5 +194,24 @@ public class SalesService {
         List<Order> orderList = new ArrayList<>();
         return null;
     }
+
+
+// get Json String of solditems per defects count
+
+    public Map<Integer, String> getJsonStringByDefects(){
+        Map<Integer,List<SoldItem>> soldItemsByDefect = soldItems
+                .stream()
+                .collect(Collectors
+                        .groupingBy(soldItem -> soldItem.getCar().getDefects().size(),Collectors.toList()));
+
+
+       return soldItemsByDefect
+                .entrySet()
+                .stream()
+                .collect(Collectors.toMap(o -> o.getKey(), o -> JsonBuilder.GSON_INSTANCE().toJson(o.getValue())));
+
+
+    }
+
 }
 

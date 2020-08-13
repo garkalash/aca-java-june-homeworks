@@ -18,47 +18,46 @@ public final class JsonBuilder {
 
     public static Gson GSON_INSTANCE() {
         GsonBuilder gsonBuilder = new GsonBuilder();
-        JsonDeserializer<SoldItem> deserializer = (json, typeOfT, context) -> {
-            JsonObject jsonObject = json.getAsJsonObject();
-            User seller = new Gson().fromJson(jsonObject.get("seller").toString(), User.class);
-            User buyer = new Gson().fromJson(jsonObject.get("buyer").toString(), User.class);
-            String id = jsonObject.get("_id").getAsString();
-            BigDecimal price = new BigDecimal(jsonObject.get("price").getAsString().replaceAll("[^0-9.]", ""));
-            LocalDateTime dateTime = LocalDateTime.parse(jsonObject.get("soldDate").getAsString().replace("Z", ""));
-            Car car = new Gson().fromJson(jsonObject.get("car"), Car.class);
-            SoldItem soldItem = new SoldItem();
-            soldItem.setBuyer(buyer);
-            soldItem.setCar(car);
-            soldItem.setPrice(price);
-            soldItem.setId(id);
-            soldItem.setSeller(seller);
-            soldItem.setSoldDate(dateTime);
-            return soldItem;
-        };
-        gsonBuilder.registerTypeAdapter(SoldItem.class, deserializer);
+           Gson defaultGson = new Gson();
 
-        return gsonBuilder.create();
+            JsonDeserializer<SoldItem> deserializer = (json, typeOfT, context) -> {
+                JsonObject jsonObject = json.getAsJsonObject();
+                User seller = defaultGson.fromJson(jsonObject.get("seller").toString(), User.class);
+                User buyer = defaultGson.fromJson(jsonObject.get("buyer").toString(), User.class);
+                String id = jsonObject.get("_id").getAsString();
+                BigDecimal price = new BigDecimal(jsonObject.get("price").getAsString().replaceAll("[^0-9.]", ""));
+                LocalDateTime dateTime = LocalDateTime.parse(jsonObject.get("soldDate").getAsString().replace("Z", ""));
+                Car car = new Gson().fromJson(jsonObject.get("car"), Car.class);
+                SoldItem soldItem = new SoldItem();
+                soldItem.setBuyer(buyer);
+                soldItem.setCar(car);
+                soldItem.setPrice(price);
+                soldItem.setId(id);
+                soldItem.setSeller(seller);
+                soldItem.setSoldDate(dateTime);
+                return soldItem;
+            };
+            gsonBuilder.registerTypeAdapter(SoldItem.class, deserializer);
+
+
+
+            JsonSerializer<SoldItem> serializer = (soldItem, type, jsonSerializationContext) -> {
+                JsonObject jsonObject = new JsonObject();
+                jsonObject.addProperty("id", soldItem.getId());
+                jsonObject.addProperty("price", soldItem.getPrice().toString().concat(" USD"));
+                jsonObject.addProperty("soldDate", soldItem.getSoldDate().format(DateTimeFormatter.ISO_DATE_TIME));
+                jsonObject.add("buyer", defaultGson.toJsonTree(soldItem.getBuyer()));
+                jsonObject.add("seller", defaultGson.toJsonTree(soldItem.getSeller()));
+                jsonObject.add("car", defaultGson.toJsonTree(soldItem.getCar()));
+
+                return jsonObject;
+
+            };
+            gsonBuilder.registerTypeAdapter(SoldItem.class, serializer);
+
+            return gsonBuilder.create();
+
     }
-
-    public static Gson GSON_INSTANCE2() {
-        GsonBuilder gsonBuilder = new GsonBuilder();
-
-        JsonSerializer<SoldItem> serializer = (soldItem, type, jsonSerializationContext) -> {
-
-            JsonObject jsonObject = new JsonObject();
-            jsonObject.addProperty("id", soldItem.getId());
-            jsonObject.addProperty("price", soldItem.getPrice().toString().concat(" USD"));
-            jsonObject.addProperty("soldDate", soldItem.getSoldDate().format(DateTimeFormatter.ISO_DATE_TIME));
-            jsonObject.add("buyer", new Gson().toJsonTree(soldItem.getBuyer()));
-            jsonObject.add("seller", new Gson().toJsonTree(soldItem.getSeller()));
-            jsonObject.add("car", new Gson().toJsonTree(soldItem.getCar()));
-            return jsonObject;
-
-        };
-        gsonBuilder.registerTypeAdapter(SoldItem.class, serializer).create();
-
-        return gsonBuilder.create();
-    }
-
-
 }
+
+
