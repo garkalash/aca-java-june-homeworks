@@ -26,13 +26,13 @@ public class JsonConverter {
         if (optionalSoldItemsList.isPresent()) {
             return employees;
         } else {
-            throw new FileContentException("File is Empty");
+            throw new FileContentException();
         }
     }
 
     public void writeInJson1(List<Employee> employees, String fileName) {
         File file = new File("src/main/resources/" + fileName);
-        Gson gson = JsonBuilderEmployee.GSON_INSTANCE1();
+        Gson gson = JsonBuilderEmployee.GSON_INSTANCE();
         try (Writer writer = new FileWriter(file)) {
             gson.toJson(employees, new TypeToken<List<Employee>>() {
             }.getType(), writer);

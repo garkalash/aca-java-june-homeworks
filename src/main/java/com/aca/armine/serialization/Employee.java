@@ -13,7 +13,6 @@ public class Employee {
     private String phone;
     private LocalDateTime birthDate;
     private String section;
-    private BigDecimal newSalary= BigDecimal.ZERO;
 
     public String getId() {
         return id;
@@ -87,11 +86,4 @@ public class Employee {
         this.section = section;
     }
 
-    public BigDecimal getNewSalary() {
-        return newSalary;
-    }
-
-    public void setNewSalary(BigDecimal newSalary) {
-        this.newSalary = newSalary;
-    }
 }
