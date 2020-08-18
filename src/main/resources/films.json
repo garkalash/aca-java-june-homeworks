@@ -1,0 +1,205 @@
+[
+  {
+    "_id": "5f398a5baa23097a5c7d9a2c",
+    "genre": "action",
+    "price": "3,777.18",
+    "ticketCount": 43,
+    "year": 2004
+  },
+  {
+    "_id": "5f398a5bf49259dd693d9c96",
+    "genre": "action",
+    "price": "2,227.46",
+    "ticketCount": 43,
+    "year": 2018
+  },
+  {
+    "_id": "5f398a5bd571bd59e46f0cf3",
+    "genre": "action",
+    "price": "3,364.22",
+    "ticketCount": 45,
+    "year": 1958
+  },
+  {
+    "_id": "5f398a5b33d8767a08442092",
+    "genre": "drama",
+    "price": "1,171.25",
+    "ticketCount": 43,
+    "year": 2000
+  },
+  {
+    "_id": "5f398a5b7e291df41462ba41",
+    "genre": "politicial",
+    "price": "3,781.91",
+    "ticketCount": 48,
+    "year": 1953
+  },
+  {
+    "_id": "5f398a5b92ce82d842ebb635",
+    "genre": "comedy",
+    "price": "2,344.11",
+    "ticketCount": 47,
+    "year": 1993
+  },
+  {
+    "_id": "5f398a5bebe589c6b14a572b",
+    "genre": "action",
+    "price": "3,520.88",
+    "ticketCount": 50,
+    "year": 1976
+  },
+  {
+    "_id": "5f398a5ba21effd3a07d98f2",
+    "genre": "crime",
+    "price": "1,697.51",
+    "ticketCount": 44,
+    "year": 2012
+  },
+  {
+    "_id": "5f398a5b2955314e755affe8",
+    "genre": "drama",
+    "price": "1,715.14",
+    "ticketCount": 50,
+    "year": 1974
+  },
+  {
+    "_id": "5f398a5b6741208ce3ddcaac",
+    "genre": "comedy",
+    "price": "2,519.42",
+    "ticketCount": 47,
+    "year": 1992
+  },
+  {
+    "_id": "5f398a5bfbeaf8366a22fb80",
+    "genre": "politicial",
+    "price": "1,985.41",
+    "ticketCount": 41,
+    "year": 1961
+  },
+  {
+    "_id": "5f398a5b6b1e7a0e6e701f3d",
+    "genre": "crime",
+    "price": "1,566.16",
+    "ticketCount": 41,
+    "year": 2015
+  },
+  {
+    "_id": "5f398a5ba28ecfafbc1b5a56",
+    "genre": "politicial",
+    "price": "3,157.19",
+    "ticketCount": 41,
+    "year": 1978
+  },
+  {
+    "_id": "5f398a5b3e44c35885c3f810",
+    "genre": "crime",
+    "price": "3,494.69",
+    "ticketCount": 47,
+    "year": 1996
+  },
+  {
+    "_id": "5f398a5b9f5cde9eb93bd3fa",
+    "genre": "comedy",
+    "price": "2,285.40",
+    "ticketCount": 49,
+    "year": 1999
+  },
+  {
+    "_id": "5f398a5b52030c6c2f9a3b88",
+    "genre": "politicial",
+    "price": "1,909.82",
+    "ticketCount": 40,
+    "year": 1989
+  },
+  {
+    "_id": "5f398a5b16a12d476490dce2",
+    "genre": "action",
+    "price": "3,590.64",
+    "ticketCount": 40,
+    "year": 1969
+  },
+  {
+    "_id": "5f398a5b8f89a2a07ed97792",
+    "genre": "action",
+    "price": "1,456.04",
+    "ticketCount": 49,
+    "year": 1963
+  },
+  {
+    "_id": "5f398a5beac886f04fb2a887",
+    "genre": "comedy",
+    "price": "2,238.36",
+    "ticketCount": 45,
+    "year": 1981
+  },
+  {
+    "_id": "5f398a5b421717a1e4941055",
+    "genre": "comedy",
+    "price": "3,309.11",
+    "ticketCount": 45,
+    "year": 2013
+  },
+  {
+    "_id": "5f398a5b8b368e8ddac3172d",
+    "genre": "action",
+    "price": "2,915.24",
+    "ticketCount": 48,
+    "year": 2003
+  },
+  {
+    "_id": "5f398a5bb948e1ad7944622b",
+    "genre": "comedy",
+    "price": "1,657.69",
+    "ticketCount": 49,
+    "year": 1983
+  },
+  {
+    "_id": "5f398a5bbebab2beff62d071",
+    "genre": "crime",
+    "price": "3,543.46",
+    "ticketCount": 48,
+    "year": 1983
+  },
+  {
+    "_id": "5f398a5b2ab1371796b697ad",
+    "genre": "politicial",
+    "price": "2,104.39",
+    "ticketCount": 47,
+    "year": 2010
+  },
+  {
+    "_id": "5f398a5b5f4977b609a0fc37",
+    "genre": "drama",
+    "price": "3,769.72",
+    "ticketCount": 49,
+    "year": 2017
+  },
+  {
+    "_id": "5f398a5b25a241b301cbe164",
+    "genre": "drama",
+    "price": "2,877.50",
+    "ticketCount": 47,
+    "year": 1966
+  },
+  {
+    "_id": "5f398a5b5820eb168be01cca",
+    "genre": "action",
+    "price": "1,598.25",
+    "ticketCount": 43,
+    "year": 1953
+  },
+  {
+    "_id": "5f398a5b8668ae92d98c79db",
+    "genre": "politicial",
+    "price": "3,461.89",
+    "ticketCount": 41,
+    "year": 1952
+  },
+  {
+    "_id": "5f398a5b64990641953dea26",
+    "genre": "politicial",
+    "price": "3,870.91",
+    "ticketCount": 49,
+    "year": 2012
+  }
+]
