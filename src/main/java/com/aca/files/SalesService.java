@@ -99,8 +99,6 @@ public class SalesService {
     }
 
     /* 2 Get the cheapest sold car*/
-//    Nare
-
     public String getCheapestCar(){
         return soldItems
                 .stream()
@@ -133,7 +131,6 @@ public class SalesService {
      * 10001 - 13000 - 1.7%
      * 13000 - 15000 - 1.8%
      */
-//    Nare
     public BigDecimal getProfit(){
         Double profit =soldItems
                 .stream()
@@ -147,14 +144,7 @@ public class SalesService {
         return BigDecimal.valueOf(profit);
     }
 
-    /* 8 group by model count*/
-    public Map<String, List<SoldItem>> groupByModelCount() {
-        return soldItems.stream()
-                .filter(Objects::nonNull)
-                .collect(Collectors.groupingBy(soldItem -> soldItem.getCar().getModel()));
-    }
 
-/* 11 given model return list of items*/
     public List<SoldItem> getItemsListByModel(String model) {
         return soldItems.stream()
                 .filter(Objects::nonNull)
@@ -162,8 +152,7 @@ public class SalesService {
                 .collect(Collectors.toList());
     }
 
-    /* 12 given year range return list of items*/
-//    Nare
+
     public List<SoldItem> getSoldItemsByYearRange(Integer startYear, Integer endYear){
         return soldItems
                 .stream()
@@ -173,8 +162,7 @@ public class SalesService {
     }
 
 
-    /* 16
-     */
+
     public void writeSoldItemsInFileByModel() {
         List<String> carModels = soldItems.stream()
                 .map(soldItem -> soldItem.getCar().getModel())
@@ -195,9 +183,6 @@ public class SalesService {
         return null;
     }
 
-
-// get Json String of solditems per defects count
-
     public Map<Integer, String> getJsonStringByDefects(){
         Map<Integer,List<SoldItem>> soldItemsByDefect = soldItems
                 .stream()
@@ -211,6 +196,41 @@ public class SalesService {
                 .collect(Collectors.toMap(o -> o.getKey(), o -> JsonBuilder.GSON_INSTANCE().toJson(o.getValue())));
 
 
+    }
+
+    public Optional<Car> getStrongestCar() {
+        return  soldItems.stream()
+                    .filter(Objects::nonNull)
+                    .map(soldItem -> soldItem.getCar())
+                    .max(Comparator.comparing(car -> car.getHp()));
+
+    }
+
+    public Map<List<SoldItem>, Long> groupByModelCount() {
+        Map<List<SoldItem>, Long> soldItemsGroupedByModel = new HashMap<>();
+            Set<String> models = new HashSet<>();
+            models = soldItems.stream()
+                    .map(soldItem -> soldItem.getCar().getModel())
+                    .collect(Collectors.toSet());
+            List<SoldItem> finalSoldItems = soldItems;
+            models.forEach(model -> {
+                soldItemsGroupedByModel.put(finalSoldItems.stream()
+                                .filter(soldItem -> soldItem.getCar().getModel().equals(model))
+                                .collect(Collectors.toList()),
+                        finalSoldItems.stream()
+                                .map(soldItem -> soldItem.getCar().getModel())
+                                .filter(m1 -> m1.equals(model))
+                                .count());
+                Collections.sort(new ArrayList<>(soldItemsGroupedByModel.values()), (quantity1, quantity2) -> (int) (quantity1 - quantity2));
+            });
+
+        return soldItemsGroupedByModel;
+    }
+
+    public List<SoldItem> getItemsByPriceRange(BigDecimal minPrice, BigDecimal maxPrice) {
+        return  soldItems.stream()
+                    .filter(soldItem -> soldItem.getPrice().compareTo(minPrice) >= 0 && soldItem.getPrice().compareTo(maxPrice) <= 0)
+                    .collect(Collectors.toList());
     }
 
 }
