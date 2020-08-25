@@ -85,6 +85,7 @@ public class Controller {
                                 soldInAmd += i.getPriceInAmd(); // add in sold
                                 inStockInAmd -= i.getPriceInAmd(); // subtract from stock
                                 Store.videoItems.remove(i); // remove item from the stock
+                                isFound = true;
                                 break;
                             }
                         }
