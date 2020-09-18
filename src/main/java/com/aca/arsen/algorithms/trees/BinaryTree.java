@@ -25,8 +25,10 @@ public class BinaryTree {
     //2.function to know, is the binary tree completed or not
     boolean isCompleted(Node node) {
         if (node == null) return true;
+        int heightRight = height(node.right);
+        int heightLeft = height(node.left);
         if (node.left == null && node.right != null) return false;
-        return isCompleted(node.left) && isCompleted(node.right);
+        return heightLeft == heightRight && isCompleted(node.left) && isCompleted(node.right);
 
     }
 
@@ -34,9 +36,8 @@ public class BinaryTree {
     boolean isFull(Node node) {
         if (node == null) return true;
         if (node.left == null && node.right == null) return true;
-        if (node.left != null && node.right != null)
-            return isFull(node.left) && isFull(node.right);
-        return false;
+        else return isFull(node.left) && isFull(node.right);
+
     }
 
     //4. function to know is binary tree perfect or not
@@ -73,12 +74,13 @@ public class BinaryTree {
     //8. Find the depth of the key in the BST
     int depthOfBST(Node node, int key, int depth) {
         if (node == null) return 0;
-        if (node.key > node.left.key && node.key < node.right.key) {
-            if (key > node.key) return depthOfBST(node.right, key, depth + 1);
-            else if (key < node.key) return depthOfBST(node.left, key, depth + 1);
+            if (key > node.key) {
+                return depthOfBST(node.right, key, depth + 1);
+            }
+            else if (key < node.key) {
+                return depthOfBST(node.left, key, depth + 1);
+            }
             else return depth;
-        }
-        return 0;
     }
 
 }
