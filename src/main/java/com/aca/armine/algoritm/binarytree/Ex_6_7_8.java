@@ -1,20 +1,17 @@
-package com.aca.armine.binarytree;
+package com.aca.armine.algoritm.binarytree;
 
 public class Ex_6_7_8 {
 
 //ex6
     public Integer getsNodesKeySum(Node node) {
-        Integer sum = 0;
         if (node == null) {
             return 0;
         }
-        sum = sum + node.getKey();
-        getsNodesKeySum(node.getLeft());
-        getsNodesKeySum(node.getRight());
-
-        return sum;
+        return node.getKey() + getsNodesKeySum(node.getLeft()) + getsNodesKeySum(node.getRight());
     }
+
 //ex7
+
     public boolean areBinaryTreesEqual(Node root1, Node root2) {
         if (root1 == null && root2 == null) {
             return true;
@@ -27,18 +24,17 @@ public class Ex_6_7_8 {
 
 
 //ex8
-    public Integer getBSTDepth(Integer key, Node root) {
-        Integer depth = 0;
+    public Integer getBSTDepth(Integer key, Node root, Integer depth) {
         if (root == null) {
             return 0;
         }
 
         if (key > root.getKey()) {
             depth++;
-            getBSTDepth(key, root.getRight());
+            getBSTDepth(key, root.getRight(), depth);
         } else if (key < root.getKey()) {
             depth++;
-            getBSTDepth(key, root.getLeft());
+            getBSTDepth(key, root.getLeft(), depth);
         }
         return depth;
 

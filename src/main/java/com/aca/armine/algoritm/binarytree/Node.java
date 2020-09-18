@@ -1,4 +1,4 @@
-package com.aca.armine.binarytree;
+package com.aca.armine.algoritm.binarytree;
 
 public class Node {
     private int key;

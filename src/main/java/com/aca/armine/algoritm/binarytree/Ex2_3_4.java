@@ -1,11 +1,14 @@
-package com.aca.armine.binarytree;
+package com.aca.armine.algoritm.binarytree;
+
+import com.google.gson.internal.$Gson$Preconditions;
 
 import java.util.ArrayDeque;
 import java.util.Queue;
 
-public class Ex2 {
+public class Ex2_3_4 {
 
-    public boolean isComplete(Node root) {
+    //ex2
+    public boolean isTreeComplete(Node root) {
 
         if (root == null) {
             return false;
@@ -42,4 +45,26 @@ public class Ex2 {
 
         return true;
     }
+
+    //ex3
+    public boolean isTreeFull(Node root) {
+        if (root == null) {
+            return true;
+        }
+        if ((root.getRight() == null && root.getLeft() == null)) {
+            return true;
+        }
+        if (root.getLeft() != null && root.getRight() != null) {
+            return isTreeFull(root.getLeft()) && isTreeFull(root.getRight());
+        }
+
+        return false;
+    }
+
+    //ex4
+    public boolean isTreePerfect(Node root) {
+        return isTreeComplete(root) && isTreeFull(root);
+    }
+
+
 }
