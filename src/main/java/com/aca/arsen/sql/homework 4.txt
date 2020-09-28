@@ -1,0 +1,21 @@
+--Homework 4, remove duplicate raws from table
+CREATE TABLE cars(
+      id SERIAL PRIMARY KEY,
+      model VARCHAR(50) NOT NULL
+);
+
+INSERT INTO cars VALUES
+(DEFAULT, 'BMW'),
+(DEFAULT, 'AUDI'),
+(DEFAULT, 'OPEL'),
+(DEFAULT, 'AUDI'),
+(DEFAULT, 'BMW'),
+(DEFAULT, 'BMW');
+
+
+SELECT *FROM cars;
+
+DELETE FROM cars
+WHERE id NOT IN (SELECT id from (SELECT DISTINCT ON(model)* FROM cars as dist) as ids);
+
+SELECT *FROM cars;
